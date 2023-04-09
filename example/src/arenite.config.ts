@@ -11,7 +11,7 @@ const commonPallet = {
   dark: {
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#FB923C',
+    primary: '#F43F5E',
     secondary: '#FB923C',
     tertiary: '#FBBF24',
     accent: '#3B82F6',
@@ -21,20 +21,28 @@ const commonPallet = {
 
 const colorPallet = {
   light: {
-    color1: '#333333',
-    color2: '#333333',
+    color0: '#FFFFFF',
+    color1: '#070417',
+    color2: '#C2C6D2',
   },
   dark: {
+    color0: '#27272a',
     color1: '#FFFFFF',
-    color2: '#333333',
+    color2: '#A1A1AA',
   },
 };
 const bgPallet = {
   light: {
+    bg0: '#ffffff00',
     bg1: '#FFFFFF',
+    bg2: '#F1F5F9',
+    editing: '#FBBF2410',
   },
   dark: {
+    bg0: '#00000000',
     bg1: '#27272a',
+    bg2: '#3f3f45',
+    editing: '#7c5f1610',
   },
 };
 
@@ -50,9 +58,11 @@ const borderPallet = {
 const iconPallet = {
   light: {
     icon1: '#C2C6D2',
+    icon2: '#070417',
   },
   dark: {
     icon1: '#A1A1AA',
+    icon2: '#ffffff',
   },
 };
 
