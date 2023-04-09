@@ -92,6 +92,9 @@ export default function App() {
       <View bg="bg1" border="border1">
         <Text color="color1">color1</Text>
         <Text color="primary">primary</Text>
+        <Button color="primary" bg="bg1" border="border1">  
+          Button
+        </Button>
       </View>
     </AreniteThemeProvider>
   );
