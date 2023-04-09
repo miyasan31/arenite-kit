@@ -1,50 +1,22 @@
+import { useCreateAreniteThemeValue } from '../hooks/useCreateAreniteThemeValue';
+import type { AreniteTheme } from '../types';
 import { AreniteThemeContext } from './context';
 import type { FC, ReactNode } from 'react';
 import React from 'react';
-import type { AreniteTheme } from '$/core';
-
-const defaultAreniteTheme = {
-  theme: 'light',
-  colors: {
-    common: {
-      light: {},
-      dark: {},
-    },
-    color: {
-      light: {},
-      dark: {},
-    },
-    bg: {
-      light: {},
-      dark: {},
-    },
-    icon: {
-      light: {},
-      dark: {},
-    },
-    border: {
-      light: {},
-      dark: {},
-    },
-  },
-};
 
 export type AreniteThemeProviderProps = {
   children: ReactNode;
-  theme: AreniteTheme;
+  value: AreniteTheme;
 };
 
 export const AreniteThemeProvider: FC<AreniteThemeProviderProps> = ({
   children,
-  theme,
+  value,
 }) => {
+  const [areniteTheme, actions] = useCreateAreniteThemeValue(value);
+
   return (
-    <AreniteThemeContext.Provider
-      value={{
-        ...defaultAreniteTheme,
-        ...theme,
-      }}
-    >
+    <AreniteThemeContext.Provider value={[areniteTheme, actions]}>
       {children}
     </AreniteThemeContext.Provider>
   );

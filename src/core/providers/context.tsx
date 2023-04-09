@@ -1,4 +1,6 @@
 import { createContext } from 'react';
-import type { AreniteTheme } from '$/core';
+import type { AreniteThemeContextValue } from '../hooks/useCreateAreniteThemeValue';
 
-export const AreniteThemeContext = createContext<AreniteTheme>(null as any);
+export const AreniteThemeContext = createContext<AreniteThemeContextValue>(
+  null as any
+);

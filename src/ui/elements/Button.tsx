@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Text, View } from '$/ui';
+import { Text, View } from 'arenite-kit';
 
 type ButtonProps = {
   children: ReactNode;

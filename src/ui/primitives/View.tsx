@@ -1,4 +1,4 @@
-import { useThemeColor, BgThemeProps, BorderThemeProps } from '$/core';
+import { useThemeColor, BgThemeProps, BorderThemeProps } from 'arenite-kit';
 import React from 'react';
 import { View as NativeView } from 'react-native';
 

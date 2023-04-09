@@ -1,4 +1,4 @@
-import { useThemeColor, ColorThemeProps } from '$/core';
+import { useThemeColor, ColorThemeProps } from 'arenite-kit';
 import React from 'react';
 import { Text as NativeText } from 'react-native';
 

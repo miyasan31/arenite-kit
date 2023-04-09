@@ -1,12 +1,12 @@
-import {
-  PalletKeys,
-  CommonToken,
+import type {
   BgToken,
-  ColorToken,
-  IconToken,
   BorderToken,
-  useAreniteTheme,
-} from '$/core';
+  ColorToken,
+  CommonToken,
+  IconToken,
+  PalletKeys,
+} from '../types';
+import { useAreniteTheme } from './useAreniteTheme';
 
 type ExcludeCommonTokenKey = Exclude<PalletKeys, 'common'>;
 
@@ -30,10 +30,17 @@ export const useThemeColor = <
   tokenKey: K,
   override: { light?: string; dark?: string }
 ): string | undefined => {
-  const { theme, pallets } = useAreniteTheme();
+  const [{ theme, pallets }] = useAreniteTheme();
 
+  // Override properties, if any, are returned with priority.
   if (override[theme]) {
     return override[theme];
+  }
+
+  // If common tokens are specified, priority is given to returning them.
+  const commonMapping = pallets.common[theme];
+  if (hasTokenKey(commonMapping, tokenKey)) {
+    return commonMapping[tokenKey];
   }
 
   const themeMapping = pallets[palletKey][theme];

@@ -3,8 +3,6 @@
     "baseUrl": "./",
     "paths": {
       "arenite-kit": ["./src/index"],
-      "$/core": ["./src/core"],
-      "$/ui": ["./src/ui"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
