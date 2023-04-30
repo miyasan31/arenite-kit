@@ -11,10 +11,10 @@ const commonPallet = {
   dark: {
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#F43F5E',
-    secondary: '#FB923C',
-    tertiary: '#FBBF24',
-    accent: '#3B82F6',
+    primary: '#963ff4',
+    secondary: '#3c62fb',
+    tertiary: '#24dbfb',
+    accent: '#3bf65a',
     danger: '#EF4444',
   },
 };
@@ -34,15 +34,13 @@ const colorPallet = {
 const bgPallet = {
   light: {
     bg0: '#ffffff00',
-    bg1: '#FFFFFF',
-    bg2: '#F1F5F9',
-    editing: '#FBBF2410',
+    bg1: '#F1F5F9',
+    bg2: '#FFFFFF',
   },
   dark: {
     bg0: '#00000000',
     bg1: '#27272a',
     bg2: '#3f3f45',
-    editing: '#7c5f1610',
   },
 };
 
