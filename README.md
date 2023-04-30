@@ -94,7 +94,7 @@ import { myTheme } from './arenite.config';
 export default function App() {
   return (
     <AreniteThemeProvider value={myTheme}>
-      <View style={[{ marginTop: 100 }]} bg="bg2" border="border1">
+      <View bg="bg1">
         <Text color="color1">color1</Text>
         <Text color="color2">color2</Text>
         <Text color="white">white</Text>
@@ -113,8 +113,8 @@ const ChildView = () => {
   const [{ theme }, { toggleTheme }] = useAreniteTheme();
 
   return (
-    <View>
-      <Button bg={"primary"} color={"white"} onPress={onPress={toggleTheme}}>Toggle theme</Button>
+    <View bg="bg2">
+      <Button bg={"primary"} color={"white"} onPress={toggleTheme}>Toggle theme</Button>
       <Text color="color1">{theme}</Text>
     </View>
   );
