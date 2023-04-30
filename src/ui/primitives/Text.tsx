@@ -1,12 +1,13 @@
-import { useThemeColor, ColorThemeProps } from 'arenite-kit';
 import React from 'react';
 import { Text as NativeText } from 'react-native';
+import type { ColorThemeProps } from '../../core';
+import { useThemeColor } from '../../core';
 
 export type TextProps = NativeText['props'] & ColorThemeProps;
 
 export const Text = (props: TextProps) => {
   const {
-    color: textColor = 'color1',
+    color: textColor,
     lightColor,
     darkColor,
     style,

@@ -1,15 +1,16 @@
-import { useThemeColor, BgThemeProps, BorderThemeProps } from 'arenite-kit';
 import React from 'react';
-import { View as NativeView } from 'react-native';
+import { StyleProp, View as NativeView, ViewStyle } from 'react-native';
+import type { BgThemeProps, BorderThemeProps } from '../../core';
+import { useThemeColor } from '../../core';
 
 export type ViewProps = NativeView['props'] & BgThemeProps & BorderThemeProps;
 
 export const View = (props: ViewProps) => {
   const {
-    bg = 'bg1',
+    bg,
     lightBg,
     darkBg,
-    border = 'border1',
+    border,
     lightBorder,
     darkBorder,
     style,
@@ -20,15 +21,20 @@ export const View = (props: ViewProps) => {
     light: lightBg,
     dark: darkBg,
   });
+
   const borderColor = useThemeColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });
 
-  return (
-    <NativeView
-      style={[style, { backgroundColor, borderColor }]}
-      {...otherProps}
-    />
-  );
+  const viewStyle: StyleProp<ViewStyle> = [
+    style,
+    {
+      backgroundColor,
+      borderColor,
+      borderWidth: borderColor ? 1 : 0,
+    },
+  ];
+
+  return <NativeView style={viewStyle} {...otherProps} />;
 };

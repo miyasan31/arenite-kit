@@ -27,7 +27,7 @@ export const useThemeColor = <
   K extends ResultTokenKey<T>
 >(
   palletKey: T,
-  tokenKey: K,
+  tokenKey: K | undefined,
   override: { light?: string; dark?: string }
 ): string | undefined => {
   const [{ theme, pallets }] = useAreniteTheme();
@@ -35,6 +35,10 @@ export const useThemeColor = <
   // Override properties, if any, are returned with priority.
   if (override[theme]) {
     return override[theme];
+  }
+
+  if (tokenKey === undefined) {
+    return undefined;
   }
 
   // If common tokens are specified, priority is given to returning them.
