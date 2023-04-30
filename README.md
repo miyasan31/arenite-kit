@@ -1,7 +1,5 @@
 # arenite-kit
 
-null
-
 ## Installation
 
 ```sh
@@ -22,7 +20,7 @@ const commonPallet = {
   dark: {
     white: '#FFFFFF',
     black: '#000000',
-    primary: '#FB923C',
+    primary: '#963ff4',
   },
 };
 
@@ -116,10 +114,7 @@ const ChildView = () => {
 
   return (
     <View>
-      <Pressable onPress={toggleTheme}>
-        <Button>テーマ変更</Button>
-      </Pressable>
-
+      <Button bg={"primary"} color={"white"} onPress={onPress={toggleTheme}}>Toggle theme</Button>
       <Text color="color1">{theme}</Text>
     </View>
   );
