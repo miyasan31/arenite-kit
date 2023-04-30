@@ -49,7 +49,7 @@ const borderPallet = {
     border1: '#C2C6D2',
   },
   dark: {
-    border1: '#A1A1AA',
+    border1: '#5a5a64',
   },
 };
 
