@@ -1,4 +1,4 @@
-import { Button, Text, useAreniteTheme, View } from 'arenite-kit';
+import { Button, Text, useAreniteTheme, VStack } from 'arenite-kit';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -13,7 +13,7 @@ export const ButtonExample = () => {
     );
 
   return (
-    <View style={style.container}>
+    <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
         Button
       </Text>
@@ -21,14 +21,11 @@ export const ButtonExample = () => {
       <Button bg={'primary'} color={'white'} left={Icon} onPress={toggleTheme}>
         Toggle theme
       </Button>
-    </View>
+    </VStack>
   );
 };
 
 const style = StyleSheet.create({
-  container: {
-    gap: 12,
-  },
   title: {
     fontWeight: 'bold',
     fontSize: 24,

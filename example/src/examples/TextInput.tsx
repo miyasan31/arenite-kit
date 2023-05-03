@@ -1,10 +1,10 @@
-import { Text, TextInput, View } from 'arenite-kit';
+import { Text, TextInput, VStack } from 'arenite-kit';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export const TextInputExample = () => {
   return (
-    <View style={style.container}>
+    <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
         TextInput
       </Text>
@@ -20,14 +20,11 @@ export const TextInputExample = () => {
         selectionColor={'primary'}
         placeholderTextColor={'color2'}
       />
-    </View>
+    </VStack>
   );
 };
 
 const style = StyleSheet.create({
-  container: {
-    gap: 12,
-  },
   title: {
     fontWeight: 'bold',
     fontSize: 24,

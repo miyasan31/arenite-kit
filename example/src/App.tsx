@@ -1,14 +1,15 @@
-import { AreniteThemeProvider, SafeAreaView, View } from 'arenite-kit';
+import { AreniteThemeProvider, SafeAreaView, VStack } from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { myTheme } from './arenite.config';
-import { KeyboardAvoiding } from './components/KeyboardAvoiding';
 import { ButtonExample } from './examples/Button';
+import { HStackExample } from './examples/Hstack';
 import { IconButtonExample } from './examples/IconButton';
 import { TextInputExample } from './examples/TextInput';
 import { ThemingTextExample } from './examples/ThemingText';
+import { VStackExample } from './examples/Vstack';
 import { getSafeAreaEdges } from './libs/react-native-safe-area-context/getSafeAreaEdges';
 
 export default function App() {
@@ -16,18 +17,20 @@ export default function App() {
 
   return (
     <AreniteThemeProvider value={myTheme}>
-      <KeyboardAvoiding>
-        <SafeAreaProvider>
-          <SafeAreaView edges={edges}>
-            <View style={style.view} bg={'bg1'}>
+      <SafeAreaProvider>
+        <SafeAreaView edges={edges} bg={'bg1'}>
+          <ScrollView>
+            <VStack gap={32} style={style.vStack}>
               <ThemingTextExample />
               <TextInputExample />
               <ButtonExample />
               <IconButtonExample />
-            </View>
-          </SafeAreaView>
-        </SafeAreaProvider>
-      </KeyboardAvoiding>
+              <VStackExample />
+              <HStackExample />
+            </VStack>
+          </ScrollView>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </AreniteThemeProvider>
   );
 }
@@ -36,9 +39,9 @@ const style = StyleSheet.create({
   layout: {
     flex: 1,
   },
-  view: {
-    gap: 20,
-    paddingVertical: 20,
-    paddingHorizontal: 12,
+  vStack: {
+    paddingTop: 16,
+    paddingHorizontal: 16,
+    paddingBottom: 160,
   },
 });

@@ -1,10 +1,10 @@
 import {
+  HStack,
   IconButton,
   IconThemeProps,
   Text,
-  useAreniteTheme,
   useThemeColor,
-  View,
+  VStack,
 } from 'arenite-kit';
 import React from 'react';
 import { StyleSheet } from 'react-native';
@@ -27,32 +27,34 @@ const ThemingIcon = (props: Props) => {
 };
 
 export const IconButtonExample = () => {
-  const [_, { toggleTheme }] = useAreniteTheme();
+  const onPress = () => {
+    console.log('onPress');
+  };
 
   return (
-    <View style={style.container}>
+    <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
         IconButton
       </Text>
 
-      <View style={style.buttonGroup}>
-        <IconButton bg={'primary'} onPress={toggleTheme}>
+      <HStack justify={'space-between'}>
+        <IconButton bg={'primary'} onPress={onPress}>
           <ThemingIcon name={'home-outline'} />
         </IconButton>
 
-        <IconButton bg={'secondary'} onPress={toggleTheme}>
+        <IconButton bg={'secondary'} onPress={onPress}>
           <ThemingIcon name={'search-outline'} />
         </IconButton>
 
-        <IconButton bg={'tertiary'} onPress={toggleTheme}>
+        <IconButton bg={'tertiary'} onPress={onPress}>
           <ThemingIcon name={'chatbubbles-outline'} />
         </IconButton>
 
-        <IconButton bg={'accent'} onPress={toggleTheme}>
+        <IconButton bg={'accent'} onPress={onPress}>
           <ThemingIcon name={'notifications-outline'} />
         </IconButton>
 
-        <IconButton bg={'danger'} onPress={toggleTheme}>
+        <IconButton bg={'danger'} onPress={onPress}>
           <ThemingIcon name={'trash-outline'} />
         </IconButton>
 
@@ -60,26 +62,19 @@ export const IconButtonExample = () => {
           bg={'bg2'}
           border={'border1'}
           viewStyle={style.roundedButton}
-          onPress={toggleTheme}
+          onPress={onPress}
         >
           <ThemingIcon name={'settings-outline'} icon={'icon1'} />
         </IconButton>
-      </View>
-    </View>
+      </HStack>
+    </VStack>
   );
 };
 
 const style = StyleSheet.create({
-  container: {
-    gap: 12,
-  },
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  buttonGroup: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   roundedButton: {
     borderRadius: 100,
