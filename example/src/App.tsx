@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { myTheme } from './arenite.config';
 import { KeyboardAvoiding } from './components/KeyboardAvoiding';
 import { ButtonExample } from './examples/Button';
+import { IconButtonExample } from './examples/IconButton';
 import { TextInputExample } from './examples/TextInput';
 import { ThemingTextExample } from './examples/ThemingText';
 import { getSafeAreaEdges } from './libs/react-native-safe-area-context/getSafeAreaEdges';
@@ -22,6 +23,7 @@ export default function App() {
               <ThemingTextExample />
               <TextInputExample />
               <ButtonExample />
+              <IconButtonExample />
             </View>
           </SafeAreaView>
         </SafeAreaProvider>
