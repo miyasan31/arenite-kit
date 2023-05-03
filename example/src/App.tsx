@@ -1,24 +1,30 @@
-import { AreniteThemeProvider, View } from 'arenite-kit';
+import { AreniteThemeProvider, SafeAreaView, View } from 'arenite-kit';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { myTheme } from './arenite.config';
 import { KeyboardAvoiding } from './components/KeyboardAvoiding';
 import { ButtonExample } from './examples/Button';
 import { TextInputExample } from './examples/TextInput';
 import { ThemingTextExample } from './examples/ThemingText';
+import { getSafeAreaEdges } from './libs/react-native-safe-area-context/getSafeAreaEdges';
 
 export default function App() {
+  const edges = getSafeAreaEdges('top-horizontal');
+
   return (
     <AreniteThemeProvider value={myTheme}>
       <KeyboardAvoiding>
-        <SafeAreaView style={style.layout}>
-          <View style={style.view} bg={'bg1'}>
-            <ThemingTextExample />
-            <TextInputExample />
-            <ButtonExample />
-          </View>
-        </SafeAreaView>
+        <SafeAreaProvider>
+          <SafeAreaView edges={edges}>
+            <View style={style.view} bg={'bg1'}>
+              <ThemingTextExample />
+              <TextInputExample />
+              <ButtonExample />
+            </View>
+          </SafeAreaView>
+        </SafeAreaProvider>
       </KeyboardAvoiding>
     </AreniteThemeProvider>
   );
