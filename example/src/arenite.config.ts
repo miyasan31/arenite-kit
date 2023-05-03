@@ -65,7 +65,7 @@ const iconPallet = {
 };
 
 export const myTheme = {
-  theme: 'light',
+  theme: 'dark',
   pallets: {
     common: commonPallet,
     color: colorPallet,

@@ -5,6 +5,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { myTheme } from './arenite.config';
 import { ButtonExample } from './examples/Button';
+import { DividerExample } from './examples/Divider';
 import { HStackExample } from './examples/Hstack';
 import { IconButtonExample } from './examples/IconButton';
 import { TextInputExample } from './examples/TextInput';
@@ -27,6 +28,7 @@ export default function App() {
               <IconButtonExample />
               <VStackExample />
               <HStackExample />
+              <DividerExample />
             </VStack>
           </ScrollView>
         </SafeAreaView>
