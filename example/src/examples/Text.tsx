@@ -2,13 +2,13 @@ import { Text, useAreniteTheme, VStack } from 'arenite-kit';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-export const ThemingTextExample = () => {
+export const TextExample = () => {
   const [{ theme }] = useAreniteTheme();
 
   return (
     <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
-        Theming Text
+        Text
       </Text>
 
       <Text color={'color1'}>current theme is {theme}.</Text>

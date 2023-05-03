@@ -64,19 +64,16 @@ const iconPallet = {
   },
 };
 
-export const myTheme = {
-  theme: 'dark',
-  pallets: {
-    common: commonPallet,
-    color: colorPallet,
-    bg: bgPallet,
-    border: borderPallet,
-    icon: iconPallet,
-  },
+export const myThemePallets = {
+  common: commonPallet,
+  color: colorPallet,
+  bg: bgPallet,
+  border: borderPallet,
+  icon: iconPallet,
 } as const;
 
 declare module 'arenite-kit' {
   interface AreniteCustomTheme {
-    pallets: typeof myTheme.pallets;
+    pallets: typeof myThemePallets;
   }
 }

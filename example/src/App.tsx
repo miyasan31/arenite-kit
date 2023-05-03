@@ -1,35 +1,43 @@
 import { AreniteThemeProvider, SafeAreaView, VStack } from 'arenite-kit';
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-
-import { myTheme } from './arenite.config';
+import { ActivityIndicatorExample } from './examples/ActivityIndicator';
 import { ButtonExample } from './examples/Button';
 import { DividerExample } from './examples/Divider';
 import { HStackExample } from './examples/Hstack';
 import { IconButtonExample } from './examples/IconButton';
+import { TextExample } from './examples/Text';
 import { TextInputExample } from './examples/TextInput';
-import { ThemingTextExample } from './examples/ThemingText';
 import { VStackExample } from './examples/Vstack';
+import { useAppBootstrap } from './hooks/useAppBootstrap';
 import { getSafeAreaEdges } from './libs/react-native-safe-area-context/getSafeAreaEdges';
 
 export default function App() {
   const edges = getSafeAreaEdges('top-horizontal');
+  const { isReady, areniteTheme } = useAppBootstrap();
+
+  if (!isReady) {
+    return null;
+  }
 
   return (
-    <AreniteThemeProvider value={myTheme}>
+    <AreniteThemeProvider value={areniteTheme}>
       <SafeAreaProvider>
         <SafeAreaView edges={edges} bg={'bg1'}>
           <ScrollView>
-            <VStack gap={32} style={style.vStack}>
-              <ThemingTextExample />
-              <TextInputExample />
-              <ButtonExample />
-              <IconButtonExample />
-              <VStackExample />
-              <HStackExample />
-              <DividerExample />
-            </VStack>
+            <KeyboardAvoidingView>
+              <VStack gap={32} style={style.vStack}>
+                <TextExample />
+                <TextInputExample />
+                <ButtonExample />
+                <IconButtonExample />
+                <VStackExample />
+                <HStackExample />
+                <DividerExample />
+                <ActivityIndicatorExample />
+              </VStack>
+            </KeyboardAvoidingView>
           </ScrollView>
         </SafeAreaView>
       </SafeAreaProvider>
