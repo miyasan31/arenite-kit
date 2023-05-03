@@ -53,6 +53,7 @@ export const Button = (props: ButtonProps) => {
       onLongPress={onLongPress}
       disabled={disabled}
       noBounce={noBounce}
+      pressableStyle={defaultStyle.pressable}
     >
       <View
         style={[defaultStyle.view, viewStyle]}
@@ -81,13 +82,15 @@ export const Button = (props: ButtonProps) => {
 };
 
 const defaultStyle = StyleSheet.create({
+  pressable: {
+    width: '100%',
+  },
   view: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
-    width: '100%',
     borderRadius: 8,
     paddingVertical: 16,
   },
