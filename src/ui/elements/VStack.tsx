@@ -3,7 +3,7 @@ import type { ViewStyle } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { View } from '../primitives';
 
-export type VStackPropsStackProps = {
+export type VStackProps = {
   children: ReactNode;
   style?: ViewStyle;
   gap?: ViewStyle['rowGap'];
@@ -12,7 +12,7 @@ export type VStackPropsStackProps = {
 } & BgThemeProps &
   BorderThemeProps;
 
-export const VStack = (props: VStackPropsStackProps) => {
+export const VStack = (props: VStackProps) => {
   const { style, gap, align, justify, ...otherProps } = props;
 
   const fixedStyle: ViewStyle = {
