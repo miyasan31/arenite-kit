@@ -3,7 +3,11 @@
 ## Installation
 
 ```sh
+# npm
 npm install arenite-kit
+
+# yarn
+yarn add arenite-kit
 ```
 
 ## Usage
@@ -16,28 +20,44 @@ const commonPallet = {
     white: '#FFFFFF',
     black: '#000000',
     primary: '#F43F5E',
+    secondary: '#FB923C',
+    tertiary: '#FBBF24',
+    accent: '#3B82F6',
+    danger: '#EF4444',
   },
   dark: {
     white: '#FFFFFF',
     black: '#000000',
     primary: '#963ff4',
+    secondary: '#3c62fb',
+    tertiary: '#24dbfb',
+    accent: '#3bf65a',
+    danger: '#EF4444',
   },
 };
 
 const colorPallet = {
   light: {
-    color1: '#333333',
+    color0: '#FFFFFF',
+    color1: '#070417',
+    color2: '#C2C6D2',
   },
   dark: {
+    color0: '#27272a',
     color1: '#FFFFFF',
+    color2: '#A1A1AA',
   },
 };
 const bgPallet = {
   light: {
-    bg1: '#FFFFFF',
+    bg0: '#ffffff00',
+    bg1: '#F1F5F9',
+    bg2: '#FFFFFF',
   },
   dark: {
+    bg0: '#00000000',
     bg1: '#27272a',
+    bg2: '#3f3f45',
   },
 };
 
@@ -46,16 +66,18 @@ const borderPallet = {
     border1: '#C2C6D2',
   },
   dark: {
-    border1: '#A1A1AA',
+    border1: '#5a5a64',
   },
 };
 
 const iconPallet = {
   light: {
-    icon1: '#C2C6D2',
+    icon1: '#070417',
+    icon2: '#ffffff',
   },
   dark: {
-    icon1: '#A1A1AA',
+    icon1: '#ffffff',
+    icon2: '#070417',
   },
 };
 
@@ -96,29 +118,15 @@ export default function App() {
     <AreniteThemeProvider value={myTheme}>
       <View bg="bg1">
         <Text color="color1">color1</Text>
-        <Text color="color2">color2</Text>
-        <Text color="white">white</Text>
-        <Text color="black">black</Text>
         <Text color="primary">primary</Text>
         <Text color="secondary">secondary</Text>
         <Text color="tertiary">tertiary</Text>
       </View>
 
-      <ChildView />
+      <Button bg="primary" color="white">Button</Button>
     </AreniteThemeProvider>
   );
 }
-
-const ChildView = () => {
-  const [{ theme }, { toggleTheme }] = useAreniteTheme();
-
-  return (
-    <View bg="bg2">
-      <Button bg={"primary"} color={"white"} onPress={toggleTheme}>Toggle theme</Button>
-      <Text color="color1">{theme}</Text>
-    </View>
-  );
-};
 ```
 
 ## Contributing
