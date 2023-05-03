@@ -1,5 +1,9 @@
 import React, { ReactNode } from 'react';
-import { Pressable, PressableStateCallbackType } from 'react-native';
+import {
+  Pressable,
+  PressableProps,
+  PressableStateCallbackType,
+} from 'react-native';
 import Animated, {
   Easing,
   Extrapolate,
@@ -10,7 +14,7 @@ import Animated, {
   WithTimingConfig,
 } from 'react-native-reanimated';
 
-type AnimatedViewProps = {
+type AnimatedViewProps = Animated.View['props'] & {
   children: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
   state: PressableStateCallbackType;
   noBounce?: boolean;
@@ -25,6 +29,8 @@ const AnimatedView = (props: AnimatedViewProps) => {
     timingConfig = { duration: 50, easing: Easing.linear },
     scaleTo = 0.975,
     noBounce = false,
+    style,
+    ...otherProps
   } = props;
 
   const progress = useDerivedValue(() => {
@@ -44,17 +50,19 @@ const AnimatedView = (props: AnimatedViewProps) => {
   });
 
   return (
-    <Animated.View style={[!noBounce && animatedStyle]}>
+    <Animated.View style={[!noBounce && animatedStyle, style]} {...otherProps}>
       {typeof children === 'function' ? children(state) : children}
     </Animated.View>
   );
 };
 
 type PureFunction = () => void;
-export type BounceableProps = Omit<AnimatedViewProps, 'state'> & {
+export type BounceableProps = Omit<AnimatedViewProps, 'state' | 'style'> & {
   onPress: PureFunction;
   onLongPress?: PureFunction;
   disabled?: boolean;
+  pressableStyle?: PressableProps['style'];
+  animatedViewStyle?: AnimatedViewProps['style'];
 };
 
 export const Bounceable = (props: BounceableProps) => {
@@ -62,23 +70,20 @@ export const Bounceable = (props: BounceableProps) => {
     onPress,
     onLongPress,
     disabled,
-    children,
-    noBounce,
-    scaleTo,
-    timingConfig,
+    pressableStyle,
+    animatedViewStyle,
+    ...otherProps
   } = props;
 
   return (
-    <Pressable disabled={disabled} onPress={onPress} onLongPress={onLongPress}>
+    <Pressable
+      style={pressableStyle}
+      disabled={disabled}
+      onPress={onPress}
+      onLongPress={onLongPress}
+    >
       {(state) => (
-        <AnimatedView
-          state={state}
-          noBounce={noBounce}
-          scaleTo={scaleTo}
-          timingConfig={timingConfig}
-        >
-          {typeof children === 'function' ? children(state) : children}
-        </AnimatedView>
+        <AnimatedView state={state} style={animatedViewStyle} {...otherProps} />
       )}
     </Pressable>
   );

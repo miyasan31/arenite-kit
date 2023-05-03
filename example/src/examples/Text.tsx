@@ -1,19 +1,19 @@
-import { Text, useAreniteTheme, View } from 'arenite-kit';
+import { Text, useAreniteTheme, VStack } from 'arenite-kit';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-export const ThemingTextExample = () => {
+export const TextExample = () => {
   const [{ theme }] = useAreniteTheme();
 
   return (
-    <View style={style.container}>
+    <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
-        Theming Text
+        Text
       </Text>
 
       <Text color={'color1'}>current theme is {theme}.</Text>
 
-      <View bg={'bg2'} style={style.textContainer}>
+      <VStack gap={4} bg={'bg2'} style={style.textContainer}>
         <Text color={'color1'}>color1</Text>
         <Text color={'color2'}>color2</Text>
         <Text color={'primary'}>primary</Text>
@@ -21,21 +21,17 @@ export const ThemingTextExample = () => {
         <Text color={'tertiary'}>tertiary</Text>
         <Text color={'accent'}>accent</Text>
         <Text color={'danger'}>danger</Text>
-      </View>
-    </View>
+      </VStack>
+    </VStack>
   );
 };
 
 const style = StyleSheet.create({
-  container: {
-    gap: 12,
-  },
   title: {
     fontWeight: 'bold',
     fontSize: 24,
   },
   textContainer: {
-    gap: 4,
     padding: 12,
     borderRadius: 8,
   },

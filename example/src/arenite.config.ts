@@ -49,34 +49,31 @@ const borderPallet = {
     border1: '#C2C6D2',
   },
   dark: {
-    border1: '#A1A1AA',
+    border1: '#5a5a64',
   },
 };
 
 const iconPallet = {
   light: {
-    icon1: '#C2C6D2',
-    icon2: '#070417',
+    icon1: '#070417',
+    icon2: '#ffffff',
   },
   dark: {
-    icon1: '#A1A1AA',
-    icon2: '#ffffff',
+    icon1: '#ffffff',
+    icon2: '#070417',
   },
 };
 
-export const myTheme = {
-  theme: 'light',
-  pallets: {
-    common: commonPallet,
-    color: colorPallet,
-    bg: bgPallet,
-    border: borderPallet,
-    icon: iconPallet,
-  },
+export const myThemePallets = {
+  common: commonPallet,
+  color: colorPallet,
+  bg: bgPallet,
+  border: borderPallet,
+  icon: iconPallet,
 } as const;
 
 declare module 'arenite-kit' {
   interface AreniteCustomTheme {
-    pallets: typeof myTheme.pallets;
+    pallets: typeof myThemePallets;
   }
 }

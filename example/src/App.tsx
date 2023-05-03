@@ -1,31 +1,21 @@
-import { AreniteThemeProvider, View } from 'arenite-kit';
+import { AreniteThemeProvider } from 'arenite-kit';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-
-import { myTheme } from './arenite.config';
-import { ButtonExample } from './examples/Button';
-import { ThemingTextExample } from './examples/ThemingText';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useAppBootstrap } from './hooks/useAppBootstrap';
+import { TopScreen } from './screens/TopScreen';
 
 export default function App() {
+  const { isReady, areniteTheme } = useAppBootstrap();
+
+  if (!isReady) {
+    return null;
+  }
+
   return (
-    <AreniteThemeProvider value={myTheme}>
-      <SafeAreaView style={style.layout}>
-        <View style={style.container} bg={'bg1'}>
-          <ThemingTextExample />
-          <ButtonExample />
-        </View>
-      </SafeAreaView>
+    <AreniteThemeProvider value={areniteTheme}>
+      <SafeAreaProvider>
+        <TopScreen />
+      </SafeAreaProvider>
     </AreniteThemeProvider>
   );
 }
-
-const style = StyleSheet.create({
-  layout: {
-    flex: 1,
-  },
-  container: {
-    gap: 20,
-    paddingVertical: 20,
-    paddingHorizontal: 12,
-  },
-});
