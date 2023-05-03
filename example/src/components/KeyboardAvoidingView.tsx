@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react';
 import React from 'react';
 import {
   Keyboard,
-  KeyboardAvoidingView,
+  KeyboardAvoidingView as NativeKeyboardAvoidingView,
   Platform,
   StyleSheet,
   TouchableWithoutFeedback,
@@ -16,15 +16,15 @@ type Props = {
   children: ReactNode;
 };
 
-export const KeyboardAvoiding: FC<Props> = (props) => {
+export const KeyboardAvoidingView: FC<Props> = (props) => {
   return (
     <TouchableWithoutFeedback onPress={onKeyBoardClose}>
-      <KeyboardAvoidingView
+      <NativeKeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={defaultStyle.container}
       >
         {props.children}
-      </KeyboardAvoidingView>
+      </NativeKeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
 };

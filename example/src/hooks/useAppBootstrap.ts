@@ -1,28 +1,34 @@
-import type { AreniteTheme } from 'arenite-kit';
+import type { AreniteTheme, Theme } from 'arenite-kit';
 import { useSystemTheme } from 'arenite-kit';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
 import { myThemePallets } from '../arenite.config';
+import { areniteThemeStorageKey } from '../constants/asyncStorageKeys';
+import { asyncStorage } from '../libs/react-native-async-storage/asyncStorage';
 
 SplashScreen.preventAutoHideAsync();
 
 export const useAppBootstrap = () => {
   const [isReady, setIsReady] = useState(false);
+  const [userTheme, setUserTheme] = useState<Theme | null>(null);
 
   const systemTheme = useSystemTheme();
 
   const areniteTheme: AreniteTheme = {
-    theme: systemTheme,
+    theme: userTheme ?? systemTheme,
     pallets: myThemePallets,
   };
 
   useEffect(() => {
     const prepare = async () => {
       try {
-        // load fonts, make API calls, etc...
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        // get user theme from async storage
+        const areniteThemeResult = await asyncStorage.get<Theme>(
+          areniteThemeStorageKey
+        );
+        setUserTheme(areniteThemeResult);
       } catch (e) {
-        console.warn(e);
+        console.error(e);
       } finally {
         setIsReady(true);
         await SplashScreen.hideAsync();
