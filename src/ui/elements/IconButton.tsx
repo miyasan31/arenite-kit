@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react';
 import { StyleSheet, View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 
-import { Bounceable, View } from '../primitives';
+import { View } from '../primitives';
+import { Bounceable } from './Bounceable';
 
 export type IconButtonProps = {
   children: ReactNode;

@@ -9,7 +9,8 @@ import type {
   BorderThemeProps,
   ColorThemeProps,
 } from '../../core';
-import { Bounceable, Text, View } from '../primitives';
+import { Text, View } from '../primitives';
+import { Bounceable } from './Bounceable';
 
 export type ButtonProps = {
   children: ReactNode;
