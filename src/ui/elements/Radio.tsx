@@ -30,7 +30,7 @@ export const Radio = <T,>(props: RadioProps<T>) => {
       <Pressable
         style={[
           defaultStyle.pressable,
-          { flexDirection: labelPosition === 'right' ? 'row-reverse' : 'row' },
+          { flexDirection: labelPosition === 'right' ? 'row' : 'row-reverse' },
         ]}
         onPress={onChangeValue}
       >

@@ -58,10 +58,9 @@ const defaultStyle = createAreniteStyle({
   },
   border: {
     flex: 1,
-    borderBottomWidth: 0.1,
+    borderBottomWidth: 1,
   },
   label: {
-    width: 'auto',
     fontSize: 16,
   },
 });

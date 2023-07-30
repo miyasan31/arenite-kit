@@ -12,6 +12,7 @@ import { FlatListExample } from '../examples/FlatList';
 import { HStackExample } from '../examples/Hstack';
 import { IconButtonExample } from '../examples/IconButton';
 import { ImageExample } from '../examples/Image';
+import { RadioExample } from '../examples/Radio';
 import { TextExample } from '../examples/Text';
 import { TextInputExample } from '../examples/TextInput';
 import { VStackExample } from '../examples/Vstack';
@@ -26,6 +27,7 @@ export const TopScreen = () => {
         <VStack gap={32} style={style.vStack}>
           <TextExample />
           <TextInputExample />
+          <RadioExample />
           <ButtonExample />
           <IconButtonExample />
           <ImageExample />
