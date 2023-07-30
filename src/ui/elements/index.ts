@@ -4,3 +4,4 @@ export * from './HStack';
 export * from './VStack';
 export * from './Divider';
 export * from './Bounceable';
+export * from './Radio';
