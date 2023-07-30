@@ -7,6 +7,7 @@ import { ButtonExample } from '../examples/Button';
 import { DividerExample } from '../examples/Divider';
 import { HStackExample } from '../examples/Hstack';
 import { IconButtonExample } from '../examples/IconButton';
+import { ImageExample } from '../examples/Image';
 import { TextExample } from '../examples/Text';
 import { TextInputExample } from '../examples/TextInput';
 import { VStackExample } from '../examples/Vstack';
@@ -24,6 +25,7 @@ export const TopScreen = () => {
             <TextInputExample />
             <ButtonExample />
             <IconButtonExample />
+            <ImageExample />
             <VStackExample />
             <HStackExample />
             <DividerExample />

@@ -47,9 +47,11 @@ const bgPallet = {
 const borderPallet = {
   light: {
     border1: '#C2C6D2',
+    border2: '#E5E7EB',
   },
   dark: {
     border1: '#5a5a64',
+    border2: '#3f3f45',
   },
 };
 
