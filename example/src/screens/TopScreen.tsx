@@ -1,6 +1,10 @@
-import { SafeAreaView, VStack, createAreniteStyle } from 'arenite-kit';
+import {
+  SafeAreaView,
+  VStack,
+  createAreniteStyle,
+  ScrollView,
+} from 'arenite-kit';
 import React from 'react';
-import { ScrollView } from 'react-native';
 import { KeyboardAvoidingView } from '../components/KeyboardAvoidingView';
 import { ActivityIndicatorExample } from '../examples/ActivityIndicator';
 import { ButtonExample } from '../examples/Button';
