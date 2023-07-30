@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
-import { useThemeColor } from '../../core';
+import { usePalletColor } from '../../core';
 import type { AreniteTextStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
@@ -20,7 +20,7 @@ export const Text = (props: TextProps) => {
     ...otherProps
   } = props;
 
-  const color = useThemeColor('color', textColor, {
+  const color = usePalletColor('color', textColor, {
     light: lightColor,
     dark: darkColor,
   });

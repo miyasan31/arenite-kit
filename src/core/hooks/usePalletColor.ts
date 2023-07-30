@@ -22,7 +22,7 @@ type ResultTokenKey<T extends ExcludeCommonTokenKey> =
       ? BorderToken
       : undefined);
 
-export const useThemeColor = <
+export const usePalletColor = <
   T extends ExcludeCommonTokenKey,
   K extends ResultTokenKey<T>
 >(

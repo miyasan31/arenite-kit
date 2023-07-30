@@ -5,7 +5,7 @@ import type {
   BorderThemeProps,
   ColorThemeProps,
 } from '../../core';
-import { useThemeColor } from '../../core';
+import { usePalletColor } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
@@ -39,20 +39,20 @@ export const TextInput = (props: TextInputProps) => {
     ...otherProps
   } = props;
 
-  const color = useThemeColor('color', textColor, {
+  const color = usePalletColor('color', textColor, {
     light: lightColor,
     dark: darkColor,
   });
-  const backgroundColor = useThemeColor('bg', bg, {
+  const backgroundColor = usePalletColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
-  const borderColor = useThemeColor('border', border, {
+  const borderColor = usePalletColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });
-  const placeholderColor = useThemeColor('color', placeholderTextColor, {});
-  const focusedColor = useThemeColor('border', selectionColor, {});
+  const placeholderColor = usePalletColor('color', placeholderTextColor, {});
+  const focusedColor = usePalletColor('border', selectionColor, {});
 
   return (
     <NativeTextInput

@@ -4,7 +4,7 @@ import {
   IconButton,
   IconThemeProps,
   Text,
-  useThemeColor,
+  usePalletColor,
   VStack,
 } from 'arenite-kit';
 import React from 'react';
@@ -18,7 +18,7 @@ type Props = {
 const ThemingIcon = (props: Props) => {
   const { name, icon = 'icon2', size = 24, lightIcon, darkIcon } = props;
 
-  const iconColor = useThemeColor('icon', icon, {
+  const iconColor = usePalletColor('icon', icon, {
     light: lightIcon,
     dark: darkIcon,
   });
