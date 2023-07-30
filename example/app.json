@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "example",
-    "slug": "example",
+    "name": "arenite-kit-example",
+    "slug": "arenite-kit-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
