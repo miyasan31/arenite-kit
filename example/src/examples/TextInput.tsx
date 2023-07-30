@@ -1,6 +1,5 @@
-import { Text, TextInput, VStack } from 'arenite-kit';
+import { createAreniteStyle, Text, TextInput, VStack } from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 export const TextInputExample = () => {
   return (
@@ -24,7 +23,7 @@ export const TextInputExample = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,

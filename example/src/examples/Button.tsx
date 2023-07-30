@@ -1,6 +1,12 @@
-import { Button, Text, useAreniteTheme, VStack } from 'arenite-kit';
+import {
+  Button,
+  createAreniteStyle,
+  Text,
+  useAreniteTheme,
+  VStack,
+} from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+
 import { areniteThemeStorageKey } from '../constants/asyncStorageKeys';
 import { asyncStorage } from '../libs/react-native-async-storage/asyncStorage';
 
@@ -37,7 +43,7 @@ export const ButtonExample = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,

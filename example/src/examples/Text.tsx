@@ -1,6 +1,5 @@
-import { Text, useAreniteTheme, VStack } from 'arenite-kit';
+import { createAreniteStyle, Text, useAreniteTheme, VStack } from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 export const TextExample = () => {
   const [{ theme }] = useAreniteTheme();
@@ -26,7 +25,7 @@ export const TextExample = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,

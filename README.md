@@ -109,6 +109,7 @@ import {
   Text,
   View,
   useAreniteTheme,
+  createAreniteStyle,
 } from 'arenite-kit';
 import { Pressable } from 'react-native';
 import { myTheme } from './arenite.config';
@@ -116,7 +117,7 @@ import { myTheme } from './arenite.config';
 export default function App() {
   return (
     <AreniteThemeProvider value={myTheme}>
-      <View bg="bg1">
+      <View bg="bg1" style={style.textContainer}>
         <Text color="color1">color1</Text>
         <Text color="primary">primary</Text>
         <Text color="secondary">secondary</Text>
@@ -127,6 +128,16 @@ export default function App() {
     </AreniteThemeProvider>
   );
 }
+
+const style = createAreniteStyle({
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // not working
+    // backgroundColor: '#fff',
+  },
+})
 ```
 
 ## Contributing

@@ -1,6 +1,5 @@
-import { Divider, Text, VStack } from 'arenite-kit';
+import { createAreniteStyle, Divider, Text, VStack } from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 export const DividerExample = () => {
   return (
@@ -15,7 +14,7 @@ export const DividerExample = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,

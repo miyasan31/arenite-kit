@@ -1,4 +1,5 @@
 import {
+  createAreniteStyle,
   HStack,
   IconButton,
   IconThemeProps,
@@ -7,7 +8,6 @@ import {
   VStack,
 } from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import IoniconsIcon from 'react-native-vector-icons/Ionicons';
 
 type Props = {
@@ -71,7 +71,7 @@ export const IconButtonExample = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
