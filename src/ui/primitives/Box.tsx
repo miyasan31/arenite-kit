@@ -5,14 +5,14 @@ import { usePalletColor } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
-export type ViewProps = OmitKeyReplacer<
+export type BoxProps = OmitKeyReplacer<
   NativeView['props'],
   { style?: AreniteViewStyleProps }
 > &
   BgThemeProps &
   BorderThemeProps;
 
-export const View = (props: ViewProps) => {
+export const Box = (props: BoxProps) => {
   const {
     bg,
     lightBg,

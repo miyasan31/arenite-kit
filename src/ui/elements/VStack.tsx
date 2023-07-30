@@ -1,10 +1,10 @@
 import React from 'react';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
-import { View } from '../primitives';
-import type { ViewProps } from '../primitives';
+import { Box } from '../primitives';
+import type { BoxProps } from '../primitives';
 
-export type VStackProps = ViewProps & {
+export type VStackProps = BoxProps & {
   gap?: AreniteViewStyle['rowGap'];
   align?: AreniteViewStyle['alignItems'];
   justify?: AreniteViewStyle['justifyContent'];
@@ -14,7 +14,7 @@ export const VStack = (props: VStackProps) => {
   const { style, gap, align, justify, ...otherProps } = props;
 
   return (
-    <View
+    <Box
       style={[
         style,
         defaultStyle.view,

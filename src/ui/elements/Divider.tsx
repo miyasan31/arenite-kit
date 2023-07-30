@@ -1,7 +1,7 @@
 import React from 'react';
 import type { BorderThemeProps, ColorThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
-import { Text, View } from '../primitives';
+import { Text, Box } from '../primitives';
 
 export type DividerProps = {
   label?: string;
@@ -20,8 +20,8 @@ export const Divider = (props: DividerProps) => {
   } = props;
 
   return (
-    <View style={[defaultStyle.container]}>
-      <View
+    <Box style={[defaultStyle.container]}>
+      <Box
         border={border}
         lightBorder={lightBorder}
         darkBorder={darkBorder}
@@ -38,7 +38,7 @@ export const Divider = (props: DividerProps) => {
           >
             {label}
           </Text>
-          <View
+          <Box
             border={border}
             lightBorder={lightBorder}
             darkBorder={darkBorder}
@@ -46,7 +46,7 @@ export const Divider = (props: DividerProps) => {
           />
         </>
       ) : null}
-    </View>
+    </Box>
   );
 };
 

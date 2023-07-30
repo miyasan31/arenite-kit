@@ -1,4 +1,4 @@
-import { createAreniteStyle, Text, View, VStack } from 'arenite-kit';
+import { createAreniteStyle, Text, Box, VStack } from 'arenite-kit';
 import React from 'react';
 
 export const VStackExample = () => {
@@ -9,9 +9,9 @@ export const VStackExample = () => {
       </Text>
 
       <VStack gap={8}>
-        <View bg={'bg2'} border={'border1'} style={style.box} />
-        <View bg={'bg2'} border={'border1'} style={style.box} />
-        <View bg={'bg2'} border={'border1'} style={style.box} />
+        <Box bg={'bg2'} border={'border1'} style={style.box} />
+        <Box bg={'bg2'} border={'border1'} style={style.box} />
+        <Box bg={'bg2'} border={'border1'} style={style.box} />
       </VStack>
     </VStack>
   );

@@ -6,7 +6,7 @@ import type {
 } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
-import { Text, View } from '../primitives';
+import { Text, Box } from '../primitives';
 import { Bounceable } from './Bounceable';
 
 export type ButtonProps = {
@@ -55,7 +55,7 @@ export const Button = (props: ButtonProps) => {
         pressable: defaultStyle.pressable,
       }}
     >
-      <View
+      <Box
         style={[defaultStyle.view, viewStyle]}
         bg={bg}
         lightBg={lightBg}
@@ -76,7 +76,7 @@ export const Button = (props: ButtonProps) => {
         </Text>
 
         {right}
-      </View>
+      </Box>
     </Bounceable>
   );
 };

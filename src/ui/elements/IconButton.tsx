@@ -3,7 +3,7 @@ import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
 
-import { View } from '../primitives';
+import { Box } from '../primitives';
 import { Bounceable } from './Bounceable';
 
 export type IconButtonProps = {
@@ -48,7 +48,7 @@ export const IconButton = (props: IconButtonProps) => {
       }}
       scaleTo={0.95}
     >
-      <View
+      <Box
         style={[squareStyle, defaultStyle.view, viewStyle]}
         bg={bg}
         lightBg={lightBg}
@@ -58,7 +58,7 @@ export const IconButton = (props: IconButtonProps) => {
         darkBorder={darkBorder}
       >
         {children}
-      </View>
+      </Box>
     </Bounceable>
   );
 };

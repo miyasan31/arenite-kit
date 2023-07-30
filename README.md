@@ -9,9 +9,9 @@
 - expanded theme config
 - expanded component types
   - [x] Text
-  - [ ] Image
-  - [x] View
-  - [ ] ScrollView
+  - [x] Image
+  - [x] Box
+  - [x] ScrollView
   - [x] HStack
   - [x] VStack
   - [x] Button
@@ -19,7 +19,7 @@
   - [ ] Button Group
   - [x] Divider
   - [ ] SectionList
-  - [ ] FlatList
+  - [x] FlatList
   - [ ] Modal
   - [ ] Menu
   - [ ] Popover

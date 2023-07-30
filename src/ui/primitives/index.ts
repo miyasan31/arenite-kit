@@ -1,5 +1,5 @@
 export * from './Text';
-export * from './View';
+export * from './Box';
 export * from './ScrollView';
 export * from './TextInput';
 export * from './SafeAreaView';
