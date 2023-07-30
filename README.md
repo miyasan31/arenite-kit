@@ -1,4 +1,42 @@
-# arenite-kit
+# Arenite-Kit
+
+## Roadmap
+
+- utility first component interface
+- sx property
+- expanded theme config
+- expanded component types
+  - [x] Text
+  - [ ] Image
+  - [x] View
+  - [ ] ScrollView
+  - [x] HStack
+  - [x] VStack
+  - [x] Button
+  - [x] IconButton
+  - [ ] Button Group
+  - [x] Divider
+  - [ ] SectionList
+  - [ ] FlatList
+  - [ ] Modal
+  - [ ] Menu
+  - [ ] Popover
+  - [x] TextInput
+  - [ ] Checkbox
+  - [ ] Radio
+  - [ ] Picker
+  - [ ] Slider
+  - [ ] Card
+  - [ ] Badge
+  - [ ] Chip
+  - [ ] Avatar
+  - [ ] Tabs
+  - [ ] Collapse
+  - [ ] Accordion
+  - [ ] Toast
+  - [ ] Alert
+  - [ ] Progress
+  - [ ] Skeleton
 
 ## Installation
 
