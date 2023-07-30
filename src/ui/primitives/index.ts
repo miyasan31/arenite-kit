@@ -1,5 +1,6 @@
 export * from './Text';
 export * from './Box';
+export * from './Pressable';
 export * from './ScrollView';
 export * from './TextInput';
 export * from './SafeAreaView';
