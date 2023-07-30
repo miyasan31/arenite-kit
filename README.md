@@ -1,5 +1,7 @@
 # Arenite-Kit
 
+💎 Design system, UI components for React Native.
+
 ## Roadmap
 
 - utility first component interface
