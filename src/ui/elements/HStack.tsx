@@ -1,26 +1,36 @@
-import React, { ReactNode } from 'react';
-import type { View as NativeView, ViewStyle } from 'react-native';
-import type { BgThemeProps, BorderThemeProps } from '../../core';
+import React from 'react';
+import { createAreniteStyle } from '../../style';
+import type { AreniteViewStyle } from '../../style';
 import { View } from '../primitives';
+import type { ViewProps } from '../primitives';
 
-export type HStackProps = {
-  children: ReactNode;
-  style?: ViewStyle;
-  gap?: ViewStyle['rowGap'];
-  align?: ViewStyle['alignItems'];
-  justify?: ViewStyle['justifyContent'];
-} & BgThemeProps &
-  BorderThemeProps;
+export type HStackProps = ViewProps & {
+  gap?: AreniteViewStyle['rowGap'];
+  align?: AreniteViewStyle['alignItems'];
+  justify?: AreniteViewStyle['justifyContent'];
+};
 
 export const HStack = (props: HStackProps) => {
   const { style, gap, align, justify, ...otherProps } = props;
 
-  const fixedStyle: NativeView['props']['style'] = {
-    flexDirection: 'row',
-    columnGap: gap,
-    alignItems: align,
-    justifyContent: justify,
-  };
-
-  return <View style={[style, fixedStyle]} {...otherProps} />;
+  return (
+    <View
+      style={[
+        style,
+        defaultStyle.view,
+        {
+          columnGap: gap,
+          alignItems: align,
+          justifyContent: justify,
+        },
+      ]}
+      {...otherProps}
+    />
+  );
 };
+
+const defaultStyle = createAreniteStyle({
+  view: {
+    flexDirection: 'row',
+  },
+});

@@ -1,14 +1,11 @@
 import React, { ReactElement, ReactNode } from 'react';
-import {
-  StyleSheet,
-  Text as NativeText,
-  View as NativeView,
-} from 'react-native';
 import type {
   BgThemeProps,
   BorderThemeProps,
   ColorThemeProps,
 } from '../../core';
+import { createAreniteStyle } from '../../style';
+import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { Text, View } from '../primitives';
 import { Bounceable } from './Bounceable';
 
@@ -20,8 +17,8 @@ export type ButtonProps = {
   right?: ReactElement;
   noBounce?: boolean;
   disabled?: boolean;
-  viewStyle?: NativeView['props']['style'];
-  textStyle?: NativeText['props']['style'];
+  viewStyle?: AreniteViewStyleProps;
+  textStyle?: AreniteTextStyleProps;
 } & BgThemeProps &
   BorderThemeProps &
   ColorThemeProps;
@@ -54,7 +51,9 @@ export const Button = (props: ButtonProps) => {
       onLongPress={onLongPress}
       disabled={disabled}
       noBounce={noBounce}
-      pressableStyle={defaultStyle.pressable}
+      style={{
+        pressable: defaultStyle.pressable,
+      }}
     >
       <View
         style={[defaultStyle.view, viewStyle]}
@@ -82,7 +81,7 @@ export const Button = (props: ButtonProps) => {
   );
 };
 
-const defaultStyle = StyleSheet.create({
+const defaultStyle = createAreniteStyle({
   pressable: {
     width: '100%',
   },

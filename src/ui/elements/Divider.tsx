@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import type { BorderThemeProps, ColorThemeProps } from '../../core';
+import { createAreniteStyle } from '../../style';
 import { Text, View } from '../primitives';
 
 export type DividerProps = {
@@ -50,7 +50,7 @@ export const Divider = (props: DividerProps) => {
   );
 };
 
-const defaultStyle = StyleSheet.create({
+const defaultStyle = createAreniteStyle({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

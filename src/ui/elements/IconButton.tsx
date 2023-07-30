@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import { StyleSheet, View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
+import { createAreniteStyle } from '../../style';
+import type { AreniteViewStyle } from '../../style';
 
 import { View } from '../primitives';
 import { Bounceable } from './Bounceable';
@@ -12,7 +13,7 @@ export type IconButtonProps = {
   disabled?: boolean;
   noBounce?: boolean;
   size?: number;
-  viewStyle?: NativeView['props']['style'];
+  viewStyle?: AreniteViewStyle;
 } & BgThemeProps &
   BorderThemeProps;
 
@@ -41,8 +42,10 @@ export const IconButton = (props: IconButtonProps) => {
       onLongPress={onLongPress}
       disabled={disabled}
       noBounce={noBounce}
-      pressableStyle={squareStyle}
-      animatedViewStyle={squareStyle}
+      style={{
+        pressable: squareStyle,
+        animatedView: squareStyle,
+      }}
       scaleTo={0.95}
     >
       <View
@@ -60,7 +63,7 @@ export const IconButton = (props: IconButtonProps) => {
   );
 };
 
-const defaultStyle = StyleSheet.create({
+const defaultStyle = createAreniteStyle({
   view: {
     display: 'flex',
     alignItems: 'center',

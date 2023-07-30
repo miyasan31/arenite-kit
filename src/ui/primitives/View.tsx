@@ -1,9 +1,16 @@
 import React from 'react';
-import { StyleProp, View as NativeView, ViewStyle } from 'react-native';
+import { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { useThemeColor } from '../../core';
+import type { AreniteViewStyleProps } from '../../style';
+import type { OmitKeyReplacer } from '../types';
 
-export type ViewProps = NativeView['props'] & BgThemeProps & BorderThemeProps;
+export type ViewProps = OmitKeyReplacer<
+  NativeView['props'],
+  { style?: AreniteViewStyleProps }
+> &
+  BgThemeProps &
+  BorderThemeProps;
 
 export const View = (props: ViewProps) => {
   const {
@@ -27,14 +34,10 @@ export const View = (props: ViewProps) => {
     dark: darkBorder,
   });
 
-  const viewStyle: StyleProp<ViewStyle> = [
-    style,
-    {
-      backgroundColor,
-      borderColor,
-      borderWidth: borderColor ? 1 : 0,
-    },
-  ];
-
-  return <NativeView style={viewStyle} {...otherProps} />;
+  return (
+    <NativeView
+      style={[style, { backgroundColor, borderColor }]}
+      {...otherProps}
+    />
+  );
 };

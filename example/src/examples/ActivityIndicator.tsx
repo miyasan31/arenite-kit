@@ -1,6 +1,11 @@
-import { ActivityIndicator, HStack, Text, VStack } from 'arenite-kit';
+import {
+  ActivityIndicator,
+  createAreniteStyle,
+  HStack,
+  Text,
+  VStack,
+} from 'arenite-kit';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 
 export const ActivityIndicatorExample = () => {
   return (
@@ -10,16 +15,19 @@ export const ActivityIndicatorExample = () => {
       </Text>
 
       <HStack gap={24}>
-        <ActivityIndicator color={'primary'} />
+        <ActivityIndicator style={style.indicator} color={'primary'} />
         <ActivityIndicator color={'primary'} size={'large'} />
       </HStack>
     </VStack>
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
+  },
+  indicator: {
+    borderRadius: 8,
   },
 });

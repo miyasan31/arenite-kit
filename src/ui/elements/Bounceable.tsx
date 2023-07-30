@@ -1,9 +1,5 @@
 import React, { ReactNode } from 'react';
-import {
-  Pressable,
-  PressableProps,
-  PressableStateCallbackType,
-} from 'react-native';
+import { Pressable, PressableStateCallbackType } from 'react-native';
 import Animated, {
   Easing,
   Extrapolate,
@@ -13,9 +9,16 @@ import Animated, {
   withTiming,
   WithTimingConfig,
 } from 'react-native-reanimated';
+import type { AreniteViewStyleProps } from '../../style';
+import type { OmitKeyReplacer } from '../types';
 
-type AnimatedViewProps = Animated.View['props'] & {
-  children: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
+type AnimatedViewProps = OmitKeyReplacer<
+  Animated.View['props'],
+  {
+    children?: ReactNode | ((state: PressableStateCallbackType) => ReactNode);
+    style?: AreniteViewStyleProps;
+  }
+> & {
   state: PressableStateCallbackType;
   noBounce?: boolean;
   scaleTo?: number;
@@ -57,33 +60,38 @@ const AnimatedView = (props: AnimatedViewProps) => {
 };
 
 type PureFunction = () => void;
-export type BounceableProps = Omit<AnimatedViewProps, 'state' | 'style'> & {
+export type BounceableProps = OmitKeyReplacer<
+  Omit<AnimatedViewProps, 'state'>,
+  {
+    style?: {
+      pressable?:
+        | AreniteViewStyleProps
+        | ((state: PressableStateCallbackType) => AreniteViewStyleProps);
+      animatedView?: AreniteViewStyleProps;
+    };
+  }
+> & {
   onPress: PureFunction;
   onLongPress?: PureFunction;
   disabled?: boolean;
-  pressableStyle?: PressableProps['style'];
-  animatedViewStyle?: AnimatedViewProps['style'];
 };
 
 export const Bounceable = (props: BounceableProps) => {
-  const {
-    onPress,
-    onLongPress,
-    disabled,
-    pressableStyle,
-    animatedViewStyle,
-    ...otherProps
-  } = props;
+  const { onPress, onLongPress, disabled, style, ...otherProps } = props;
 
   return (
     <Pressable
-      style={pressableStyle}
+      style={style?.pressable}
       disabled={disabled}
       onPress={onPress}
       onLongPress={onLongPress}
     >
       {(state) => (
-        <AnimatedView state={state} style={animatedViewStyle} {...otherProps} />
+        <AnimatedView
+          state={state}
+          style={style?.animatedView}
+          {...otherProps}
+        />
       )}
     </Pressable>
   );

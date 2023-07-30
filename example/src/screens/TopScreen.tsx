@@ -1,6 +1,6 @@
-import { SafeAreaView, VStack } from 'arenite-kit';
+import { SafeAreaView, VStack, createAreniteStyle } from 'arenite-kit';
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { KeyboardAvoidingView } from '../components/KeyboardAvoidingView';
 import { ActivityIndicatorExample } from '../examples/ActivityIndicator';
 import { ButtonExample } from '../examples/Button';
@@ -35,7 +35,7 @@ export const TopScreen = () => {
   );
 };
 
-const style = StyleSheet.create({
+const style = createAreniteStyle({
   vStack: {
     paddingTop: 16,
     paddingHorizontal: 16,

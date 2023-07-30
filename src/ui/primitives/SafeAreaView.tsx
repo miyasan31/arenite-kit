@@ -1,11 +1,17 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import type { NativeSafeAreaViewProps } from 'react-native-safe-area-context';
 import { SafeAreaView as NativeSafeAreaView } from 'react-native-safe-area-context';
 import type { BgThemeProps } from '../../core';
 import { useThemeColor } from '../../core';
+import { createAreniteStyle } from '../../style';
+import type { AreniteViewStyleProps } from '../../style';
+import type { OmitKeyReplacer } from '../types';
 
-export type SafeAreaViewProps = NativeSafeAreaViewProps & BgThemeProps;
+export type SafeAreaViewProps = OmitKeyReplacer<
+  NativeSafeAreaViewProps,
+  { style?: AreniteViewStyleProps }
+> &
+  BgThemeProps;
 
 export const SafeAreaView = (props: SafeAreaViewProps) => {
   const { bg, lightBg, darkBg, style, ...otherProps } = props;
@@ -23,7 +29,7 @@ export const SafeAreaView = (props: SafeAreaViewProps) => {
   );
 };
 
-const defaultStyle = StyleSheet.create({
+const defaultStyle = createAreniteStyle({
   view: {
     flex: 1,
   },

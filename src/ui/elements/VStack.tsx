@@ -1,25 +1,36 @@
-import React, { ReactNode } from 'react';
-import type { ViewStyle } from 'react-native';
-import type { BgThemeProps, BorderThemeProps } from '../../core';
+import React from 'react';
+import { createAreniteStyle } from '../../style';
+import type { AreniteViewStyle } from '../../style';
 import { View } from '../primitives';
+import type { ViewProps } from '../primitives';
 
-export type VStackProps = {
-  children: ReactNode;
-  style?: ViewStyle;
-  gap?: ViewStyle['rowGap'];
-  align?: ViewStyle['alignItems'];
-  justify?: ViewStyle['justifyContent'];
-} & BgThemeProps &
-  BorderThemeProps;
+export type VStackProps = ViewProps & {
+  gap?: AreniteViewStyle['rowGap'];
+  align?: AreniteViewStyle['alignItems'];
+  justify?: AreniteViewStyle['justifyContent'];
+};
 
 export const VStack = (props: VStackProps) => {
   const { style, gap, align, justify, ...otherProps } = props;
 
-  const fixedStyle: ViewStyle = {
-    rowGap: gap,
-    alignItems: align,
-    justifyContent: justify,
-  };
-
-  return <View style={[style, fixedStyle]} {...otherProps} />;
+  return (
+    <View
+      style={[
+        style,
+        defaultStyle.view,
+        {
+          rowGap: gap,
+          alignItems: align,
+          justifyContent: justify,
+        },
+      ]}
+      {...otherProps}
+    />
+  );
 };
+
+const defaultStyle = createAreniteStyle({
+  view: {
+    flexDirection: 'column',
+  },
+});
