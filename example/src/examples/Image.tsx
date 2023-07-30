@@ -10,19 +10,11 @@ export const ImageExample = () => {
 
       <HStack gap={12}>
         <Image
-          width={80}
-          height={80}
+          width={200}
+          height={200}
           style={style.image}
           border={'border2'}
           bg={'white'}
-          source={require('../../assets/image/arenitez.png')}
-        />
-        <Image
-          width={80}
-          height={80}
-          style={style.image}
-          border={'primary'}
-          bg={'primary'}
           source={require('../../assets/image/arenitez.png')}
         />
       </HStack>

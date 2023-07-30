@@ -5,10 +5,10 @@ import {
   ScrollView,
 } from 'arenite-kit';
 import React from 'react';
-import { KeyboardAvoidingView } from '../components/KeyboardAvoidingView';
 import { ActivityIndicatorExample } from '../examples/ActivityIndicator';
 import { ButtonExample } from '../examples/Button';
 import { DividerExample } from '../examples/Divider';
+import { FlatListExample } from '../examples/FlatList';
 import { HStackExample } from '../examples/Hstack';
 import { IconButtonExample } from '../examples/IconButton';
 import { ImageExample } from '../examples/Image';
@@ -23,19 +23,18 @@ export const TopScreen = () => {
   return (
     <SafeAreaView edges={edges} bg={'bg1'}>
       <ScrollView>
-        <KeyboardAvoidingView>
-          <VStack gap={32} style={style.vStack}>
-            <TextExample />
-            <TextInputExample />
-            <ButtonExample />
-            <IconButtonExample />
-            <ImageExample />
-            <VStackExample />
-            <HStackExample />
-            <DividerExample />
-            <ActivityIndicatorExample />
-          </VStack>
-        </KeyboardAvoidingView>
+        <VStack gap={32} style={style.vStack}>
+          <TextExample />
+          <TextInputExample />
+          <ButtonExample />
+          <IconButtonExample />
+          <ImageExample />
+          <FlatListExample />
+          <VStackExample />
+          <HStackExample />
+          <DividerExample />
+          <ActivityIndicatorExample />
+        </VStack>
       </ScrollView>
     </SafeAreaView>
   );
