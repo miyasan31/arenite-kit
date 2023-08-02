@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePalletColor } from '../../core';
@@ -12,7 +12,7 @@ export type BoxProps = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-export const Box = (props: BoxProps) => {
+const BoxComponent = (props: BoxProps, ref: ForwardedRef<NativeView>) => {
   const {
     bg,
     lightBg,
@@ -36,8 +36,11 @@ export const Box = (props: BoxProps) => {
 
   return (
     <NativeView
+      ref={ref}
       style={[style, { backgroundColor, borderColor }]}
       {...otherProps}
     />
   );
 };
+
+export const Box = memo(forwardRef<NativeView, BoxProps>(BoxComponent));

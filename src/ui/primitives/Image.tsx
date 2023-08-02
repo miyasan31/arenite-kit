@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { Image as NativeImage } from 'react-native';
 import { usePalletColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
@@ -14,7 +14,7 @@ export type ImageProps = OmitKeyReplacer<
 } & BgThemeProps &
   BorderThemeProps;
 
-export const Image = (props: ImageProps) => {
+const ImageComponent = (props: ImageProps, ref: ForwardedRef<NativeImage>) => {
   const {
     bg,
     lightBg,
@@ -40,8 +40,11 @@ export const Image = (props: ImageProps) => {
 
   return (
     <NativeImage
+      ref={ref}
       style={[style, { width, height, backgroundColor, borderColor }]}
       {...otherProps}
     />
   );
 };
+
+export const Image = memo(forwardRef<NativeImage, ImageProps>(ImageComponent));

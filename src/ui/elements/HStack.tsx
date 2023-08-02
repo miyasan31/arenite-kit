@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
+import type { View as NativeView } from 'react-native';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
 import { Box } from '../primitives';
@@ -10,11 +11,12 @@ export type HStackProps = BoxProps & {
   justify?: AreniteViewStyle['justifyContent'];
 };
 
-export const HStack = (props: HStackProps) => {
+const HStackComponent = (props: HStackProps, ref: ForwardedRef<NativeView>) => {
   const { style, gap, align, justify, ...otherProps } = props;
 
   return (
     <Box
+      ref={ref}
       style={[
         style,
         defaultStyle.view,
@@ -34,3 +36,7 @@ const defaultStyle = createAreniteStyle({
     flexDirection: 'row',
   },
 });
+
+export const HStack = memo(
+  forwardRef<NativeView, HStackProps>(HStackComponent)
+);

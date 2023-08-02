@@ -1,4 +1,11 @@
-import React, { ReactElement, ReactNode } from 'react';
+import React, {
+  ForwardedRef,
+  forwardRef,
+  memo,
+  ReactElement,
+  ReactNode,
+} from 'react';
+import type { View as NativeView } from 'react-native';
 import type {
   BgThemeProps,
   BorderThemeProps,
@@ -23,7 +30,7 @@ export type ButtonProps = {
   BorderThemeProps &
   ColorThemeProps;
 
-export const Button = (props: ButtonProps) => {
+const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
   const {
     children,
     onPress,
@@ -47,6 +54,7 @@ export const Button = (props: ButtonProps) => {
 
   return (
     <Bounceable
+      ref={ref}
       onPress={onPress}
       onLongPress={onLongPress}
       disabled={disabled}
@@ -100,3 +108,7 @@ const defaultStyle = createAreniteStyle({
     textAlign: 'center',
   },
 });
+
+export const Button = memo(
+  forwardRef<NativeView, ButtonProps>(ButtonComponent)
+);

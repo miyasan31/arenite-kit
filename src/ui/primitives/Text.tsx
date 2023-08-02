@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
 import { usePalletColor } from '../../core';
@@ -11,7 +11,7 @@ export type TextProps = OmitKeyReplacer<
 > &
   ColorThemeProps;
 
-export const Text = (props: TextProps) => {
+const TextComponent = (props: TextProps, ref: ForwardedRef<NativeText>) => {
   const {
     color: textColor,
     lightColor,
@@ -25,5 +25,7 @@ export const Text = (props: TextProps) => {
     dark: darkColor,
   });
 
-  return <NativeText style={[style, { color }]} {...otherProps} />;
+  return <NativeText ref={ref} style={[style, { color }]} {...otherProps} />;
 };
+
+export const Text = memo(forwardRef<NativeText, TextProps>(TextComponent));

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { TextInput as NativeTextInput } from 'react-native';
 import type {
   BgThemeProps,
@@ -22,7 +22,10 @@ export type TextInputProps = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-export const TextInput = (props: TextInputProps) => {
+const TextInputComponent = (
+  props: TextInputProps,
+  ref: ForwardedRef<NativeTextInput>
+) => {
   const {
     color: textColor,
     lightColor,
@@ -56,6 +59,7 @@ export const TextInput = (props: TextInputProps) => {
 
   return (
     <NativeTextInput
+      ref={ref}
       selectionColor={focusedColor}
       placeholderTextColor={placeholderColor}
       style={[
@@ -76,3 +80,7 @@ const defaultStyle = createAreniteStyle({
     paddingHorizontal: 12,
   },
 });
+
+export const TextInput = memo(
+  forwardRef<NativeTextInput, TextInputProps>(TextInputComponent)
+);

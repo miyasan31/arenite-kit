@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import type { NativeSafeAreaViewProps } from 'react-native-safe-area-context';
 import { SafeAreaView as NativeSafeAreaView } from 'react-native-safe-area-context';
 import type { BgThemeProps } from '../../core';
@@ -13,7 +13,7 @@ export type SafeAreaViewProps = OmitKeyReplacer<
 > &
   BgThemeProps;
 
-export const SafeAreaView = (props: SafeAreaViewProps) => {
+const SafeAreaViewComponent = (props: SafeAreaViewProps) => {
   const { bg, lightBg, darkBg, style, ...otherProps } = props;
 
   const backgroundColor = usePalletColor('bg', bg, {
@@ -34,3 +34,5 @@ const defaultStyle = createAreniteStyle({
     flex: 1,
   },
 });
+
+export const SafeAreaView = memo(SafeAreaViewComponent);

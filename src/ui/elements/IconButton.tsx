@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React, { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
+import type { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
@@ -17,7 +18,10 @@ export type IconButtonProps = {
 } & BgThemeProps &
   BorderThemeProps;
 
-export const IconButton = (props: IconButtonProps) => {
+const IconButtonComponent = (
+  props: IconButtonProps,
+  ref: ForwardedRef<NativeView>
+) => {
   const {
     children,
     onPress,
@@ -38,6 +42,7 @@ export const IconButton = (props: IconButtonProps) => {
 
   return (
     <Bounceable
+      ref={ref}
       onPress={onPress}
       onLongPress={onLongPress}
       disabled={disabled}
@@ -71,3 +76,7 @@ const defaultStyle = createAreniteStyle({
     borderRadius: 8,
   },
 });
+
+export const IconButton = memo(
+  forwardRef<NativeView, IconButtonProps>(IconButtonComponent)
+);

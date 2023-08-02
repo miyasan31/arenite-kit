@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { ScrollView as NativeScrollView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePalletColor } from '../../core';
@@ -12,7 +12,10 @@ export type ScrollViewProps = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-export const ScrollView = (props: ScrollViewProps) => {
+const ScrollViewComponent = (
+  props: ScrollViewProps,
+  ref: ForwardedRef<NativeScrollView>
+) => {
   const {
     bg,
     lightBg,
@@ -36,8 +39,13 @@ export const ScrollView = (props: ScrollViewProps) => {
 
   return (
     <NativeScrollView
+      ref={ref}
       style={[style, { backgroundColor, borderColor }]}
       {...otherProps}
     />
   );
 };
+
+export const ScrollView = memo(
+  forwardRef<NativeScrollView, ScrollViewProps>(ScrollViewComponent)
+);

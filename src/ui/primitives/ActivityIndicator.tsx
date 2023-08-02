@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 import type { CommonToken } from '../../core';
 import { BgThemeProps, BorderThemeProps, usePalletColor } from '../../core';
@@ -12,7 +12,10 @@ export type ActivityIndicatorProps = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-export const ActivityIndicator = (props: ActivityIndicatorProps) => {
+const ActivityIndicatorComponent = (
+  props: ActivityIndicatorProps,
+  ref: ForwardedRef<NativeActivityIndicator>
+) => {
   const {
     bg,
     lightBg,
@@ -39,9 +42,16 @@ export const ActivityIndicator = (props: ActivityIndicatorProps) => {
 
   return (
     <NativeActivityIndicator
+      ref={ref}
       color={iconColor}
       style={[style, { backgroundColor, borderColor }]}
       {...otherProps}
     />
   );
 };
+
+export const ActivityIndicator = memo(
+  forwardRef<NativeActivityIndicator, ActivityIndicatorProps>(
+    ActivityIndicatorComponent
+  )
+);

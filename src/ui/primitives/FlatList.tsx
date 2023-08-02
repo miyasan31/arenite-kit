@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   FlatList as NativeFlatList,
   FlatListProps as NativeFlatListProps,
@@ -21,7 +21,7 @@ export type FlatListProps<Data> = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-export const FlatList = <Data extends any>(props: FlatListProps<Data>) => {
+const FlatListComponent = <Data extends any>(props: FlatListProps<Data>) => {
   const {
     bg,
     lightBg,
@@ -50,3 +50,5 @@ export const FlatList = <Data extends any>(props: FlatListProps<Data>) => {
     />
   );
 };
+
+export const FlatList = memo(FlatListComponent);

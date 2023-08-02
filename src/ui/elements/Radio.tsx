@@ -15,7 +15,7 @@ export type RadioGroupProps<T> = {
   onChange: (value: T) => void;
 };
 
-const RadioGroup = <T,>(props: RadioGroupProps<T>) => {
+const RadioGroupComponent = <T,>(props: RadioGroupProps<T>) => {
   const { value, onChange, children } = props;
 
   return (
@@ -31,7 +31,7 @@ export type RadioProps<T> = {
   labelPosition?: 'left' | 'right';
 };
 
-export const Radio = <T,>(props: RadioProps<T>) => {
+const RadioComponent = <T,>(props: RadioProps<T>) => {
   const { label, labelPosition, value } = props;
 
   const { selectedValue, onChange } =
@@ -91,5 +91,7 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-Radio.displayName = 'arenite-kit/ui/Radio';
-Radio.Group = RadioGroup;
+RadioComponent.displayName = 'arenite-kit.ui.Radio';
+RadioComponent.Group = RadioGroupComponent;
+
+export const Radio = RadioComponent;

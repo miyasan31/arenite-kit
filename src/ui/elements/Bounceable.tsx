@@ -1,5 +1,8 @@
-import React, { ReactNode } from 'react';
-import { Pressable, PressableStateCallbackType } from 'react-native';
+import React, { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
+import type {
+  PressableStateCallbackType,
+  View as NativeView,
+} from 'react-native';
 import Animated, {
   Easing,
   Extrapolate,
@@ -10,6 +13,7 @@ import Animated, {
   WithTimingConfig,
 } from 'react-native-reanimated';
 import type { AreniteViewStyleProps } from '../../style';
+import { Pressable } from '../primitives';
 import type { OmitKeyReplacer } from '../types';
 
 type AnimatedViewProps = OmitKeyReplacer<
@@ -60,6 +64,7 @@ const AnimatedView = (props: AnimatedViewProps) => {
 };
 
 type PureFunction = () => void;
+
 export type BounceableProps = OmitKeyReplacer<
   Omit<AnimatedViewProps, 'state'>,
   {
@@ -76,11 +81,15 @@ export type BounceableProps = OmitKeyReplacer<
   disabled?: boolean;
 };
 
-export const Bounceable = (props: BounceableProps) => {
+const BounceableComponent = (
+  props: BounceableProps,
+  ref: ForwardedRef<NativeView>
+) => {
   const { onPress, onLongPress, disabled, style, ...otherProps } = props;
 
   return (
     <Pressable
+      ref={ref}
       style={style?.pressable}
       disabled={disabled}
       onPress={onPress}
@@ -96,3 +105,7 @@ export const Bounceable = (props: BounceableProps) => {
     </Pressable>
   );
 };
+
+export const Bounceable = memo(
+  forwardRef<NativeView, BounceableProps>(BounceableComponent)
+);

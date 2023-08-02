@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { ForwardedRef, forwardRef, memo } from 'react';
 import {
+  View as NativeView,
   Pressable as NativePressable,
   PressableProps as NativePressableProps,
+  PressableStateCallbackType,
 } from 'react-native';
 import { usePalletColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
@@ -10,12 +12,19 @@ import type { OmitKeyReplacer } from '../types';
 
 export type PressableProps = OmitKeyReplacer<
   NativePressableProps,
-  { style?: AreniteViewStyleProps }
+  {
+    style?:
+      | AreniteViewStyleProps
+      | ((state: PressableStateCallbackType) => AreniteViewStyleProps);
+  }
 > &
   BgThemeProps &
   BorderThemeProps;
 
-export const Pressable = (props: PressableProps) => {
+const PressableComponent = (
+  props: PressableProps,
+  ref: ForwardedRef<NativeView>
+) => {
   const {
     bg,
     lightBg,
@@ -39,8 +48,17 @@ export const Pressable = (props: PressableProps) => {
 
   return (
     <NativePressable
-      style={[style, { backgroundColor, borderColor }]}
+      ref={ref}
+      style={
+        typeof style === 'function'
+          ? (state) => [style(state), { backgroundColor, borderColor }]
+          : [style, { backgroundColor, borderColor }]
+      }
       {...otherProps}
     />
   );
 };
+
+export const Pressable = memo(
+  forwardRef<NativeView, PressableProps>(PressableComponent)
+);
