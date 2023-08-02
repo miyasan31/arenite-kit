@@ -2,6 +2,29 @@ import React, { createContext, ReactNode, useContext } from 'react';
 import { createAreniteStyle } from '../../style';
 import { Box, Text, Pressable } from '../primitives';
 
+type RadioGroupContextType<T = any> = {
+  selectedValue: T;
+  onChange: (value: T) => void;
+};
+
+const RadioGroupContext = createContext({} as RadioGroupContextType);
+
+export type RadioGroupProps<T> = {
+  children: ReactNode;
+  value: T;
+  onChange: (value: T) => void;
+};
+
+const RadioGroup = <T,>(props: RadioGroupProps<T>) => {
+  const { value, onChange, children } = props;
+
+  return (
+    <RadioGroupContext.Provider value={{ selectedValue: value, onChange }}>
+      {children}
+    </RadioGroupContext.Provider>
+  );
+};
+
 export type RadioProps<T> = {
   value: T;
   label?: string;
@@ -68,25 +91,5 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-type RadioGroupContextType<T = any> = {
-  selectedValue: T;
-  onChange: (value: T) => void;
-};
-
-const RadioGroupContext = createContext({} as RadioGroupContextType);
-
-export type RadioGroupProps<T> = {
-  children: ReactNode;
-  value: T;
-  onChange: (value: T) => void;
-};
-
-export const RadioGroup = <T,>(props: RadioGroupProps<T>) => {
-  const { value, onChange, children } = props;
-
-  return (
-    <RadioGroupContext.Provider value={{ selectedValue: value, onChange }}>
-      {children}
-    </RadioGroupContext.Provider>
-  );
-};
+Radio.displayName = 'arenite-kit/ui/Radio';
+Radio.Group = RadioGroup;
