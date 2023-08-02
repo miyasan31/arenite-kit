@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import {
   FlatList as NativeFlatList,
   FlatListProps as NativeFlatListProps,
@@ -51,4 +51,4 @@ const FlatListComponent = <Data extends any>(props: FlatListProps<Data>) => {
   );
 };
 
-export const FlatList = memo(FlatListComponent);
+export const FlatList = FlatListComponent;
