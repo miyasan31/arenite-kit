@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  createAreniteStyle,
-  Radio,
-  RadioGroup,
-  Text,
-  VStack,
-} from 'arenite-kit';
+import { createAreniteStyle, Radio, Text, VStack } from 'arenite-kit';
 
 type ValueType = 'left' | 'right';
 
@@ -22,12 +16,10 @@ export const RadioExample = () => {
         Radio
       </Text>
 
-      <VStack gap={8}>
-        <RadioGroup value={value} onChange={onChangeRadioValue}>
-          <Radio value={'left'} label={'Left'} />
-          <Radio value={'right'} label={'Right'} labelPosition={'right'} />
-        </RadioGroup>
-      </VStack>
+      <Radio.Group value={value} onChange={onChangeRadioValue}>
+        <Radio value={'left'} label={'Left'} />
+        <Radio value={'right'} label={'Right'} labelPosition={'right'} />
+      </Radio.Group>
     </VStack>
   );
 };
