@@ -34,7 +34,7 @@
   - [ ] Tabs
   - [ ] Collapse
   - [ ] Accordion
-  - [ ] Toast
+  - [x] Toast
   - [ ] Alert
   - [ ] Progress
   - [ ] Skeleton
