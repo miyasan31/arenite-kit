@@ -7,6 +7,7 @@ import {
 import React from 'react';
 import { ActivityIndicatorExample } from '../examples/ActivityIndicator';
 import { ButtonExample } from '../examples/Button';
+import { ButtonGroupExample } from '../examples/ButtonGroup';
 import { DividerExample } from '../examples/Divider';
 import { FlatListExample } from '../examples/FlatList';
 import { HStackExample } from '../examples/Hstack';
@@ -29,6 +30,7 @@ export const TopScreen = () => {
           <TextInputExample />
           <RadioExample />
           <ButtonExample />
+          <ButtonGroupExample />
           <IconButtonExample />
           <ImageExample />
           <FlatListExample />

@@ -24,11 +24,13 @@ const colorPallet = {
     color0: '#FFFFFF',
     color1: '#070417',
     color2: '#C2C6D2',
+    color9: '#FFFFFF',
   },
   dark: {
     color0: '#27272a',
     color1: '#FFFFFF',
     color2: '#A1A1AA',
+    color9: '#000000',
   },
 };
 const bgPallet = {
@@ -36,11 +38,15 @@ const bgPallet = {
     bg0: '#ffffff00',
     bg1: '#F1F5F9',
     bg2: '#FFFFFF',
+    // ...
+    bg9: '#27272a',
   },
   dark: {
     bg0: '#00000000',
     bg1: '#27272a',
     bg2: '#3f3f45',
+    // ...
+    bg9: '#FFFFFF',
   },
 };
 
