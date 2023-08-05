@@ -1,4 +1,5 @@
 export type Theme = 'light' | 'dark';
+export type SizeKeys = 'sm' | 'md' | 'lg';
 export type PalletKeys = 'common' | 'color' | 'bg' | 'border' | 'icon';
 export type Pallet = Record<Theme, Record<string, string>>;
 

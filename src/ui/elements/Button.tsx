@@ -10,6 +10,7 @@ import type {
   BgThemeProps,
   BorderThemeProps,
   ColorThemeProps,
+  SizeKeys,
 } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
@@ -26,8 +27,8 @@ export type ButtonProps = {
   disabled?: boolean;
   viewStyle?: AreniteViewStyleProps;
   textStyle?: AreniteTextStyleProps;
-  size?: 'sm' | 'md' | 'lg';
-  radius?: 'sm' | 'md' | 'lg';
+  size?: SizeKeys;
+  radius?: SizeKeys;
   fullWidth?: boolean;
 } & BgThemeProps &
   BorderThemeProps &
