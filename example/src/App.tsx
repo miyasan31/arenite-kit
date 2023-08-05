@@ -1,4 +1,4 @@
-import { AreniteThemeProvider } from 'arenite-kit';
+import { AreniteThemeProvider, Toast } from 'arenite-kit';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useAppBootstrap } from './hooks/useAppBootstrap';
@@ -13,9 +13,12 @@ export default function App() {
 
   return (
     <AreniteThemeProvider value={areniteTheme}>
-      <SafeAreaProvider>
-        <TopScreen />
-      </SafeAreaProvider>
+      <Toast.Provider>
+        <SafeAreaProvider>
+          <TopScreen />
+        </SafeAreaProvider>
+        <Toast />
+      </Toast.Provider>
     </AreniteThemeProvider>
   );
 }

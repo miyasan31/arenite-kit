@@ -73,6 +73,8 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
 
   const fullWidthStyle = fullWidth ? { flex: 1 } : {};
 
+  const borderWidth = border || lightBorder || darkBorder ? 1 : 0;
+
   return (
     <Bounceable
       ref={ref}
@@ -83,7 +85,7 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
       style={{ pressable: [fullWidthStyle] }}
     >
       <Box
-        style={[sizingStyle.view, radiusStyle, viewStyle]}
+        style={[sizingStyle.view, radiusStyle, viewStyle, { borderWidth }]}
         bg={bg}
         lightBg={lightBg}
         darkBg={darkBg}

@@ -9,16 +9,11 @@ type SafeArea =
 export const getSafeAreaEdges = (
   safeArea: SafeArea
 ): NativeSafeAreaViewProps['edges'] => {
-  switch (safeArea) {
-    case 'horizontal':
-      return ['left', 'right'];
-    case 'top-horizontal':
-      return ['top', 'left', 'right'];
-    case 'bottom-horizontal':
-      return ['bottom', 'left', 'right'];
-    case 'vertical-horizontal':
-      return ['top', 'bottom', 'left', 'right'];
-    default:
-      return ['top', 'bottom', 'left', 'right'];
-  }
+  const edges = {
+    'horizontal': ['left', 'right'],
+    'top-horizontal': ['top', 'left', 'right'],
+    'bottom-horizontal': ['bottom', 'left', 'right'],
+    'vertical-horizontal': ['top', 'bottom', 'left', 'right'],
+  } as const;
+  return edges[safeArea] || ['top', 'bottom', 'left', 'right'];
 };

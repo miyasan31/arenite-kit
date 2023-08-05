@@ -16,6 +16,7 @@ import { ImageExample } from '../examples/Image';
 import { RadioExample } from '../examples/Radio';
 import { TextExample } from '../examples/Text';
 import { TextInputExample } from '../examples/TextInput';
+import { ToastExample } from '../examples/Toast';
 import { VStackExample } from '../examples/Vstack';
 import { getSafeAreaEdges } from '../libs/react-native-safe-area-context/getSafeAreaEdges';
 
@@ -36,6 +37,7 @@ export const TopScreen = () => {
           <FlatListExample />
           <VStackExample />
           <HStackExample />
+          <ToastExample />
           <DividerExample />
           <ActivityIndicatorExample />
         </VStack>
