@@ -26,6 +26,9 @@ export type ButtonProps = {
   disabled?: boolean;
   viewStyle?: AreniteViewStyleProps;
   textStyle?: AreniteTextStyleProps;
+  size?: 'sm' | 'md' | 'lg';
+  radius?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
 } & BgThemeProps &
   BorderThemeProps &
   ColorThemeProps;
@@ -50,7 +53,24 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     color,
     lightColor,
     darkColor,
+    size = 'md',
+    radius = 'md',
+    fullWidth = true,
   } = props;
+
+  const sizingStyle = {
+    sm: smStyle,
+    md: mdStyle,
+    lg: lgStyle,
+  }[size];
+
+  const radiusStyle = {
+    sm: { borderRadius: 0 },
+    md: { borderRadius: 8 },
+    lg: { borderRadius: 999 },
+  }[radius];
+
+  const fullWidthStyle = fullWidth ? { flex: 1 } : {};
 
   return (
     <Bounceable
@@ -59,12 +79,10 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
       onLongPress={onLongPress}
       disabled={disabled}
       noBounce={noBounce}
-      style={{
-        pressable: defaultStyle.pressable,
-      }}
+      style={{ pressable: [fullWidthStyle] }}
     >
       <Box
-        style={[defaultStyle.view, viewStyle]}
+        style={[sizingStyle.view, radiusStyle, viewStyle]}
         bg={bg}
         lightBg={lightBg}
         darkBg={darkBg}
@@ -73,37 +91,63 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
         darkBorder={darkBorder}
       >
         {left}
-
         <Text
-          style={[defaultStyle.text, textStyle]}
+          style={[sizingStyle.text, textStyle]}
           color={color}
           lightColor={lightColor}
           darkColor={darkColor}
         >
           {children}
         </Text>
-
         {right}
       </Box>
     </Bounceable>
   );
 };
 
-const defaultStyle = createAreniteStyle({
-  pressable: {
-    width: '100%',
-  },
+const smStyle = createAreniteStyle({
   view: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
-    borderRadius: 8,
+    paddingVertical: 12,
+  },
+  text: {
+    fontSize: 12,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+});
+
+const mdStyle = createAreniteStyle({
+  view: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 4,
     paddingVertical: 16,
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+});
+
+const lgStyle = createAreniteStyle({
+  view: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 4,
+    paddingVertical: 20,
+  },
+  text: {
+    fontSize: 20,
     fontWeight: '600',
     textAlign: 'center',
   },
