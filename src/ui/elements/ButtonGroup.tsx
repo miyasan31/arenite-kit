@@ -37,9 +37,10 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
     nonActiveBorder,
   } = props;
 
-  const buttonElements = buttons.map(({ label, value }, index) => {
+  const buttonComponents = buttons.map(({ label, value }, index) => {
     return (
       <Box
+        key={String(value)}
         style={{
           width: `${100 / buttons.length}%`,
           paddingTop: 6,
@@ -67,7 +68,7 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
 
   return (
     <HStack bg={nonActiveBg} style={defaultStyle.group}>
-      {buttonElements}
+      {buttonComponents}
     </HStack>
   );
 };
