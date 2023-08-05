@@ -76,7 +76,7 @@ export type BounceableProps = OmitKeyReplacer<
     };
   }
 > & {
-  onPress: PureFunction;
+  onPress?: PureFunction;
   onLongPress?: PureFunction;
   disabled?: boolean;
 };

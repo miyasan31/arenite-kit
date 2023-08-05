@@ -18,7 +18,7 @@ import { Bounceable } from './Bounceable';
 
 export type ButtonProps = {
   children: ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
   onLongPress?: () => void;
   left?: ReactElement;
   right?: ReactElement;
