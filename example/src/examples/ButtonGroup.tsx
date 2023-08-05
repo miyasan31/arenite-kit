@@ -28,6 +28,7 @@ export const ButtonGroupExample = () => {
           { label: 'Center', value: 'center' },
           { label: 'Right', value: 'right' },
         ]}
+        radius="md"
       />
     </VStack>
   );
