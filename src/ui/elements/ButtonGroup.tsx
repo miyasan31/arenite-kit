@@ -3,6 +3,7 @@ import type {
   BgThemeProps,
   BorderThemeProps,
   ColorThemeProps,
+  SizeKeys,
 } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Box } from '../primitives';
@@ -18,6 +19,7 @@ export type ButtonGroupProps<T> = {
   nonActiveColor?: ColorThemeProps['color'];
   nonActiveBg?: BgThemeProps['bg'];
   nonActiveBorder?: BorderThemeProps['border'];
+  radius?: SizeKeys;
   buttons: {
     label: string;
     value?: T;
@@ -35,20 +37,28 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
     nonActiveColor,
     nonActiveBg,
     nonActiveBorder,
+    radius = 'md',
   } = props;
+
+  const radiusStyle = {
+    sm: { borderRadius: 0 },
+    md: { borderRadius: 8 },
+    lg: { borderRadius: 999 },
+  }[radius];
 
   const buttonComponents = buttons.map(({ label, value }, index) => {
     return (
       <Box
         key={String(value)}
-        style={{
-          width: `${100 / buttons.length}%`,
-          paddingTop: 6,
-          paddingBottom: 6,
-          paddingLeft: index === 0 ? 6 : 0,
-          paddingRight: index === buttons.length - 1 ? 6 : 0,
-          borderRadius: 8,
-        }}
+        style={[
+          defaultStyle.buttonWrapper,
+          radiusStyle,
+          {
+            width: `${100 / buttons.length}%`,
+            paddingLeft: index === 0 ? 6 : 0,
+            paddingRight: index === buttons.length - 1 ? 6 : 0,
+          },
+        ]}
         bg={'bg2'}
       >
         <Button
@@ -57,8 +67,13 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
           bg={selectedValue === value ? activeBg : nonActiveBg}
           border={selectedValue === value ? activeBorder : nonActiveBorder}
           onPress={value && onChange && (() => onChange(value))}
-          viewStyle={[defaultStyle.view, { borderWidth: activeBorder ? 1 : 0 }]}
-          textStyle={defaultStyle.text}
+          viewStyle={[
+            defaultStyle.view,
+            radiusStyle,
+            { borderWidth: activeBorder ? 1 : 0 },
+          ]}
+          textStyle={[defaultStyle.text]}
+          radius={radius}
         >
           {label}
         </Button>
@@ -67,7 +82,7 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
   });
 
   return (
-    <HStack bg={nonActiveBg} style={defaultStyle.group}>
+    <HStack bg={nonActiveBg} style={[defaultStyle.group, radiusStyle]}>
       {buttonComponents}
     </HStack>
   );
@@ -75,11 +90,13 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
 
 const defaultStyle = createAreniteStyle({
   group: {
-    width: '100%',
-    borderRadius: 8,
+    flex: 1,
+  },
+  buttonWrapper: {
+    paddingTop: 6,
+    paddingBottom: 6,
   },
   view: {
-    borderRadius: 8,
     paddingVertical: 8,
   },
   text: {
