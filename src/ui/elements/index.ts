@@ -6,3 +6,4 @@ export * from './VStack';
 export * from './Divider';
 export * from './Bounceable';
 export * from './Radio';
+export * from './Toast';
