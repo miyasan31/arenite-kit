@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['node_modules/', 'lib/', 'scripts/', 'example/'],
+  ignorePatterns: ['node_modules/', 'lib/', 'scripts/', 'example/', '*.*.js'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
