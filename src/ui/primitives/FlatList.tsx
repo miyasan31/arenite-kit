@@ -21,7 +21,7 @@ export type FlatListProps<Data> = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-const FlatListComponent = <Data extends any>(props: FlatListProps<Data>) => {
+const FlatListComponent = <Data,>(props: FlatListProps<Data>) => {
   const {
     bg,
     lightBg,
