@@ -33,7 +33,9 @@
     "prepack": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install"
+    "bootstrap": "yarn example && yarn install",
+    "fix:lint": "eslint \"**/src/**/*.{js,ts,tsx}\" --fix",
+    "fix:fmt": "prettier --write \"**/src/**/*.{js,ts,tsx}\""
   },
   "keywords": [
     "react-native",
