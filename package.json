@@ -35,7 +35,9 @@
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install",
     "fix:lint": "eslint \"**/src/**/*.{js,ts,tsx}\" --fix",
-    "fix:fmt": "prettier --write \"**/src/**/*.{js,ts,tsx}\""
+    "fix:fmt": "prettier --write \"**/src/**/*.{js,ts,tsx}\"",
+    "check:lint": "eslint \"**/src/**/*.{js,ts,tsx}\" --fix-dry-run",
+    "check:fmt": "prettier --check \"**/src/**/*.{js,ts,tsx}\""
   },
   "keywords": [
     "react-native",
