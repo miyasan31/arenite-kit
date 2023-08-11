@@ -1,4 +1,5 @@
 import { createAreniteStyle } from '../../style';
+import { FadeUp } from '../animations/FadeUp';
 import { ActivityIndicator, Text } from '../primitives';
 import React, {
   createContext,
@@ -22,6 +23,7 @@ type ToastConfig = {
 
 type ToastContextType = {
   toasts: ToastConfig[];
+  topOffset: number;
   addToast: (toast: ToastConfig) => void;
   updateToast: (
     id: string,
@@ -33,6 +35,7 @@ type ToastContextType = {
 
 const ToastContext = createContext<ToastContextType>({
   toasts: [],
+  topOffset: 0,
   addToast: () => {},
   updateToast: () => {},
   removeToast: () => {},
@@ -46,10 +49,13 @@ const defaultOptionalToastConfig = {
 };
 
 type ToastProviderProps = {
+  topOffset?: number;
   children: ReactNode;
 };
 
-const ToastProvider = ({ children }: ToastProviderProps) => {
+const ToastProvider = (props: ToastProviderProps) => {
+  const { children, topOffset = 58 } = props;
+
   const [toasts, setToasts] = useState<ToastConfig[]>([]);
 
   const clearToasts = useCallback(() => {
@@ -119,7 +125,14 @@ const ToastProvider = ({ children }: ToastProviderProps) => {
 
   return (
     <ToastContext.Provider
-      value={{ toasts, addToast, updateToast, removeToast, clearToasts }}
+      value={{
+        toasts,
+        topOffset,
+        addToast,
+        updateToast,
+        removeToast,
+        clearToasts,
+      }}
     >
       {children}
     </ToastContext.Provider>
@@ -138,21 +151,26 @@ const ToastComponent = memo((props: ToastProps) => {
   }[type];
 
   return (
-    <HStack gap={12} bg="bg2" style={defaultStyle.toast}>
-      {StatusIcon}
-
-      <Text style={defaultStyle.message} color="color1">
-        {message}
-      </Text>
-    </HStack>
+    <FadeUp>
+      <HStack gap={12} bg="bg2" style={[defaultStyle.toast]}>
+        {StatusIcon}
+        <Text style={defaultStyle.message} color="color1">
+          {message}
+        </Text>
+      </HStack>
+    </FadeUp>
   );
 });
 
 const ToastsComponent = () => {
-  const { toasts } = useContext(ToastContext);
+  const { toasts, topOffset } = useContext(ToastContext);
+
+  const topOffsetStyle = {
+    top: topOffset || 58,
+  };
 
   return (
-    <VStack gap={4} style={defaultStyle.toastContainer}>
+    <VStack gap={4} style={[defaultStyle.toastContainer, topOffsetStyle]}>
       {toasts.map((toast) => (
         <ToastComponent {...toast} key={toast.id} />
       ))}
@@ -163,7 +181,6 @@ const ToastsComponent = () => {
 const defaultStyle = createAreniteStyle({
   toastContainer: {
     position: 'absolute',
-    top: 58,
     zIndex: 9999,
     width: '100%',
     paddingHorizontal: 8,
