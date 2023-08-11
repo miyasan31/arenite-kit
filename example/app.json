@@ -25,6 +25,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6905d78c-6ca4-4b50-b202-df298c40059a"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/6905d78c-6ca4-4b50-b202-df298c40059a"
+    },
+    "owner": "runder"
   }
 }
