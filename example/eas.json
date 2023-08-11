@@ -1,6 +1,6 @@
 {
   "build": {
-    "dev": {
+    "development": {
       "developmentClient": true,
       "channel": "development",
       "distribution": "internal",
@@ -8,11 +8,11 @@
         "simulator": true
       }
     },
-    "stg": {
+    "staging": {
       "distribution": "internal",
       "channel": "staging"
     },
-    "prod": {
+    "production": {
       "channel": "production"
     }
   }
