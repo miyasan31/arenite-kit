@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "arenitez",
     "name": "arenite-kit-example",
     "slug": "arenite-kit-example",
     "version": "1.0.0",
@@ -15,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.arenitez.arenite-kit-example"
     },
     "android": {
       "adaptiveIcon": {
@@ -36,7 +38,6 @@
     },
     "updates": {
       "url": "https://u.expo.dev/6905d78c-6ca4-4b50-b202-df298c40059a"
-    },
-    "owner": "runder"
+    }
   }
 }
