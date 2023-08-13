@@ -3,6 +3,7 @@
     "owner": "arenitez",
     "name": "arenite-kit-example",
     "slug": "arenite-kit-example",
+    "scheme": "com.arenitez.arenite-kit-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

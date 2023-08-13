@@ -2,5 +2,14 @@
   "extends": "../tsconfig",
   "compilerOptions": {
     // Avoid expo-cli auto-generating a tsconfig
+    "baseUrl": ".",
+    "paths": {
+      "arenite-kit": ["../src/index"],
+      "$navigate/*": ["./src/navigate/*"],
+      "$components/*": ["./src/components/*"],
+      "$constants/*": ["./src/shared/constants/*"],
+      "$hooks/*": ["./src/shared/hooks/*"],
+      "$libs/*": ["./src/shared/libs/*"]
+    }
   }
 }

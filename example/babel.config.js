@@ -14,6 +14,11 @@ module.exports = function (api) {
           alias: {
             // For development, we want to alias the library to the source
             [pak.name]: path.join(__dirname, '..', pak.source),
+            $navigate: path.join(__dirname, 'src/navigate'),
+            $components: path.join(__dirname, 'src/components'),
+            $constants: path.join(__dirname, 'src/shared/constants'),
+            $hooks: path.join(__dirname, 'src/shared/hooks'),
+            $libs: path.join(__dirname, 'src/shared/libs'),
           },
         },
       ],
