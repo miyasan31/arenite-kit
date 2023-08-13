@@ -1,7 +1,7 @@
 import { getSafeAreaEdges } from '$libs/react-native-safe-area-context/getSafeAreaEdges';
-import type { RootScreenProps } from '$navigate/navigate';
 import { Button, SafeAreaView, Text } from 'arenite-kit';
 import React from 'react';
+import type { RootScreenProps } from '$navigation/navigate';
 
 export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
   const edges = getSafeAreaEdges('horizontal');

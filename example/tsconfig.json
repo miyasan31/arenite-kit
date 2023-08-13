@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "arenite-kit": ["../src/index"],
-      "$navigate/*": ["./src/navigate/*"],
+      "$navigation/*": ["./src/navigation/*"],
       "$components/*": ["./src/components/*"],
       "$constants/*": ["./src/shared/constants/*"],
       "$hooks/*": ["./src/shared/hooks/*"],

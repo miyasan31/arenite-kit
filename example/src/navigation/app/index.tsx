@@ -1,10 +1,10 @@
 import { ThemingIcon } from '$components/shared/ThemingIcon';
-import { FeaturesNavigator } from '$navigate/app/features';
-import { HomeNavigator } from '$navigate/app/home';
-import { SettingsNavigator } from '$navigate/app/settings';
+import { FeaturesNavigator } from '$navigation/app/features';
+import { HomeNavigator } from '$navigation/app/home';
+import { SettingsNavigator } from '$navigation/app/settings';
+import type { AppNavigatorParamList } from '$navigation/navigate';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import type { AppNavigatorParamList } from '../navigate';
 
 const BottomTab = createBottomTabNavigator<AppNavigatorParamList>();
 

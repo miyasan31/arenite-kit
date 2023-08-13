@@ -1,5 +1,5 @@
 import { SettingsScreen } from '$components/screens/Settings/SettingsScreen';
-import type { SettingsNavigatorParamList } from '$navigate/navigate';
+import type { SettingsNavigatorParamList } from '$navigation/navigate';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 

@@ -1,5 +1,5 @@
 import { HomeScreen } from '$components/screens/Home/HomeScreen';
-import type { HomeNavigatorParamList } from '$navigate/navigate';
+import type { HomeNavigatorParamList } from '$navigation/navigate';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 

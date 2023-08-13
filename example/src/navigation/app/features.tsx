@@ -1,5 +1,5 @@
 import { FeaturesScreen } from '$components/screens/Features/FeaturesScreen';
-import type { FeaturesNavigatorParamList } from '$navigate/navigate';
+import type { FeaturesNavigatorParamList } from '$navigation/navigate';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 

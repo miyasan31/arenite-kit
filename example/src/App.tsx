@@ -1,7 +1,7 @@
 import { ThemeProvider } from '$components/providers/ThemeProvider';
+import { RootNavigator } from './navigation';
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RootNavigator } from './navigate';
 
 export default function App() {
   return (
