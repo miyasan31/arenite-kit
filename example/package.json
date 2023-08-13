@@ -15,7 +15,10 @@
     "build:stg:android": "eas build --profile staging --platform android",
     "build:prod": "eas build --profile production --platform all",
     "build:prod:ios": "eas build --profile production --platform ios",
-    "build:prod:android": "eas build --profile production --platform android"
+    "build:prod:android": "eas build --profile production --platform android",
+    "update:prod": "eas update --profile development --platform all",
+    "update:prod:ios": "eas update --profile production --platform ios",
+    "update:prod:android": "eas update --profile production --platform android"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.18.2",
