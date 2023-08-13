@@ -1,10 +1,10 @@
-export type Theme = 'light' | 'dark';
+export type ThemeKey = 'light' | 'dark';
 export type SizeKeys = 'sm' | 'md' | 'lg';
 export type PalletKeys = 'common' | 'color' | 'bg' | 'border' | 'icon';
-export type Pallet = Record<Theme, Record<string, string>>;
+export type Pallet = Record<ThemeKey, Record<string, string>>;
 
 export interface AreniteBaseTheme {
-  theme: Theme;
+  theme: ThemeKey | 'auto';
   pallets: Record<PalletKeys, Pallet>;
 }
 
@@ -14,7 +14,9 @@ export interface AreniteTheme
   extends Omit<AreniteBaseTheme, keyof AreniteCustomTheme>,
     AreniteCustomTheme {}
 
-type Colors<T extends PalletKeys> = keyof AreniteTheme['pallets'][T][Theme];
+export type AreniteThemeKey = AreniteTheme['theme'];
+
+type Colors<T extends PalletKeys> = keyof AreniteTheme['pallets'][T][ThemeKey];
 
 export type CommonToken = Colors<'common'>;
 export type BgToken = Colors<'bg'>;
@@ -24,37 +26,24 @@ export type BorderToken = Colors<'border'>;
 
 /** Component Style Props */
 
-export type StyleProps = {
+type OverrideColor<T> = T extends string
+  ? {
+      [C in `${Exclude<AreniteThemeKey, 'auto'>}${T}`]?: string;
+    }
+  : never;
+
+export type ColorThemeProps = {
   color?: CommonToken | ColorToken;
-  lightColor?: string;
-  darkColor?: string;
+} & OverrideColor<'Color'>;
 
+export type BgThemeProps = {
   bg?: CommonToken | BgToken;
-  lightBg?: string;
-  darkBg?: string;
+} & OverrideColor<'Bg'>;
 
-  icon?: CommonToken | IconToken;
-  lightIcon?: string;
-  darkIcon?: string;
-
+export type BorderThemeProps = {
   border?: CommonToken | BorderToken;
-  lightBorder?: string;
-  darkBorder?: string;
-};
+} & OverrideColor<'Border'>;
 
-export type ColorThemeProps = Pick<
-  StyleProps,
-  'color' | 'lightColor' | 'darkColor'
->;
-
-export type BgThemeProps = Pick<StyleProps, 'bg' | 'lightBg' | 'darkBg'>;
-
-export type IconThemeProps = Pick<
-  StyleProps,
-  'icon' | 'lightIcon' | 'darkIcon'
->;
-
-export type BorderThemeProps = Pick<
-  StyleProps,
-  'border' | 'lightBorder' | 'darkBorder'
->;
+export type IconThemeProps = {
+  icon?: CommonToken | IconToken;
+} & OverrideColor<'Icon'>;

@@ -1,37 +1,19 @@
-import {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
-import type { AreniteTheme, Theme } from '../types';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import type { AreniteThemeKey, AreniteTheme } from '../types';
 
 export type AreniteThemeContextValue = [
   AreniteTheme,
-  {
-    setTheme: Dispatch<SetStateAction<Theme>>;
-    toggleTheme: () => Theme;
-  }
+  { setTheme: Dispatch<SetStateAction<AreniteThemeKey>> }
 ];
 
 export const useCreateAreniteThemeValue = (
   customTheme: AreniteTheme
 ): AreniteThemeContextValue => {
-  const [theme, setTheme] = useState<Theme>(customTheme.theme);
-
-  const toggleTheme = useCallback((prevTheme: Theme): Theme => {
-    const toggledTheme = prevTheme === 'light' ? 'dark' : 'light';
-    setTheme(toggledTheme);
-    return toggledTheme;
-  }, []);
+  const [theme, setTheme] = useState<AreniteThemeKey>(customTheme.theme);
 
   useEffect(() => {
     setTheme(customTheme.theme);
   }, [customTheme.theme]);
 
-  return [
-    { theme: theme, pallets: customTheme.pallets },
-    { setTheme, toggleTheme: toggleTheme.bind(null, theme) },
-  ];
+  return [{ theme: theme, pallets: customTheme.pallets }, { setTheme }];
 };

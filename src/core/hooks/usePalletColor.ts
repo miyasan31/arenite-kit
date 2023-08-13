@@ -1,4 +1,5 @@
 import type {
+  AreniteThemeKey,
   BgToken,
   BorderToken,
   ColorToken,
@@ -7,6 +8,7 @@ import type {
   PalletKeys,
 } from '../types';
 import { useAreniteTheme } from './useAreniteTheme';
+import { useSystemTheme } from './useSystemTheme';
 
 type ExcludeCommonTokenKey = Exclude<PalletKeys, 'common'>;
 
@@ -28,13 +30,16 @@ export const usePalletColor = <
 >(
   palletKey: T,
   tokenKey: K | undefined,
-  override: { light?: string; dark?: string }
+  override: { [L in Exclude<AreniteThemeKey, 'auto'>]?: string }
 ): string | undefined => {
+  const systemTheme = useSystemTheme();
   const [{ theme, pallets }] = useAreniteTheme();
 
+  const themeKey = theme === 'auto' ? systemTheme : theme;
+
   // Override properties, if any, are returned with priority.
-  if (override[theme]) {
-    return override[theme];
+  if (override[themeKey]) {
+    return override[themeKey];
   }
 
   if (tokenKey === undefined) {
@@ -42,12 +47,12 @@ export const usePalletColor = <
   }
 
   // If common tokens are specified, priority is given to returning them.
-  const commonMapping = pallets.common[theme];
+  const commonMapping = pallets.common[themeKey];
   if (hasTokenKey(commonMapping, tokenKey)) {
     return commonMapping[tokenKey];
   }
 
-  const themeMapping = pallets[palletKey][theme];
+  const themeMapping = pallets[palletKey][themeKey];
   if (hasTokenKey(themeMapping, tokenKey)) {
     return themeMapping[tokenKey];
   }
