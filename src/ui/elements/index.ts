@@ -4,6 +4,5 @@ export * from './IconButton';
 export * from './HStack';
 export * from './VStack';
 export * from './Divider';
-export * from '../animations/Bounceable';
 export * from './Radio';
 export * from './Toast';

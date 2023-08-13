@@ -15,7 +15,7 @@ import type {
 import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { Text, Box } from '../primitives';
-import { Bounceable } from '../animations/Bounceable';
+import { Bounceable } from '../animations';
 
 export type ButtonProps = {
   children: ReactNode;

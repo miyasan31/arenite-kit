@@ -1,5 +1,5 @@
 import { createAreniteStyle } from '../../style';
-import { FadeUp } from '../animations/FadeUp';
+import { FadeUp } from '../animations';
 import { ActivityIndicator, Text } from '../primitives';
 import React, {
   createContext,
