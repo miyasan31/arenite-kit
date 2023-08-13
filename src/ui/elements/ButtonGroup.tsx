@@ -93,6 +93,7 @@ const defaultStyle = createAreniteStyle({
     paddingVertical: 2,
   },
   view: {
+    paddingHorizontal: 0,
     paddingVertical: 8,
     height: 30,
   },
