@@ -7,7 +7,7 @@ export const SettingsScreen = () => {
 
   return (
     <SafeAreaView edges={edges} bg={'bg1'}>
-      <Text>SettingsScreen</Text>
+      <Text color={'color1'}>SettingsScreen</Text>
     </SafeAreaView>
   );
 };

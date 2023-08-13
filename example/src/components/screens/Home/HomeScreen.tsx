@@ -7,7 +7,7 @@ export const HomeScreen = () => {
 
   return (
     <SafeAreaView edges={edges} bg={'bg1'}>
-      <Text>HomeScreen</Text>
+      <Text color={'color1'}>HomeScreen</Text>
     </SafeAreaView>
   );
 };

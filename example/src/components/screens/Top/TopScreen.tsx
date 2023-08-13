@@ -12,7 +12,7 @@ export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
 
   return (
     <SafeAreaView edges={edges} bg={'bg1'}>
-      <Text>TopScreen</Text>
+      <Text color={'color1'}>TopScreen</Text>
 
       <Button bg="primary" color="white" onPress={onPressNavigateApp}>
         Getting Started
