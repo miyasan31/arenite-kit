@@ -1,4 +1,10 @@
-import { Dispatch, SetStateAction, useCallback, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import type { AreniteTheme, Theme } from '../types';
 
 export type AreniteThemeContextValue = [
@@ -19,6 +25,10 @@ export const useCreateAreniteThemeValue = (
     setTheme(toggledTheme);
     return toggledTheme;
   }, []);
+
+  useEffect(() => {
+    setTheme(customTheme.theme);
+  }, [customTheme.theme]);
 
   return [
     { theme: theme, pallets: customTheme.pallets },
