@@ -55,8 +55,8 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
           radiusStyle.container,
           {
             width: `${100 / buttons.length}%`,
-            paddingLeft: index === 0 ? 6 : 0,
-            paddingRight: index === buttons.length - 1 ? 6 : 0,
+            paddingLeft: index === 0 ? 2 : 0,
+            paddingRight: index === buttons.length - 1 ? 2 : 0,
           },
         ]}
         bg={'bg2'}
@@ -90,8 +90,7 @@ const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
 
 const defaultStyle = createAreniteStyle({
   buttonWrapper: {
-    paddingTop: 6,
-    paddingBottom: 6,
+    paddingVertical: 2,
   },
   view: {
     paddingVertical: 8,
@@ -111,7 +110,7 @@ const smRadiusStyle = {
 
 const mdRadiusStyle = {
   container: { borderRadius: 8 },
-  buttonContainer: { borderRadius: 4 },
+  buttonContainer: { borderRadius: 6 },
 };
 
 const lgRadiusStyle = {
