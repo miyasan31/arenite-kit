@@ -25,6 +25,7 @@ export type ButtonProps = {
   right?: ReactElement;
   noBounce?: boolean;
   disabled?: boolean;
+  containerStyle?: AreniteViewStyleProps;
   viewStyle?: AreniteViewStyleProps;
   textStyle?: AreniteTextStyleProps;
   size?: SizeKeys;
@@ -43,6 +44,7 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     right,
     noBounce,
     disabled,
+    containerStyle,
     viewStyle,
     textStyle,
     bg,
@@ -71,12 +73,12 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     lg: { borderRadius: 999 },
   }[radius];
 
-  const fullWidthStyle = fullWidth ? { width: '100%' } : {};
+  const fullWidthStyle = fullWidth ? { width: '100%' } : { width: 'auto' };
 
   const borderWidth = border || lightBorder || darkBorder ? 1 : 0;
 
   return (
-    <Box style={[radiusStyle]}>
+    <Box style={[fullWidthStyle, containerStyle]}>
       <Bounceable
         ref={ref}
         onPress={onPress}
@@ -84,8 +86,8 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
         disabled={disabled}
         noBounce={noBounce}
         style={{
-          pressable: [fullWidthStyle, radiusStyle],
-          animatedView: [fullWidthStyle, radiusStyle],
+          pressable: [fullWidthStyle],
+          animatedView: [fullWidthStyle],
         }}
       >
         <Box
@@ -118,9 +120,9 @@ const smStyle = createAreniteStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    gap: 4,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
+    gap: 2,
+    paddingHorizontal: 18,
+    height: 38,
   },
   text: {
     fontSize: 12,
@@ -134,9 +136,9 @@ const mdStyle = createAreniteStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    gap: 4,
-    paddingVertical: 16,
+    gap: 3,
     paddingHorizontal: 24,
+    height: 52,
   },
   text: {
     fontSize: 16,
@@ -151,8 +153,8 @@ const lgStyle = createAreniteStyle({
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
-    paddingVertical: 20,
     paddingHorizontal: 32,
+    height: 64,
   },
   text: {
     fontSize: 20,
