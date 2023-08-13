@@ -8,8 +8,8 @@ import {
 } from 'arenite-kit';
 import React from 'react';
 
-import { areniteThemeStorageKey } from '../constants/asyncStorageKeys';
-import { asyncStorage } from '../libs/react-native-async-storage/asyncStorage';
+import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
+import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 
 export const ButtonExample = () => {
   const [{ theme }, { toggleTheme }] = useAreniteTheme();

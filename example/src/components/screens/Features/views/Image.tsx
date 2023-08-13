@@ -15,7 +15,7 @@ export const ImageExample = () => {
           style={style.image}
           border={'border2'}
           bg={'white'}
-          source={require('../../assets/image/arenitez.png')}
+          source={require('../../../../../assets/image/arenitez.png')}
         />
       </HStack>
     </VStack>

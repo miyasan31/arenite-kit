@@ -10,14 +10,14 @@ export const FlatListExample = () => {
         FlatList
       </Text>
 
-      <FlatList
+      <FlatList<{ id: number }>
         keyExtractor={(item) => item.id.toString()}
         data={listDatasets}
         horizontal={true}
         renderItem={() => {
           return (
             <Image
-              source={require('../../assets/image/arenitez.png')}
+              source={require('../../../../../assets/image/arenitez.png')}
               style={style.image}
               width={60}
               height={60}

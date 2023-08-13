@@ -1,30 +1,12 @@
+import { ThemingIcon } from '$components/shared/ThemingIcon';
 import {
   createAreniteStyle,
   HStack,
   IconButton,
-  IconThemeProps,
   Text,
-  usePalletColor,
   VStack,
 } from 'arenite-kit';
 import React from 'react';
-import IoniconsIcon from 'react-native-vector-icons/Ionicons';
-
-type Props = {
-  name: string;
-  size?: number;
-} & IconThemeProps;
-
-const ThemingIcon = (props: Props) => {
-  const { name, icon = 'icon2', size = 24, lightIcon, darkIcon } = props;
-
-  const iconColor = usePalletColor('icon', icon, {
-    light: lightIcon,
-    dark: darkIcon,
-  });
-
-  return <IoniconsIcon name={name} color={iconColor} size={size} />;
-};
 
 export const IconButtonExample = () => {
   const onPress = () => {
