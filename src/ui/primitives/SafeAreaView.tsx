@@ -10,20 +10,23 @@ import type { OmitKeyReplacer } from '../types';
 export type SafeAreaViewProps = OmitKeyReplacer<
   NativeSafeAreaViewProps,
   { style?: AreniteViewStyleProps }
-> &
-  BgThemeProps;
+> & {
+  isCenter?: boolean;
+} & BgThemeProps;
 
 const SafeAreaViewComponent = (props: SafeAreaViewProps) => {
-  const { bg, lightBg, darkBg, style, ...otherProps } = props;
+  const { bg, lightBg, darkBg, style, isCenter = false, ...otherProps } = props;
 
   const backgroundColor = usePalletColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
 
+  const centerStyle = isCenter ? defaultStyle.center : undefined;
+
   return (
     <NativeSafeAreaView
-      style={[defaultStyle.view, style, { backgroundColor }]}
+      style={[defaultStyle.view, centerStyle, style, { backgroundColor }]}
       {...otherProps}
     />
   );
@@ -32,6 +35,10 @@ const SafeAreaViewComponent = (props: SafeAreaViewProps) => {
 const defaultStyle = createAreniteStyle({
   view: {
     flex: 1,
+  },
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

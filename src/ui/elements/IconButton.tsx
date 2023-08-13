@@ -5,7 +5,7 @@ import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
 
 import { Box } from '../primitives';
-import { Bounceable } from './Bounceable';
+import { Bounceable } from '../animations/Bounceable';
 
 export type IconButtonProps = {
   children: ReactNode;

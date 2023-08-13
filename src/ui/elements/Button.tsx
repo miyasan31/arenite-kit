@@ -15,7 +15,7 @@ import type {
 import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { Text, Box } from '../primitives';
-import { Bounceable } from './Bounceable';
+import { Bounceable } from '../animations/Bounceable';
 
 export type ButtonProps = {
   children: ReactNode;
@@ -71,51 +71,56 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     lg: { borderRadius: 999 },
   }[radius];
 
-  const fullWidthStyle = fullWidth ? { flex: 1 } : {};
+  const fullWidthStyle = fullWidth ? { width: '100%' } : {};
 
   const borderWidth = border || lightBorder || darkBorder ? 1 : 0;
 
   return (
-    <Bounceable
-      ref={ref}
-      onPress={onPress}
-      onLongPress={onLongPress}
-      disabled={disabled}
-      noBounce={noBounce}
-      style={{ pressable: [fullWidthStyle] }}
-    >
-      <Box
-        style={[sizingStyle.view, radiusStyle, viewStyle, { borderWidth }]}
-        bg={bg}
-        lightBg={lightBg}
-        darkBg={darkBg}
-        border={border}
-        lightBorder={lightBorder}
-        darkBorder={darkBorder}
+    <Box style={[radiusStyle]}>
+      <Bounceable
+        ref={ref}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        disabled={disabled}
+        noBounce={noBounce}
+        style={{
+          pressable: [fullWidthStyle, radiusStyle],
+          animatedView: [fullWidthStyle, radiusStyle],
+        }}
       >
-        {left}
-        <Text
-          style={[sizingStyle.text, textStyle]}
-          color={color}
-          lightColor={lightColor}
-          darkColor={darkColor}
+        <Box
+          style={[sizingStyle.box, radiusStyle, viewStyle, { borderWidth }]}
+          bg={bg}
+          lightBg={lightBg}
+          darkBg={darkBg}
+          border={border}
+          lightBorder={lightBorder}
+          darkBorder={darkBorder}
         >
-          {children}
-        </Text>
-        {right}
-      </Box>
-    </Bounceable>
+          {left}
+          <Text
+            style={[sizingStyle.text, textStyle]}
+            color={color}
+            lightColor={lightColor}
+            darkColor={darkColor}
+          >
+            {children}
+          </Text>
+          {right}
+        </Box>
+      </Bounceable>
+    </Box>
   );
 };
 
 const smStyle = createAreniteStyle({
-  view: {
-    display: 'flex',
+  box: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
     paddingVertical: 12,
+    paddingHorizontal: 20,
   },
   text: {
     fontSize: 12,
@@ -125,13 +130,13 @@ const smStyle = createAreniteStyle({
 });
 
 const mdStyle = createAreniteStyle({
-  view: {
-    display: 'flex',
+  box: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
     paddingVertical: 16,
+    paddingHorizontal: 24,
   },
   text: {
     fontSize: 16,
@@ -141,13 +146,13 @@ const mdStyle = createAreniteStyle({
 });
 
 const lgStyle = createAreniteStyle({
-  view: {
-    display: 'flex',
+  box: {
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 4,
     paddingVertical: 20,
+    paddingHorizontal: 32,
   },
   text: {
     fontSize: 20,
