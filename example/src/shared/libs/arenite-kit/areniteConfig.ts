@@ -25,6 +25,19 @@ const commonPallet = {
     accent: '#3bf65a',
     danger: '#EF4444',
   },
+  dracula: {
+    white: '#FFFFFF',
+    black: '#000000',
+    primary: '#BD93F9',
+    secondary: '#FF79C6',
+    tertiary: '#F1FA8C',
+    success: '#50FA7B',
+    warning: '#FFB86C',
+    info: '#8BE9FD',
+    error: '#FF5555',
+    accent: '#8BE9FD',
+    danger: '#FF5555',
+  },
 };
 
 const colorPallet = {
@@ -40,7 +53,14 @@ const colorPallet = {
     color2: '#A1A1AA',
     color9: '#000000',
   },
+  dracula: {
+    color0: '#FFFFFF',
+    color1: '#C2C6D2',
+    color2: '#6272A4',
+    color9: '#070417',
+  },
 };
+
 const bgPallet = {
   light: {
     bg0: '#ffffff00',
@@ -56,6 +76,13 @@ const bgPallet = {
     // ...
     bg9: '#FFFFFF',
   },
+  dracula: {
+    bg0: '#ffffff00',
+    bg1: '#282a36',
+    bg2: '#44475a',
+    // ...
+    bg9: '#ffffff',
+  },
 };
 
 const borderPallet = {
@@ -67,6 +94,10 @@ const borderPallet = {
     border1: '#5a5a64',
     border2: '#3f3f45',
   },
+  dracula: {
+    border1: '#44475a',
+    border2: '#344d5a',
+  },
 };
 
 const iconPallet = {
@@ -77,6 +108,10 @@ const iconPallet = {
   dark: {
     icon1: '#ffffff',
     icon2: '#A1A1AA',
+  },
+  dracula: {
+    icon1: '#070417',
+    icon2: '#C2C6D2',
   },
 };
 
@@ -90,6 +125,7 @@ export const myThemePallets = {
 
 declare module 'arenite-kit' {
   interface AreniteCustomTheme {
+    theme: 'light' | 'dark' | 'auto' | 'dracula';
     pallets: typeof myThemePallets;
   }
 }

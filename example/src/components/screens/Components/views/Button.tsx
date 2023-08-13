@@ -12,19 +12,13 @@ import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
 import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 
 export const ButtonExample = () => {
-  const [{ theme }, { toggleTheme }] = useAreniteTheme();
+  const [{ theme }, { setTheme }] = useAreniteTheme();
 
   const onToggleTheme = async () => {
-    const changedTheme = toggleTheme();
+    const changedTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(changedTheme);
     await asyncStorage.set(areniteThemeStorageKey, changedTheme);
   };
-
-  const Icon =
-    theme === 'light' ? (
-      <Text color="color1">🌞</Text>
-    ) : (
-      <Text color="color1">🌚</Text>
-    );
 
   return (
     <VStack gap={12}>
@@ -32,7 +26,7 @@ export const ButtonExample = () => {
         Button
       </Text>
 
-      <Button bg="primary" color="white" left={Icon} onPress={onToggleTheme}>
+      <Button bg="primary" color="white" onPress={onToggleTheme}>
         Default
       </Button>
 
