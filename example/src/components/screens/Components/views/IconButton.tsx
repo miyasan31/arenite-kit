@@ -21,23 +21,23 @@ export const IconButtonExample = () => {
 
       <HStack justify={'space-between'}>
         <IconButton bg={'primary'} onPress={onPress}>
-          <ThemingIcon name={'home-outline'} />
+          <ThemingIcon icon={'white'} name={'home-outline'} />
         </IconButton>
 
         <IconButton bg={'secondary'} onPress={onPress}>
-          <ThemingIcon name={'search-outline'} />
+          <ThemingIcon icon={'white'} name={'search-outline'} />
         </IconButton>
 
         <IconButton bg={'tertiary'} onPress={onPress}>
-          <ThemingIcon name={'chatbubbles-outline'} />
+          <ThemingIcon icon={'white'} name={'chatbubbles-outline'} />
         </IconButton>
 
         <IconButton bg={'accent'} onPress={onPress}>
-          <ThemingIcon name={'notifications-outline'} />
+          <ThemingIcon icon={'white'} name={'notifications-outline'} />
         </IconButton>
 
         <IconButton bg={'danger'} onPress={onPress}>
-          <ThemingIcon name={'trash-outline'} />
+          <ThemingIcon icon={'white'} name={'trash-outline'} />
         </IconButton>
 
         <IconButton

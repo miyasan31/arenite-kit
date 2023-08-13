@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   return (
     <AreniteThemeProvider value={areniteTheme}>
-      <Toast.Provider topOffset={58}>
+      <Toast.Provider topOffset={104}>
         {children}
         <Toast />
       </Toast.Provider>

@@ -36,13 +36,27 @@ export const ToastExample = () => {
       </Text>
 
       <HStack gap={12}>
-        <Button bg="info" onPress={onShowToast}>
+        <Button
+          bg="tertiary"
+          onPress={onShowToast}
+          containerStyle={style.buttonContainer}
+        >
           Show
         </Button>
-        <Button bg="accent" onPress={onUpdateToast}>
+        <Button
+          bg="accent"
+          onPress={onUpdateToast}
+          containerStyle={style.buttonContainer}
+        >
           Update
         </Button>
-        <Button bg="bg1" border="border1" color="color1" onPress={clearToasts}>
+        <Button
+          bg="bg1"
+          border="border1"
+          color="color1"
+          onPress={clearToasts}
+          containerStyle={style.buttonContainer}
+        >
           Clear
         </Button>
       </HStack>
@@ -54,5 +68,8 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });

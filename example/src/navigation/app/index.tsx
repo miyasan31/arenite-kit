@@ -1,7 +1,6 @@
 import { ThemingIcon } from '$components/shared/ThemingIcon';
-import { FeaturesNavigator } from '$navigation/app/features';
-import { HomeNavigator } from '$navigation/app/home';
-import { SettingsNavigator } from '$navigation/app/settings';
+import { ComponentsNavigator } from '$navigation/app/components';
+import { ThemingNavigator } from '$navigation/app/theming';
 import type { AppNavigatorParamList } from '$navigation/navigate';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
@@ -11,48 +10,34 @@ const BottomTab = createBottomTabNavigator<AppNavigatorParamList>();
 export const AppNavigator = () => {
   return (
     <BottomTab.Navigator
-      initialRouteName="HomeNavigator"
+      initialRouteName="ComponentsNavigator"
       screenOptions={{
         headerShown: false,
       }}
     >
       <BottomTab.Screen
-        name="HomeNavigator"
-        component={HomeNavigator}
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ focused }) => (
-            <ThemingIcon
-              icon={focused ? 'primary' : 'icon2'}
-              name={focused ? 'home' : 'home-outline'}
-              size={24}
-            />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="FeaturesNavigator"
-        component={FeaturesNavigator}
+        name="ComponentsNavigator"
+        component={ComponentsNavigator}
         options={() => ({
-          title: 'Features',
+          title: 'Components',
           tabBarIcon: ({ focused }) => (
             <ThemingIcon
               icon={focused ? 'primary' : 'icon2'}
-              name={focused ? 'layers' : 'layers-outline'}
+              name={focused ? 'flower' : 'flower-outline'}
               size={24}
             />
           ),
         })}
       />
       <BottomTab.Screen
-        name="SettingsNavigator"
-        component={SettingsNavigator}
+        name="ThemingNavigator"
+        component={ThemingNavigator}
         options={() => ({
-          title: 'Settings',
+          title: 'Theming',
           tabBarIcon: ({ focused }) => (
             <ThemingIcon
               icon={focused ? 'primary' : 'icon2'}
-              name={focused ? 'settings' : 'settings-outline'}
+              name={focused ? 'color-palette' : 'color-palette-outline'}
               size={24}
             />
           ),

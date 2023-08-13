@@ -41,13 +41,31 @@ export const ButtonExample = () => {
       </Text>
 
       <HStack gap={12}>
-        <Button bg="primary" color="white" onPress={onToggleTheme} size="sm">
+        <Button
+          fullWidth={false}
+          bg="primary"
+          color="white"
+          onPress={onToggleTheme}
+          size="sm"
+        >
           sm
         </Button>
-        <Button bg="primary" color="white" onPress={onToggleTheme} size="md">
+        <Button
+          fullWidth={false}
+          bg="primary"
+          color="white"
+          onPress={onToggleTheme}
+          size="md"
+        >
           md
         </Button>
-        <Button bg="primary" color="white" onPress={onToggleTheme} size="lg">
+        <Button
+          fullWidth={false}
+          bg="primary"
+          color="white"
+          onPress={onToggleTheme}
+          size="lg"
+        >
           lg
         </Button>
       </HStack>
@@ -58,6 +76,7 @@ export const ButtonExample = () => {
 
       <HStack gap={12}>
         <Button
+          fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
@@ -67,6 +86,7 @@ export const ButtonExample = () => {
           sm
         </Button>
         <Button
+          fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
@@ -76,6 +96,7 @@ export const ButtonExample = () => {
           md
         </Button>
         <Button
+          fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}

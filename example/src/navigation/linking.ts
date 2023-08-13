@@ -9,19 +9,14 @@ export const linkingConfiguration: LinkingOptions<RootParamList> = {
       TopScreen: 'top',
       AppNavigator: {
         screens: {
-          HomeNavigator: {
+          ComponentsNavigator: {
             screens: {
-              HomeScreen: 'home',
+              ComponentsScreen: 'components',
             },
           },
-          FeaturesNavigator: {
+          ThemingNavigator: {
             screens: {
-              FeaturesScreen: 'features',
-            },
-          },
-          SettingsNavigator: {
-            screens: {
-              SettingsScreen: 'settings',
+              ThemingScreen: 'theming',
             },
           },
         },

@@ -18,14 +18,12 @@ export const RootNavigator = () => {
         <NativeStack.Screen
           name="TopScreen"
           component={TopScreen}
-          options={{
-            title: 'Top',
-          }}
+          options={{ headerShown: false }}
         />
         <NativeStack.Screen
           name="AppNavigator"
           component={AppNavigator}
-          options={{ title: 'Main', headerShown: false }}
+          options={{ headerShown: false }}
         />
       </NativeStack.Navigator>
     </NavigationContainer>

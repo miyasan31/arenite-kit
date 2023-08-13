@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconThemeProps, usePalletColor } from 'arenite-kit';
-import IoniconsIcon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type ThemingIconProps = {
   name: string;
@@ -15,5 +15,5 @@ export const ThemingIcon = (props: ThemingIconProps) => {
     dark: darkIcon,
   });
 
-  return <IoniconsIcon name={name} color={iconColor} size={size} />;
+  return <Icon name={name} color={iconColor} size={size} />;
 };

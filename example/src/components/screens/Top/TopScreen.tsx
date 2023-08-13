@@ -1,5 +1,12 @@
+import { ThemingIcon } from '$components/shared/ThemingIcon';
 import { getSafeAreaEdges } from '$libs/react-native-safe-area-context/getSafeAreaEdges';
-import { Button, SafeAreaView, Text } from 'arenite-kit';
+import {
+  Button,
+  createAreniteStyle,
+  SafeAreaView,
+  Text,
+  VStack,
+} from 'arenite-kit';
 import React from 'react';
 import type { RootScreenProps } from '$navigation/navigate';
 
@@ -11,12 +18,45 @@ export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
   };
 
   return (
-    <SafeAreaView edges={edges} bg={'bg1'}>
-      <Text color={'color1'}>TopScreen</Text>
+    <SafeAreaView edges={edges} bg={'bg1'} isCenter style={style.container}>
+      <Text color={'color1'} style={style.title}>
+        Arenite-Kit
+      </Text>
 
-      <Button bg="primary" color="white" onPress={onPressNavigateApp}>
+      <VStack gap={4}>
+        <Text color={'color1'} style={style.description}>
+          💎 Design system, UI components
+        </Text>
+        <Text color={'color1'} style={style.description}>
+          for React Native.
+        </Text>
+      </VStack>
+
+      <Button
+        bg={'primary'}
+        color={'white'}
+        radius={'lg'}
+        onPress={onPressNavigateApp}
+        fullWidth={false}
+        right={<ThemingIcon icon={'white'} name="arrow-forward" size={20} />}
+      >
         Getting Started
       </Button>
     </SafeAreaView>
   );
 };
+
+const style = createAreniteStyle({
+  container: {
+    gap: 24,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
+  },
+});

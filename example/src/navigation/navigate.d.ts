@@ -11,6 +11,9 @@ declare global {
   }
 }
 
+/**
+ * Root
+ * */
 export type RootParamList = {
   TopScreen: undefined;
   AppNavigator: NavigatorScreenParams<AppNavigatorParamList> | undefined;
@@ -19,36 +22,41 @@ export type RootParamList = {
 export type RootScreenProps<T extends keyof RootParamList> =
   NativeStackScreenProps<RootParamList, T>;
 
+/**
+ * App
+ * */
 export type AppNavigatorParamList = {
-  HomeNavigator: NavigatorScreenParams<HomeNavigatorParamList> | undefined;
-  FeaturesNavigator:
-    | NavigatorScreenParams<FeaturesNavigatorParamList>
+  ComponentsNavigator:
+    | NavigatorScreenParams<ComponentsNavigatorParamList>
     | undefined;
-  SettingsNavigator:
-    | NavigatorScreenParams<SettingsNavigatorParamList>
+  ThemingNavigator:
+    | NavigatorScreenParams<ThemingNavigatorParamList>
     | undefined;
 };
 
-export type MainScreenProps<T extends keyof AppNavigatorParamList> =
+export type AppNavigatorProps<T extends keyof AppNavigatorParamList> =
   CompositeScreenProps<
     BottomTabScreenProps<AppNavigatorParamList, T>,
     NativeStackScreenProps<RootParamList>
   >;
 
-export type HomeNavigatorParamList = {
-  HomeScreen: undefined;
+/**
+ * Components
+ * */
+export type ComponentsNavigatorParamList = {
+  ComponentsScreen: undefined;
 };
 
-export type HomeScreenProps = RootScreenProps<HomeNavigatorParamList>;
+export type ComponentsNavigatorProps<
+  T extends keyof ComponentsNavigatorParamList
+> = NativeStackScreenProps<ComponentsNavigatorParamList, T>;
 
-export type FeaturesNavigatorParamList = {
-  FeatureScreen: undefined;
+/**
+ * Theming
+ * */
+export type ThemingNavigatorParamList = {
+  ThemingScreen: undefined;
 };
 
-export type FeaturesScreenProps = RootScreenProps<FeaturesNavigatorParamList>;
-
-export type SettingsNavigatorParamList = {
-  SettingsScreen: undefined;
-};
-
-export type SettingsScreenProps = RootScreenProps<SettingsNavigatorParamList>;
+export type ThemingNavigatorProps<T extends keyof ThemingNavigatorParamList> =
+  NativeStackScreenProps<ThemingNavigatorParamList, T>;

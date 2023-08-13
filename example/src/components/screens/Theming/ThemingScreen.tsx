@@ -2,12 +2,12 @@ import { getSafeAreaEdges } from '$libs/react-native-safe-area-context/getSafeAr
 import { SafeAreaView, Text } from 'arenite-kit';
 import React from 'react';
 
-export const SettingsScreen = () => {
+export const ThemingScreen = () => {
   const edges = getSafeAreaEdges('horizontal');
 
   return (
-    <SafeAreaView edges={edges} bg={'bg1'}>
-      <Text color={'color1'}>SettingsScreen</Text>
+    <SafeAreaView edges={edges} bg={'bg1'} isCenter>
+      <Text color={'color1'}>ThemingScreen</Text>
     </SafeAreaView>
   );
 };
