@@ -13,12 +13,12 @@ module.exports = function (api) {
           extensions: ['.tsx', '.ts', '.js', '.json'],
           alias: {
             // For development, we want to alias the library to the source
-            [pak.name]: path.join(__dirname, '..', pak.source),
-            $navigation: path.join(__dirname, 'src/navigation'),
-            $components: path.join(__dirname, 'src/components'),
-            $constants: path.join(__dirname, 'src/shared/constants'),
-            $hooks: path.join(__dirname, 'src/shared/hooks'),
-            $libs: path.join(__dirname, 'src/shared/libs'),
+            [pak.name]: path.resolve(__dirname, '..', pak.source),
+            $navigation: path.resolve(__dirname, './src/navigation'),
+            $components: path.resolve(__dirname, './src/components'),
+            $constants: path.resolve(__dirname, './src/shared/constants'),
+            $hooks: path.resolve(__dirname, './src/shared/hooks'),
+            $libs: path.resolve(__dirname, './src/shared/libs'),
           },
         },
       ],

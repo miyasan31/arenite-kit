@@ -30,6 +30,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "plugins": [],
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true
+    },
     "extra": {
       "eas": {
         "projectId": "ec1b5c8a-2789-42ea-835b-e24db32c5e5d"
