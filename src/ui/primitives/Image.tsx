@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import { Image as NativeImage } from 'react-native';
 import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
@@ -47,4 +47,6 @@ const ImageComponent = (props: ImageProps, ref: ForwardedRef<NativeImage>) => {
   );
 };
 
-export const Image = memo(forwardRef<NativeImage, ImageProps>(ImageComponent));
+export const Image: (
+  props: { ref?: Ref<NativeImage> } & ImageProps
+) => JSX.Element | null = forwardRef<NativeImage, ImageProps>(ImageComponent);

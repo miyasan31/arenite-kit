@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, memo, Ref } from 'react';
 import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 import type { CommonToken } from '../../core';
 import { BgThemeProps, BorderThemeProps, usePaletteColor } from '../../core';
@@ -50,7 +50,9 @@ const ActivityIndicatorComponent = (
   );
 };
 
-export const ActivityIndicator = memo(
+export const ActivityIndicator: (
+  props: { ref?: Ref<NativeActivityIndicator> } & ActivityIndicatorProps
+) => JSX.Element | null = memo(
   forwardRef<NativeActivityIndicator, ActivityIndicatorProps>(
     ActivityIndicatorComponent
   )

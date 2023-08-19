@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import type { NativeSafeAreaViewProps } from 'react-native-safe-area-context';
 import { SafeAreaView as NativeSafeAreaView } from 'react-native-safe-area-context';
 import type { BgThemeProps } from '../../core';
@@ -42,4 +42,5 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-export const SafeAreaView = memo(SafeAreaViewComponent);
+export const SafeAreaView: (props: SafeAreaViewProps) => JSX.Element | null =
+  SafeAreaViewComponent;

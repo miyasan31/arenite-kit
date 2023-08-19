@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps, SizeKeys } from '../../core';
 import { createAreniteStyle } from '../../style';
@@ -83,6 +83,8 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-export const IconButton = memo(
-  forwardRef<NativeView, IconButtonProps>(IconButtonComponent)
+export const IconButton: (
+  props: { ref?: Ref<NativeView> } & IconButtonProps
+) => JSX.Element | null = forwardRef<NativeView, IconButtonProps>(
+  IconButtonComponent
 );

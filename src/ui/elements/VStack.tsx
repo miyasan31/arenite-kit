@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
@@ -37,6 +37,6 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-export const VStack = memo(
-  forwardRef<NativeView, VStackProps>(VStackComponent)
-);
+export const VStack: (
+  props: { ref?: Ref<NativeView> } & VStackProps
+) => JSX.Element | null = forwardRef<NativeView, VStackProps>(VStackComponent);

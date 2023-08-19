@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import { ScrollView as NativeScrollView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';
@@ -46,6 +46,8 @@ const ScrollViewComponent = (
   );
 };
 
-export const ScrollView = memo(
-  forwardRef<NativeScrollView, ScrollViewProps>(ScrollViewComponent)
+export const ScrollView: (
+  props: { ref?: Ref<NativeScrollView> } & ScrollViewProps
+) => JSX.Element | null = forwardRef<NativeScrollView, ScrollViewProps>(
+  ScrollViewComponent
 );

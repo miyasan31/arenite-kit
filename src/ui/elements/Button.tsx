@@ -1,9 +1,9 @@
 import React, {
   ForwardedRef,
   forwardRef,
-  memo,
   ReactElement,
   ReactNode,
+  Ref,
 } from 'react';
 import type { View as NativeView } from 'react-native';
 import type {
@@ -163,6 +163,6 @@ const lgStyle = createAreniteStyle({
   },
 });
 
-export const Button = memo(
-  forwardRef<NativeView, ButtonProps>(ButtonComponent)
-);
+export const Button: (
+  props: { ref?: Ref<NativeView> } & ButtonProps
+) => JSX.Element | null = forwardRef<NativeView, ButtonProps>(ButtonComponent);

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import {
   View as NativeView,
   Pressable as NativePressable,
@@ -59,6 +59,8 @@ const PressableComponent = (
   );
 };
 
-export const Pressable = memo(
-  forwardRef<NativeView, PressableProps>(PressableComponent)
+export const Pressable: (
+  props: { ref?: Ref<NativeView> } & PressableProps
+) => JSX.Element | null = forwardRef<NativeView, PressableProps>(
+  PressableComponent
 );

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';
@@ -28,4 +28,6 @@ const TextComponent = (props: TextProps, ref: ForwardedRef<NativeText>) => {
   return <NativeText ref={ref} style={[style, { color }]} {...otherProps} />;
 };
 
-export const Text = memo(forwardRef<NativeText, TextProps>(TextComponent));
+export const Text: (
+  props: { ref?: Ref<NativeText> } & TextProps
+) => JSX.Element | null = forwardRef<NativeText, TextProps>(TextComponent);

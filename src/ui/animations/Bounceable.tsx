@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type {
   PressableStateCallbackType,
   View as NativeView,
@@ -106,6 +106,8 @@ const BounceableComponent = (
   );
 };
 
-export const Bounceable = memo(
-  forwardRef<NativeView, BounceableProps>(BounceableComponent)
+export const Bounceable: (
+  props: { ref?: Ref<NativeView> } & BounceableProps
+) => JSX.Element | null = forwardRef<NativeView, BounceableProps>(
+  BounceableComponent
 );

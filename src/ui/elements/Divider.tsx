@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import type { BorderThemeProps, ColorThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Text, Box } from '../primitives';
@@ -65,4 +65,4 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-export const Divider = memo(DividerComponent);
+export const Divider = DividerComponent;

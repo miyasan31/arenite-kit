@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo } from 'react';
+import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import { TextInput as NativeTextInput } from 'react-native';
 import type {
   BgThemeProps,
@@ -81,6 +81,8 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-export const TextInput = memo(
-  forwardRef<NativeTextInput, TextInputProps>(TextInputComponent)
+export const TextInput: (
+  props: { ref?: Ref<NativeTextInput> } & TextInputProps
+) => JSX.Element | null = forwardRef<NativeTextInput, TextInputProps>(
+  TextInputComponent
 );

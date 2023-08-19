@@ -121,4 +121,6 @@ const lgRadiusStyle = {
 
 ButtonGroupComponent.displayName = 'arenite-kit.ui.ButtonGroup';
 
-export const ButtonGroup = ButtonGroupComponent;
+export const ButtonGroup: <T>(
+  props: ButtonGroupProps<T>
+) => JSX.Element | null = ButtonGroupComponent;
