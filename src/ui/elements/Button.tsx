@@ -120,8 +120,8 @@ const smStyle = createAreniteStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    gap: 2,
-    paddingHorizontal: 18,
+    gap: 4,
+    paddingHorizontal: 24,
     height: 38,
   },
   text: {
@@ -136,8 +136,8 @@ const mdStyle = createAreniteStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    gap: 3,
-    paddingHorizontal: 24,
+    gap: 6,
+    paddingHorizontal: 32,
     height: 52,
   },
   text: {
@@ -152,8 +152,8 @@ const lgStyle = createAreniteStyle({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    gap: 4,
-    paddingHorizontal: 32,
+    gap: 8,
+    paddingHorizontal: 40,
     height: 64,
   },
   text: {
