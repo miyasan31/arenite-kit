@@ -43,8 +43,8 @@ export const IconButtonExample = () => {
         <IconButton
           bg={'bg2'}
           border={'border1'}
-          viewStyle={style.roundedButton}
           onPress={onPress}
+          radius={'lg'}
         >
           <ThemingIcon name={'settings-outline'} icon={'icon1'} />
         </IconButton>
@@ -57,8 +57,5 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  roundedButton: {
-    borderRadius: 100,
   },
 });
