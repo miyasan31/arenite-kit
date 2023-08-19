@@ -1,6 +1,6 @@
 import React, { ForwardedRef, forwardRef, memo, ReactNode } from 'react';
 import type { View as NativeView } from 'react-native';
-import type { BgThemeProps, BorderThemeProps } from '../../core';
+import type { BgThemeProps, BorderThemeProps, SizeKeys } from '../../core';
 import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
 
@@ -14,6 +14,7 @@ export type IconButtonProps = {
   disabled?: boolean;
   noBounce?: boolean;
   size?: number;
+  radius?: SizeKeys;
   viewStyle?: AreniteViewStyle;
 } & BgThemeProps &
   BorderThemeProps;
@@ -29,6 +30,7 @@ const IconButtonComponent = (
     disabled,
     noBounce,
     size = 52,
+    radius = 'md',
     viewStyle,
     bg,
     lightBg,
@@ -39,6 +41,12 @@ const IconButtonComponent = (
   } = props;
 
   const squareStyle = { width: size, height: size };
+
+  const radiusStyle = {
+    sm: { borderRadius: 0 },
+    md: { borderRadius: 8 },
+    lg: { borderRadius: 999 },
+  }[radius];
 
   return (
     <Bounceable
@@ -54,7 +62,7 @@ const IconButtonComponent = (
       scaleTo={0.95}
     >
       <Box
-        style={[squareStyle, defaultStyle.view, viewStyle]}
+        style={[defaultStyle.view, squareStyle, radiusStyle, viewStyle]}
         bg={bg}
         lightBg={lightBg}
         darkBg={darkBg}
@@ -70,10 +78,8 @@ const IconButtonComponent = (
 
 const defaultStyle = createAreniteStyle({
   view: {
-    display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
   },
 });
 
