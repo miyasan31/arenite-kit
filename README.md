@@ -55,90 +55,135 @@ yarn add arenite-kit
 
 ```ts
 // arenite.config.ts
-
-const commonPallet = {
+const commonPalette = {
   light: {
-    white: "#FFFFFF",
-    black: "#000000",
-    primary: "#F43F5E",
-    secondary: "#FB923C",
-    tertiary: "#FBBF24",
-    accent: "#3B82F6",
-    danger: "#EF4444",
+    white: '#FFFFFF',
+    black: '#000000',
+    primary: '#F43F5E',
+    secondary: '#FB923C',
+    tertiary: '#FBBF24',
+    success: '#10B981',
+    warning: '#FBBF24',
+    info: '#3B82F6',
+    error: '#EF4444',
+    accent: '#3B82F6',
+    danger: '#EF4444',
   },
   dark: {
-    white: "#FFFFFF",
-    black: "#000000",
-    primary: "#963ff4",
-    secondary: "#3c62fb",
-    tertiary: "#24dbfb",
-    accent: "#3bf65a",
-    danger: "#EF4444",
+    white: '#FFFFFF',
+    black: '#000000',
+    primary: '#963ff4',
+    secondary: '#3c62fb',
+    tertiary: '#24dbfb',
+    success: '#10B981',
+    warning: '#FBBF24',
+    info: '#3B82F6',
+    error: '#EF4444',
+    accent: '#3bf65a',
+    danger: '#EF4444',
+  },
+  dracula: {
+    white: '#FFFFFF',
+    black: '#000000',
+    primary: '#BD93F9',
+    secondary: '#FF79C6',
+    tertiary: '#F1FA8C',
+    success: '#50FA7B',
+    warning: '#FFB86C',
+    info: '#8BE9FD',
+    error: '#FF5555',
+    accent: '#8BE9FD',
+    danger: '#FF5555',
   },
 };
 
-const colorPallet = {
+const colorPalette = {
   light: {
-    color0: "#FFFFFF",
-    color1: "#070417",
-    color2: "#C2C6D2",
+    color0: '#FFFFFF',
+    color1: '#070417',
+    color2: '#C2C6D2',
+    color9: '#FFFFFF',
   },
   dark: {
-    color0: "#27272a",
-    color1: "#FFFFFF",
-    color2: "#A1A1AA",
+    color0: '#27272a',
+    color1: '#FFFFFF',
+    color2: '#A1A1AA',
+    color9: '#000000',
+  },
+  dracula: {
+    color0: '#FFFFFF',
+    color1: '#C2C6D2',
+    color2: '#6272A4',
+    color9: '#070417',
   },
 };
 
-const bgPallet = {
+const bgPalette = {
   light: {
-    bg0: "#ffffff00",
-    bg1: "#F1F5F9",
-    bg2: "#FFFFFF",
+    bg0: '#ffffff00',
+    bg1: '#F1F5F9',
+    bg2: '#FFFFFF',
+    // ...
+    bg9: '#27272a',
   },
   dark: {
-    bg0: "#00000000",
-    bg1: "#27272a",
-    bg2: "#3f3f45",
+    bg0: '#00000000',
+    bg1: '#27272a',
+    bg2: '#3f3f45',
+    // ...
+    bg9: '#FFFFFF',
+  },
+  dracula: {
+    bg0: '#ffffff00',
+    bg1: '#282a36',
+    bg2: '#44475a',
+    // ...
+    bg9: '#ffffff',
   },
 };
 
-const borderPallet = {
+const borderPalette = {
   light: {
-    border1: "#C2C6D2",
-    border2: "#E5E7EB",
+    border1: '#C2C6D2',
+    border2: '#E5E7EB',
   },
   dark: {
-    border1: "#5a5a64",
-    border2: "#3f3f45",
+    border1: '#5a5a64',
+    border2: '#3f3f45',
+  },
+  dracula: {
+    border1: '#44475a',
+    border2: '#344d5a',
   },
 };
 
-const iconPallet = {
+const iconPalette = {
   light: {
-    icon1: "#070417",
-    icon2: "#ffffff",
+    icon1: '#070417',
+    icon2: '#C2C6D2',
   },
   dark: {
-    icon1: "#ffffff",
-    icon2: "#070417",
+    icon1: '#ffffff',
+    icon2: '#A1A1AA',
+  },
+  dracula: {
+    icon1: '#070417',
+    icon2: '#C2C6D2',
   },
 };
 
-export const myTheme = {
-  theme: "light",
-  pallets: {
-    common: commonPallet,
-    color: colorPallet,
-    bg: bgPallet,
-    border: borderPallet,
-    icon: iconPallet,
-  },
+export const myThemePalettes = {
+  common: commonPalette,
+  color: colorPalette,
+  bg: bgPalette,
+  border: borderPalette,
+  icon: iconPalette,
 } as const;
 
-declare module "arenite-kit" {
+declare module 'arenite-kit' {
   interface AreniteCustomTheme {
-    pallets: typeof myTheme.pallets;
+    theme: 'light' | 'dark' | 'auto' | 'dracula';
+    palettes: typeof myThemePalettes;
   }
 }
 ```
@@ -170,41 +215,44 @@ import { myTheme } from "./arenite.config";
 export default function App() {
   return (
     <AreniteThemeProvider value={myTheme}>
-      <ScrollView>
-        <Box bg="bg1" style={style.textContainer}>
-          <Text color="color1">color1</Text>
-          <Text color="primary">primary</Text>
-          <Text color="secondary">secondary</Text>
-        </Box>
-        <Image source={require("./assets/icon.png")} />
-        <Divider border="border1" />
-        <VStack>
-          <TextInput
-            placeholder="placeholder"
-            bg="bg2"
-            color="color1"
-            selectionColor="primary"
-            placeholderTextColor="color2"
+      <Toast.Provider topOffset={104}>
+        <Toast />
+        <ScrollView>
+          <Box bg="bg1" style={style.textContainer}>
+            <Text color="color1">color1</Text>
+            <Text color="primary">primary</Text>
+            <Text color="secondary">secondary</Text>
+          </Box>
+          <Image source={require("./assets/icon.png")} />
+          <Divider border="border1" />
+          <VStack>
+            <TextInput
+              placeholder="placeholder"
+              bg="bg2"
+              color="color1"
+              selectionColor="primary"
+              placeholderTextColor="color2"
+            />
+            <HStack>
+              <Radio.Group>
+                <Radio value="light">1</Radio>
+                <Radio value="dark">2</Radio>
+                <Radio value="system">3</Radio>
+              </Radio.Group>
+            </HStack>
+            <Button bg="primary" color="white">Button</Button>
+            <IconButton bg="primary" onPress={onPress}>
+              <ThemingIcon name="home-outline" />
+            </IconButton>
+          </VStack>
+          <FlatList
+            keyExtractor={(item) => item.id.toString()}
+            data={datasets}
+            horizontal={true}
+            renderItem={() => <SomeComponent />}
           />
-          <HStack>
-            <Radio.Group>
-              <Radio value="light">1</Radio>
-              <Radio value="dark">2</Radio>
-              <Radio value="system">3</Radio>
-            </Radio.Group>
-          </HStack>
-          <Button bg="primary" color="white">Button</Button>
-          <IconButton bg="primary" onPress={onPress}>
-            <ThemingIcon name="home-outline" />
-          </IconButton>
-        </VStack>
-        <FlatList
-          keyExtractor={(item) => item.id.toString()}
-          data={datasets}
-          horizontal={true}
-          renderItem={() => <SomeComponent />}
-        />
-      </ScrollView>
+        </ScrollView>
+      </Toast.Provider>
     </AreniteThemeProvider>
   );
 }
