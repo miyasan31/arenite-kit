@@ -15,5 +15,5 @@ export const useCreateAreniteThemeValue = (
     setTheme(customTheme.theme);
   }, [customTheme.theme]);
 
-  return [{ theme: theme, pallets: customTheme.pallets }, { setTheme }];
+  return [{ theme: theme, palettes: customTheme.palettes }, { setTheme }];
 };

@@ -1,11 +1,11 @@
 export type ThemeKey = 'light' | 'dark';
 export type SizeKeys = 'sm' | 'md' | 'lg';
-export type PalletKeys = 'common' | 'color' | 'bg' | 'border' | 'icon';
-export type Pallet = Record<ThemeKey, Record<string, string>>;
+export type PaletteKeys = 'common' | 'color' | 'bg' | 'border' | 'icon';
+export type Palette = Record<ThemeKey, Record<string, string>>;
 
 export interface AreniteBaseTheme {
   theme: ThemeKey | 'auto';
-  pallets: Record<PalletKeys, Pallet>;
+  palettes: Record<PaletteKeys, Palette>;
 }
 
 export interface AreniteCustomTheme {}
@@ -16,7 +16,8 @@ export interface AreniteTheme
 
 export type AreniteThemeKey = AreniteTheme['theme'];
 
-type Colors<T extends PalletKeys> = keyof AreniteTheme['pallets'][T][ThemeKey];
+type Colors<T extends PaletteKeys> =
+  keyof AreniteTheme['palettes'][T][ThemeKey];
 
 export type CommonToken = Colors<'common'>;
 export type BgToken = Colors<'bg'>;

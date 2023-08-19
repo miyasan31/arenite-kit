@@ -5,12 +5,12 @@ import type {
   ColorToken,
   CommonToken,
   IconToken,
-  PalletKeys,
+  PaletteKeys,
 } from '../types';
 import { useAreniteTheme } from './useAreniteTheme';
 import { useSystemTheme } from './useSystemTheme';
 
-type ExcludeCommonTokenKey = Exclude<PalletKeys, 'common'>;
+type ExcludeCommonTokenKey = Exclude<PaletteKeys, 'common'>;
 
 type ResultTokenKey<T extends ExcludeCommonTokenKey> =
   | CommonToken
@@ -24,16 +24,16 @@ type ResultTokenKey<T extends ExcludeCommonTokenKey> =
       ? BorderToken
       : undefined);
 
-export const usePalletColor = <
+export const usePaletteColor = <
   T extends ExcludeCommonTokenKey,
   K extends ResultTokenKey<T>
 >(
-  palletKey: T,
+  paletteKey: T,
   tokenKey: K | undefined,
   override: { [L in Exclude<AreniteThemeKey, 'auto'>]?: string }
 ): string | undefined => {
   const systemTheme = useSystemTheme();
-  const [{ theme, pallets }] = useAreniteTheme();
+  const [{ theme, palettes }] = useAreniteTheme();
 
   const themeKey = theme === 'auto' ? systemTheme : theme;
 
@@ -47,12 +47,12 @@ export const usePalletColor = <
   }
 
   // If common tokens are specified, priority is given to returning them.
-  const commonMapping = pallets.common[themeKey];
+  const commonMapping = palettes.common[themeKey];
   if (hasTokenKey(commonMapping, tokenKey)) {
     return commonMapping[tokenKey];
   }
 
-  const themeMapping = pallets[palletKey][themeKey];
+  const themeMapping = palettes[paletteKey][themeKey];
   if (hasTokenKey(themeMapping, tokenKey)) {
     return themeMapping[tokenKey];
   }

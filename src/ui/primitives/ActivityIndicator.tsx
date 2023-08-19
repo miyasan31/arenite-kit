@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 import type { CommonToken } from '../../core';
-import { BgThemeProps, BorderThemeProps, usePalletColor } from '../../core';
+import { BgThemeProps, BorderThemeProps, usePaletteColor } from '../../core';
 import type { AreniteViewStyle } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
@@ -28,14 +28,14 @@ const ActivityIndicatorComponent = (
     ...otherProps
   } = props;
 
-  const iconColor = usePalletColor('icon', color, {});
+  const iconColor = usePaletteColor('icon', color, {});
 
-  const backgroundColor = usePalletColor('bg', bg, {
+  const backgroundColor = usePaletteColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
 
-  const borderColor = usePalletColor('border', border, {
+  const borderColor = usePaletteColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });

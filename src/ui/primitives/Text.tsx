@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
-import { usePalletColor } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { AreniteTextStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
@@ -20,7 +20,7 @@ const TextComponent = (props: TextProps, ref: ForwardedRef<NativeText>) => {
     ...otherProps
   } = props;
 
-  const color = usePalletColor('color', textColor, {
+  const color = usePaletteColor('color', textColor, {
     light: lightColor,
     dark: darkColor,
   });

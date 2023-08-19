@@ -5,7 +5,7 @@ import {
   PressableProps as NativePressableProps,
   PressableStateCallbackType,
 } from 'react-native';
-import { usePalletColor } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
@@ -36,12 +36,12 @@ const PressableComponent = (
     ...otherProps
   } = props;
 
-  const backgroundColor = usePalletColor('bg', bg, {
+  const backgroundColor = usePaletteColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
 
-  const borderColor = usePalletColor('border', border, {
+  const borderColor = usePaletteColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });

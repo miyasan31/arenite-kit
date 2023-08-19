@@ -1,7 +1,7 @@
 import React, { ForwardedRef, forwardRef, memo } from 'react';
 import { ScrollView as NativeScrollView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
-import { usePalletColor } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
@@ -27,12 +27,12 @@ const ScrollViewComponent = (
     ...otherProps
   } = props;
 
-  const backgroundColor = usePalletColor('bg', bg, {
+  const backgroundColor = usePaletteColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
 
-  const borderColor = usePalletColor('border', border, {
+  const borderColor = usePaletteColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });

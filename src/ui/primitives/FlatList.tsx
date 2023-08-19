@@ -3,7 +3,7 @@ import {
   FlatList as NativeFlatList,
   FlatListProps as NativeFlatListProps,
 } from 'react-native';
-import { usePalletColor } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
@@ -33,12 +33,12 @@ const FlatListComponent = <Data,>(props: FlatListProps<Data>) => {
     ...otherProps
   } = props;
 
-  const backgroundColor = usePalletColor('bg', bg, {
+  const backgroundColor = usePaletteColor('bg', bg, {
     light: lightBg,
     dark: darkBg,
   });
 
-  const borderColor = usePalletColor('border', border, {
+  const borderColor = usePaletteColor('border', border, {
     light: lightBorder,
     dark: darkBorder,
   });
