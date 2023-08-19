@@ -3,7 +3,7 @@ import { useAreniteTheme, useSystemTheme } from 'arenite-kit';
 
 export const useNativeTheme = (): Theme => {
   const systemTheme = useSystemTheme();
-  const [{ theme, pallets }] = useAreniteTheme();
+  const [{ theme, palettes }] = useAreniteTheme();
 
   const themeKey = theme === 'auto' ? systemTheme : theme;
   const defaultTheme: Theme = themeKey === 'dark' ? DarkTheme : DefaultTheme;
@@ -12,12 +12,12 @@ export const useNativeTheme = (): Theme => {
     ...defaultTheme,
     dark: themeKey === 'dark',
     colors: {
-      primary: pallets.common[themeKey].primary,
-      background: pallets.bg[themeKey].bg1,
-      card: pallets.bg[themeKey].bg2,
-      text: pallets.color[themeKey].color1,
-      border: pallets.border[themeKey].border1,
-      notification: pallets.common[themeKey].accent,
+      primary: palettes.common[themeKey].primary,
+      background: palettes.bg[themeKey].bg1,
+      card: palettes.bg[themeKey].bg2,
+      text: palettes.color[themeKey].color1,
+      border: palettes.border[themeKey].border1,
+      notification: palettes.common[themeKey].accent,
     },
   };
 };

@@ -1,4 +1,4 @@
-const commonPallet = {
+const commonPalette = {
   light: {
     white: '#FFFFFF',
     black: '#000000',
@@ -40,7 +40,7 @@ const commonPallet = {
   },
 };
 
-const colorPallet = {
+const colorPalette = {
   light: {
     color0: '#FFFFFF',
     color1: '#070417',
@@ -61,7 +61,7 @@ const colorPallet = {
   },
 };
 
-const bgPallet = {
+const bgPalette = {
   light: {
     bg0: '#ffffff00',
     bg1: '#F1F5F9',
@@ -85,7 +85,7 @@ const bgPallet = {
   },
 };
 
-const borderPallet = {
+const borderPalette = {
   light: {
     border1: '#C2C6D2',
     border2: '#E5E7EB',
@@ -100,7 +100,7 @@ const borderPallet = {
   },
 };
 
-const iconPallet = {
+const iconPalette = {
   light: {
     icon1: '#070417',
     icon2: '#C2C6D2',
@@ -115,17 +115,17 @@ const iconPallet = {
   },
 };
 
-export const myThemePallets = {
-  common: commonPallet,
-  color: colorPallet,
-  bg: bgPallet,
-  border: borderPallet,
-  icon: iconPallet,
+export const myThemePalettes = {
+  common: commonPalette,
+  color: colorPalette,
+  bg: bgPalette,
+  border: borderPalette,
+  icon: iconPalette,
 } as const;
 
 declare module 'arenite-kit' {
   interface AreniteCustomTheme {
     theme: 'light' | 'dark' | 'auto' | 'dracula';
-    pallets: typeof myThemePallets;
+    palettes: typeof myThemePalettes;
   }
 }

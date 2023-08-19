@@ -1,5 +1,5 @@
 import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
-import { myThemePallets } from '$libs/arenite-kit/areniteConfig';
+import { myThemePalettes } from '$libs/arenite-kit/areniteConfig';
 import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 import type { AreniteTheme, AreniteThemeKey } from 'arenite-kit';
 import * as SplashScreen from 'expo-splash-screen';
@@ -35,7 +35,7 @@ export const useAppBootstrap = () => {
 
   const areniteTheme: AreniteTheme = {
     theme: userTheme,
-    pallets: myThemePallets,
+    palettes: myThemePalettes,
   };
 
   return { isReady, areniteTheme };
