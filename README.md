@@ -2,12 +2,14 @@
 
 💎 Design system, UI components for React Native.
 
+https://github.com/miyasan31/arenite-kit/assets/71614432/95b629d9-c950-4c60-9a99-10c7ec1f3069
+
 ## Roadmap
 
-- UtilityFirst component interface
-- Sx property
-- Expanded theme config
-- Expanded component types
+- [ ] UtilityFirst component interface
+- [ ] Sx property
+- [ ] Expanded theme config
+- [ ] Expanded component types
   - [x] Text
   - [x] Image
   - [x] Box
