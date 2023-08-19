@@ -1,3 +1,4 @@
+import { ThemingIcon } from '$components/shared/ThemingIcon';
 import {
   Button,
   createAreniteStyle,
@@ -26,8 +27,13 @@ export const ButtonExample = () => {
         Button
       </Text>
 
-      <Button bg="primary" color="white" onPress={onToggleTheme}>
-        Default
+      <Button
+        bg="primary"
+        color="white"
+        onPress={onToggleTheme}
+        left={<ThemingIcon name={'logo-github'} size={24} icon={'white'} />}
+      >
+        Default Button Style
       </Button>
 
       <Text style={style.subtitle} color="color1">
