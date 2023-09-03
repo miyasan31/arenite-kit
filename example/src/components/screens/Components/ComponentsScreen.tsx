@@ -1,6 +1,6 @@
 import { ActivityIndicatorExample } from '$components/screens/Components/views/ActivityIndicator';
 import { ButtonExample } from '$components/screens/Components/views/Button';
-import { ButtonGroupExample } from '$components/screens/Components/views/ButtonGroup';
+import { SegmentExample } from '$components/screens/Components/views/Segment';
 import { DividerExample } from '$components/screens/Components/views/Divider';
 import { FlatListExample } from '$components/screens/Components/views/FlatList';
 import { HStackExample } from '$components/screens/Components/views/Hstack';
@@ -31,7 +31,7 @@ export const ComponentsScreen = () => {
           <TextInputExample />
           <RadioExample />
           <ButtonExample />
-          <ButtonGroupExample />
+          <SegmentExample />
           <IconButtonExample />
           <ImageExample />
           <FlatListExample />

@@ -10,7 +10,7 @@ import { Box } from '../primitives';
 import { Button } from './Button';
 import { HStack } from './HStack';
 
-export type ButtonGroupProps<T> = {
+export type SegmentProps<T> = {
   value?: T;
   onChange?: (value: T) => void;
   activeColor?: ColorThemeProps['color'];
@@ -26,7 +26,7 @@ export type ButtonGroupProps<T> = {
   }[];
 };
 
-const ButtonGroupComponent = <T,>(props: ButtonGroupProps<T>) => {
+const SegmentComponent = <T,>(props: SegmentProps<T>) => {
   const {
     value: selectedValue,
     onChange,
@@ -119,8 +119,7 @@ const lgRadiusStyle = {
   buttonContainer: { borderRadius: 999 },
 };
 
-ButtonGroupComponent.displayName = 'arenite-kit.ui.ButtonGroup';
+SegmentComponent.displayName = 'arenite-kit.ui.Segment';
 
-export const ButtonGroup: <T>(
-  props: ButtonGroupProps<T>
-) => JSX.Element | null = ButtonGroupComponent;
+export const Segment: <T>(props: SegmentProps<T>) => JSX.Element | null =
+  SegmentComponent;

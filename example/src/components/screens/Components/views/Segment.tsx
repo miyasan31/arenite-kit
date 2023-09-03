@@ -2,7 +2,7 @@ import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
 import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 import {
   AreniteThemeKey,
-  ButtonGroup,
+  Segment,
   createAreniteStyle,
   Text,
   useAreniteTheme,
@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 
 type Position = 'left' | 'center' | 'right';
 
-export const ButtonGroupExample = () => {
+export const SegmentExample = () => {
   const [{ theme }, { setTheme }] = useAreniteTheme();
   const [position, setPosition] = useState<Position>('left');
 
@@ -28,10 +28,10 @@ export const ButtonGroupExample = () => {
   return (
     <VStack gap={12}>
       <Text style={style.title} color={'color1'}>
-        ButtonGroup
+        Segment
       </Text>
 
-      <ButtonGroup<Position>
+      <Segment<Position>
         value={position}
         onChange={onChangePosition}
         activeBg="bg9"
@@ -46,7 +46,7 @@ export const ButtonGroupExample = () => {
         radius="md"
       />
 
-      <ButtonGroup<AreniteThemeKey>
+      <Segment<AreniteThemeKey>
         value={theme}
         onChange={onChangeTheme}
         activeBg="bg9"
