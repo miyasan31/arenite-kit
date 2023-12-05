@@ -1,5 +1,6 @@
 import { ActivityIndicatorExample } from '$components/screens/Components/views/ActivityIndicator';
 import { ButtonExample } from '$components/screens/Components/views/Button';
+import { CalloutExample } from '$components/screens/Components/views/Callout';
 import { SegmentExample } from '$components/screens/Components/views/Segment';
 import { DividerExample } from '$components/screens/Components/views/Divider';
 import { FlatListExample } from '$components/screens/Components/views/FlatList';
@@ -27,6 +28,7 @@ export const ComponentsScreen = () => {
     <SafeAreaView edges={edges} bg={'bg1'}>
       <ScrollView>
         <VStack gap={32} style={style.container}>
+          <CalloutExample />
           <TextExample />
           <TextInputExample />
           <RadioExample />

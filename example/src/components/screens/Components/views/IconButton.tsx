@@ -32,7 +32,7 @@ export const IconButtonExample = () => {
           <ThemingIcon icon={'white'} name={'chatbubbles-outline'} />
         </IconButton>
 
-        <IconButton bg={'accent'} onPress={onPress}>
+        <IconButton bg={'warning'} onPress={onPress}>
           <ThemingIcon icon={'white'} name={'notifications-outline'} />
         </IconButton>
 

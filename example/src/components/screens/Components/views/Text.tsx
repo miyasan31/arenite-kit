@@ -18,7 +18,6 @@ export const TextExample = () => {
         <Text color={'primary'}>primary</Text>
         <Text color={'secondary'}>secondary</Text>
         <Text color={'tertiary'}>tertiary</Text>
-        <Text color={'accent'}>accent</Text>
         <Text color={'danger'}>danger</Text>
       </VStack>
     </VStack>

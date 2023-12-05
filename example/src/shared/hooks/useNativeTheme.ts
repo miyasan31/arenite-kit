@@ -17,7 +17,7 @@ export const useNativeTheme = (): Theme => {
       card: palettes.bg[themeKey].bg2,
       text: palettes.color[themeKey].color1,
       border: palettes.border[themeKey].border1,
-      notification: palettes.common[themeKey].accent,
+      notification: palettes.common[themeKey].info,
     },
   };
 };

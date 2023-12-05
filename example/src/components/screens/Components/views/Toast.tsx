@@ -44,7 +44,7 @@ export const ToastExample = () => {
           Show
         </Button>
         <Button
-          bg="accent"
+          bg="info"
           onPress={onUpdateToast}
           containerStyle={style.buttonContainer}
         >
