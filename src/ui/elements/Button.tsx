@@ -1,10 +1,4 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  ReactElement,
-  ReactNode,
-  Ref,
-} from 'react';
+import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
 import type {
   BgThemeProps,
@@ -21,8 +15,8 @@ export type ButtonProps = {
   children: ReactNode;
   onPress?: () => void;
   onLongPress?: () => void;
-  left?: ReactElement;
-  right?: ReactElement;
+  left?: ReactNode;
+  right?: ReactNode;
   noBounce?: boolean;
   disabled?: boolean;
   containerStyle?: AreniteViewStyleProps;
