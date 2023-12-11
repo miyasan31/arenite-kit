@@ -2,10 +2,10 @@ import { ThemingIcon } from '$components/shared/ThemingIcon';
 import { createAreniteStyle, Radio, Text, VStack } from 'arenite-kit';
 import React, { useState } from 'react';
 
-type ValueType = 'left' | 'right';
+type ValueType = 'default' | 'checkmark' | 'star';
 
 export const RadioExample = () => {
-  const [value, setValue] = useState<ValueType>('right');
+  const [value, setValue] = useState<ValueType>('default');
 
   const onChangeRadioValue = (changeValue: ValueType) => {
     setValue(changeValue);
@@ -18,12 +18,19 @@ export const RadioExample = () => {
       </Text>
 
       <Radio.Group value={value} onChange={onChangeRadioValue}>
-        <Radio value={'right'} label={'Right'} />
+        <Radio value={'default'} label={'Default'} />
         <Radio
-          value={'left'}
-          label={'Left'}
-          labelPosition={'left'}
+          value={'checkmark'}
+          label={'Checkmark'}
           activeColor={'secondary'}
+          checkedElement={
+            <ThemingIcon name={'checkmark'} size={14} icon={'white'} />
+          }
+        />
+        <Radio
+          value={'star'}
+          label={'Star'}
+          activeColor={'tertiary'}
           checkedElement={
             <ThemingIcon name={'star'} size={14} icon={'white'} />
           }

@@ -31,11 +31,13 @@ export const CheckboxExample = () => {
           checkedElement={
             <ThemingIcon name={'checkmark'} size={20} icon={'white'} />
           }
+          checkedColor={'secondary'}
           label={'Checkmark'}
         />
         <Checkbox
           checked={checked2}
           onPress={() => setChecked2((prev) => !prev)}
+          checkedColor={'tertiary'}
           checkedElement={
             <ThemingIcon name={'star'} size={16} icon={'white'} />
           }
