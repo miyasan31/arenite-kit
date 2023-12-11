@@ -1,34 +1,34 @@
 import React from 'react';
-import {
-  BgToken,
-  CommonToken,
-  OverrideColor,
-  usePaletteColor,
-} from '../../core';
 import { Switch as NativeSwitch } from 'react-native';
+import { CommonToken, OverrideColor, usePaletteColor } from '../../core';
 
-type TrackColor = OverrideColor<'Track'>;
+type TrackColor = OverrideColor<'TrackColor'>;
 
-export type SwitchProps = NativeSwitch['props'] &
+export type SwitchProps = Omit<NativeSwitch['props'], 'trackColor'> &
   TrackColor & {
-    track?: CommonToken | BgToken;
+    trackColor?: CommonToken;
   };
 
 const SwitchComponent = (props: SwitchProps) => {
-  const { style, trackColor, track, lightTrack, darkTrack, ...otherProps } =
-    props;
+  const {
+    style,
+    trackColor = 'primary',
+    lightTrackColor,
+    darkTrackColor,
+    ...otherProps
+  } = props;
 
-  const trackActiveColor = usePaletteColor('bg', track, {
-    light: lightTrack,
-    dark: darkTrack,
+  const trackActiveColor = usePaletteColor('bg', trackColor, {
+    light: lightTrackColor,
+    dark: darkTrackColor,
   });
 
   return (
     <NativeSwitch
       style={[style]}
       trackColor={{
-        false: trackActiveColor ?? trackColor?.true,
-        true: trackActiveColor ?? trackColor?.false,
+        false: trackActiveColor,
+        true: trackActiveColor,
       }}
       {...otherProps}
     />
