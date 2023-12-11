@@ -78,7 +78,7 @@ const RadioComponent = <T,>(props: RadioProps<T>) => {
           style={defaultStyle.ring}
         >
           {isChecked
-            ? checkedElement ?? <Box bg={'bg2'} style={defaultStyle.active} />
+            ? checkedElement ?? <Box bg={'white'} style={defaultStyle.active} />
             : null}
         </Box>
         <Text color={'color1'}>{label}</Text>
