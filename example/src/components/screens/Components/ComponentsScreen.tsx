@@ -1,6 +1,7 @@
 import { ActivityIndicatorExample } from '$components/screens/Components/views/ActivityIndicator';
 import { ButtonExample } from '$components/screens/Components/views/Button';
 import { CalloutExample } from '$components/screens/Components/views/Callout';
+import { CheckboxExample } from '$components/screens/Components/views/Checkbox';
 import { SegmentExample } from '$components/screens/Components/views/Segment';
 import { DividerExample } from '$components/screens/Components/views/Divider';
 import { FlatListExample } from '$components/screens/Components/views/FlatList';
@@ -8,6 +9,7 @@ import { HStackExample } from '$components/screens/Components/views/Hstack';
 import { IconButtonExample } from '$components/screens/Components/views/IconButton';
 import { ImageExample } from '$components/screens/Components/views/Image';
 import { RadioExample } from '$components/screens/Components/views/Radio';
+import { SwitchExample } from '$components/screens/Components/views/Switch';
 import { TextExample } from '$components/screens/Components/views/Text';
 import { TextInputExample } from '$components/screens/Components/views/TextInput';
 import { ToastExample } from '$components/screens/Components/views/Toast';
@@ -28,9 +30,10 @@ export const ComponentsScreen = () => {
     <SafeAreaView edges={edges} bg={'bg1'}>
       <ScrollView>
         <VStack gap={32} style={style.container}>
-          <CalloutExample />
+          <CheckboxExample />
           <TextExample />
           <TextInputExample />
+          <SwitchExample />
           <RadioExample />
           <ButtonExample />
           <SegmentExample />
@@ -39,6 +42,7 @@ export const ComponentsScreen = () => {
           <FlatListExample />
           <VStackExample />
           <HStackExample />
+          <CalloutExample />
           <ToastExample />
           <DividerExample />
           <ActivityIndicatorExample />
