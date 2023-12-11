@@ -7,6 +7,7 @@ import { FlatListExample } from '$components/screens/Components/views/FlatList';
 import { HStackExample } from '$components/screens/Components/views/Hstack';
 import { IconButtonExample } from '$components/screens/Components/views/IconButton';
 import { ImageExample } from '$components/screens/Components/views/Image';
+import { ListItemExample } from '$components/screens/Components/views/ListItem';
 import { RadioExample } from '$components/screens/Components/views/Radio';
 import { SegmentExample } from '$components/screens/Components/views/Segment';
 import { SwitchExample } from '$components/screens/Components/views/Switch';
@@ -43,6 +44,7 @@ export const ComponentsScreen = () => {
           <HStackExample />
           <CalloutExample />
           <ToastExample />
+          <ListItemExample />
           <DividerExample />
           <ActivityIndicatorExample />
         </VStack>
