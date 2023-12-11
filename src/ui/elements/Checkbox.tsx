@@ -35,7 +35,7 @@ const CheckboxComponent = (props: CheckboxProps) => {
       ]}
       onPress={onPress}
     >
-      <Bounceable onPress={onPress}>
+      <Bounceable scaleTo={0.95} onPress={onPress}>
         <Box
           bg={checked ? checkedColor : 'bg2'}
           border={checked ? checkedColor : 'border1'}
@@ -67,12 +67,12 @@ const defaultStyle = createAreniteStyle({
     gap: 8,
   },
   checkbox: {
+    justifyContent: 'center',
+    alignItems: 'center',
     width: 24,
     height: 24,
     borderWidth: 1,
     borderRadius: 4,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   checkmark: {
     fontWeight: '800',

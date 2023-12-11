@@ -1,6 +1,7 @@
 import { createContext, ReactElement, ReactNode, useContext } from 'react';
 import type { CommonToken, OverrideColor } from '../../core';
 import { createAreniteStyle } from '../../style';
+import { Bounceable } from '../animations';
 import { Box, Pressable, Text } from '../primitives';
 
 type ActiveColor = OverrideColor<'ActiveColor'>;
@@ -55,21 +56,21 @@ const RadioComponent = <T,>(props: RadioProps<T>) => {
     throw new Error('Radio must be used inside RadioGroup');
   }
 
-  const onChangeValue = () => {
+  const onPressRadio = () => {
     onChange(value);
   };
 
   const isChecked = selectedValue === value;
 
   return (
-    <Box style={defaultStyle.container}>
-      <Pressable
-        style={[
-          defaultStyle.pressable,
-          { flexDirection: labelPosition === 'right' ? 'row' : 'row-reverse' },
-        ]}
-        onPress={onChangeValue}
-      >
+    <Pressable
+      style={[
+        defaultStyle.container,
+        { flexDirection: labelPosition === 'right' ? 'row' : 'row-reverse' },
+      ]}
+      onPress={onPressRadio}
+    >
+      <Bounceable scaleTo={0.95} onPress={onPressRadio}>
         <Box
           bg={isChecked ? activeColor : 'bg2'}
           lightBg={isChecked ? lightActiveColor : undefined}
@@ -81,17 +82,18 @@ const RadioComponent = <T,>(props: RadioProps<T>) => {
             ? checkedElement ?? <Box bg={'white'} style={defaultStyle.active} />
             : null}
         </Box>
-        <Text color={'color1'}>{label}</Text>
-      </Pressable>
-    </Box>
+      </Bounceable>
+
+      <Text color={'color1'} style={[defaultStyle.label]}>
+        {label}
+      </Text>
+    </Pressable>
   );
 };
 
 const defaultStyle = createAreniteStyle({
   container: {
     flexDirection: 'row',
-  },
-  pressable: {
     alignItems: 'center',
     gap: 8,
   },
@@ -107,6 +109,9 @@ const defaultStyle = createAreniteStyle({
     width: 10,
     height: 10,
     borderRadius: 999,
+  },
+  label: {
+    fontSize: 16,
   },
 });
 
