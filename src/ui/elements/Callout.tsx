@@ -5,7 +5,7 @@ import { Text } from '../primitives';
 import { HStack } from './HStack';
 import { VStack } from './VStack';
 
-type CalloutProps = {
+export type CalloutProps = {
   title: string;
   description?: string;
   left?: ReactNode;

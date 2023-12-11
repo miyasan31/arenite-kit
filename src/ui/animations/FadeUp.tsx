@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import Animated, { FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
-type FadeUpProps = {
+export type FadeUpProps = {
   children: ReactNode;
 };
 

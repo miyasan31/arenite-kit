@@ -6,7 +6,7 @@ import { Box, Pressable, Text } from '../primitives';
 
 type ActiveColor = OverrideColor<'ActiveColor'>;
 
-type RadioGroupContextType<T = any> = {
+export type RadioGroupContextType<T = any> = {
   selectedValue: T;
   onChange: (value: T) => void;
 };

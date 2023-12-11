@@ -6,7 +6,7 @@ import { Box, Pressable, Text } from '../primitives';
 
 type CheckedColor = OverrideColor<'CheckedColor'>;
 
-type CheckboxProps = {
+export type CheckboxProps = {
   checked: boolean;
   onPress: () => void;
   label?: string;

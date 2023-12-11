@@ -8,7 +8,7 @@ import { Box, Text } from '../primitives';
 type LeftColor = OverrideColor<'LeftColor'>;
 type RightColor = OverrideColor<'RightColor'>;
 
-type ListItemProps = {
+export type ListItemProps = {
   leftText: string;
   leftIcon?: ReactElement;
   rightText?: string;

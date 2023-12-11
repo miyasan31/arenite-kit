@@ -15,13 +15,13 @@ import { VStack } from './VStack';
 
 const DEFAULT_TOAST_DURATION = 4000;
 
-type ToastConfig = {
+export type ToastConfig = {
   id: string;
   message: string;
   type: 'loading' | 'error' | 'success';
 };
 
-type ToastContextType = {
+export type ToastContextType = {
   toasts: ToastConfig[];
   topOffset: number;
   addToast: (toast: ToastConfig) => void;
@@ -48,7 +48,7 @@ const defaultOptionalToastConfig = {
   id: Math.random().toString(36),
 };
 
-type ToastProviderProps = {
+export type ToastProviderProps = {
   topOffset?: number;
   children: ReactNode;
 };
@@ -139,7 +139,7 @@ const ToastProvider = (props: ToastProviderProps) => {
   );
 };
 
-type ToastProps = ToastConfig;
+export type ToastProps = ToastConfig;
 
 const ToastComponent = memo((props: ToastProps) => {
   const { type, message } = props;
