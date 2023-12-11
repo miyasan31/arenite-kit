@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { BgThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Text } from '../primitives';

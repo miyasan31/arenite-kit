@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import Animated, { FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
 type FadeUpProps = {
