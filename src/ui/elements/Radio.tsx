@@ -1,6 +1,14 @@
-import React, { createContext, ReactNode, useContext } from 'react';
+import React, {
+  createContext,
+  ReactElement,
+  ReactNode,
+  useContext,
+} from 'react';
+import type { CommonToken, OverrideColor } from '../../core';
 import { createAreniteStyle } from '../../style';
-import { Box, Text, Pressable } from '../primitives';
+import { Box, Pressable, Text } from '../primitives';
+
+type ActiveColor = OverrideColor<'ActiveColor'>;
 
 type RadioGroupContextType<T = any> = {
   selectedValue: T;
@@ -29,10 +37,20 @@ export type RadioProps<T> = {
   value: T;
   label?: string;
   labelPosition?: 'left' | 'right';
-};
+  checkedElement?: ReactElement;
+  activeColor?: CommonToken;
+} & ActiveColor;
 
 const RadioComponent = <T,>(props: RadioProps<T>) => {
-  const { label, labelPosition, value } = props;
+  const {
+    value,
+    label,
+    labelPosition = 'right',
+    checkedElement,
+    activeColor = 'primary',
+    lightActiveColor,
+    darkActiveColor,
+  } = props;
 
   const { selectedValue, onChange } =
     useContext<RadioGroupContextType<T>>(RadioGroupContext);
@@ -57,10 +75,16 @@ const RadioComponent = <T,>(props: RadioProps<T>) => {
         ]}
         onPress={onChangeValue}
       >
-        <Box border={'border1'} style={defaultStyle.ring}>
-          {isChecked ? (
-            <Box bg={'primary'} style={defaultStyle.active} />
-          ) : null}
+        <Box
+          bg={isChecked ? activeColor : 'bg2'}
+          lightBg={isChecked ? lightActiveColor : undefined}
+          darkBg={isChecked ? darkActiveColor : undefined}
+          border={isChecked ? activeColor : 'border1'}
+          style={defaultStyle.ring}
+        >
+          {isChecked
+            ? checkedElement ?? <Box bg={'bg2'} style={defaultStyle.active} />
+            : null}
         </Box>
         <Text color={'color1'}>{label}</Text>
       </Pressable>
@@ -85,8 +109,8 @@ const defaultStyle = createAreniteStyle({
     borderRadius: 999,
   },
   active: {
-    width: 14,
-    height: 14,
+    width: 10,
+    height: 10,
     borderRadius: 999,
   },
 });

@@ -27,7 +27,7 @@ export type BorderToken = Colors<'border'>;
 
 /** Component Style Props */
 
-type OverrideColor<T> = T extends string
+export type OverrideColor<T> = T extends string
   ? {
       [C in `${Exclude<AreniteThemeKey, 'auto'>}${T}`]?: string;
     }
