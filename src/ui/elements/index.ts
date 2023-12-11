@@ -7,3 +7,4 @@ export * from './Divider';
 export * from './Radio';
 export * from './Toast';
 export * from './Callout';
+export * from './Checkbox';
