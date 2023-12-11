@@ -1,11 +1,11 @@
-import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
+import { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps, SizeKeys } from '../../core';
-import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
+import { createAreniteStyle } from '../../style';
+import { Bounceable } from '../animations';
 
 import { Box } from '../primitives';
-import { Bounceable } from '../animations';
 
 export type IconButtonProps = {
   children: ReactNode;

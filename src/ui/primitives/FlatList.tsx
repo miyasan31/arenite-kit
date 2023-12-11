@@ -1,10 +1,9 @@
-import React from 'react';
 import {
   FlatList as NativeFlatList,
   FlatListProps as NativeFlatListProps,
 } from 'react-native';
-import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 

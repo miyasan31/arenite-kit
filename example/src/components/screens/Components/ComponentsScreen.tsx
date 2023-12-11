@@ -21,7 +21,6 @@ import {
   ScrollView,
   VStack,
 } from 'arenite-kit';
-import React from 'react';
 
 export const ComponentsScreen = () => {
   const edges = getSafeAreaEdges('horizontal');

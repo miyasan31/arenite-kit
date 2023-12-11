@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
+import { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type { PressableStateCallbackType } from 'react-native';
 import Animated, {
   Easing,

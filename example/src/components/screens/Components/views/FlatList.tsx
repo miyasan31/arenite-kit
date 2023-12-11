@@ -1,5 +1,4 @@
 import { createAreniteStyle, FlatList, Image, Text, VStack } from 'arenite-kit';
-import React from 'react';
 
 const listDatasets = new Array(10).fill(0).map((_, i) => ({ id: i }));
 

@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import { View as NativeView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';

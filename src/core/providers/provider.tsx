@@ -1,8 +1,7 @@
+import type { FC, ReactNode } from 'react';
 import { useCreateAreniteThemeValue } from '../hooks/useCreateAreniteThemeValue';
 import type { AreniteTheme } from '../types';
 import { AreniteThemeContext } from './context';
-import type { FC, ReactNode } from 'react';
-import React from 'react';
 
 export type AreniteThemeProviderProps = {
   children: ReactNode;

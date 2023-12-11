@@ -1,7 +1,7 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import { Image as NativeImage } from 'react-native';
-import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { AreniteImageStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 

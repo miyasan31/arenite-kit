@@ -1,9 +1,9 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
-import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyle } from '../../style';
-import { Box } from '../primitives';
+import { createAreniteStyle } from '../../style';
 import type { BoxProps } from '../primitives';
+import { Box } from '../primitives';
 
 export type HStackProps = BoxProps & {
   gap?: AreniteViewStyle['rowGap'];

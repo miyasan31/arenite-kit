@@ -1,5 +1,4 @@
 import { createAreniteStyle, Text, TextInput, VStack } from 'arenite-kit';
-import React from 'react';
 
 export const TextInputExample = () => {
   return (

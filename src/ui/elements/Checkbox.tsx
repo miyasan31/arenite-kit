@@ -1,4 +1,4 @@
-import React, { memo, ReactElement } from 'react';
+import { memo, ReactElement } from 'react';
 import type { CommonToken, OverrideColor } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Bounceable } from '../animations';

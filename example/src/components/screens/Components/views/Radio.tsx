@@ -1,6 +1,6 @@
 import { ThemingIcon } from '$components/shared/ThemingIcon';
 import { createAreniteStyle, Radio, Text, VStack } from 'arenite-kit';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type ValueType = 'default' | 'checkmark' | 'star';
 

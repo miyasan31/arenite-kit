@@ -1,5 +1,7 @@
 import { ThemingIcon } from '$components/shared/ThemingIcon';
 import { getSafeAreaEdges } from '$libs/react-native-safe-area-context/getSafeAreaEdges';
+
+import type { RootScreenProps } from '$navigation/navigate';
 import {
   Button,
   createAreniteStyle,
@@ -7,8 +9,6 @@ import {
   Text,
   VStack,
 } from 'arenite-kit';
-import React from 'react';
-import type { RootScreenProps } from '$navigation/navigate';
 
 export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
   const edges = getSafeAreaEdges('horizontal');

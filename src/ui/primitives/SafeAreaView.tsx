@@ -1,10 +1,9 @@
-import React from 'react';
 import type { NativeSafeAreaViewProps } from 'react-native-safe-area-context';
 import { SafeAreaView as NativeSafeAreaView } from 'react-native-safe-area-context';
 import type { BgThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';
-import { createAreniteStyle } from '../../style';
 import type { AreniteViewStyleProps } from '../../style';
+import { createAreniteStyle } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
 export type SafeAreaViewProps = OmitKeyReplacer<

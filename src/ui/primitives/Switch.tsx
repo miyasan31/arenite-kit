@@ -1,4 +1,3 @@
-import React from 'react';
 import { Switch as NativeSwitch } from 'react-native';
 import { CommonToken, OverrideColor, usePaletteColor } from '../../core';
 

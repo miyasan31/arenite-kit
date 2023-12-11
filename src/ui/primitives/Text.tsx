@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';

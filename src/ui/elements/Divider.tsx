@@ -1,7 +1,6 @@
-import React from 'react';
 import type { BorderThemeProps, ColorThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
-import { Text, Box } from '../primitives';
+import { Box, Text } from '../primitives';
 
 export type DividerProps = {
   label?: string;

@@ -1,5 +1,4 @@
 import { createAreniteStyle, Divider, Text, VStack } from 'arenite-kit';
-import React from 'react';
 
 export const DividerExample = () => {
   return (

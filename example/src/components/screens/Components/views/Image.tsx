@@ -1,5 +1,4 @@
 import { createAreniteStyle, HStack, Image, Text, VStack } from 'arenite-kit';
-import React from 'react';
 
 export const ImageExample = () => {
   return (

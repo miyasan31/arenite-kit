@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import { ScrollView as NativeScrollView } from 'react-native';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';

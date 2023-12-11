@@ -1,7 +1,4 @@
-import { createAreniteStyle } from '../../style';
-import { FadeUp } from '../animations';
-import { ActivityIndicator, Text } from '../primitives';
-import React, {
+import {
   createContext,
   memo,
   ReactNode,
@@ -10,6 +7,9 @@ import React, {
   useContext,
   useState,
 } from 'react';
+import { createAreniteStyle } from '../../style';
+import { FadeUp } from '../animations';
+import { ActivityIndicator, Text } from '../primitives';
 import { HStack } from './HStack';
 import { VStack } from './VStack';
 

@@ -6,7 +6,6 @@ import {
   useToast,
   VStack,
 } from 'arenite-kit';
-import React from 'react';
 
 const TOAST_ID = 'updateProfileStatus';
 

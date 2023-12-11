@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppBootstrap } from '$hooks/useAppBootstrap';
 import { AreniteThemeProvider, Toast } from 'arenite-kit';
 import type { ReactNode } from 'react';

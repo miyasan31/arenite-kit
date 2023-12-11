@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import {
   Pressable as NativePressable,
   PressableProps as NativePressableProps,

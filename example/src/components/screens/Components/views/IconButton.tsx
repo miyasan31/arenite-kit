@@ -6,7 +6,6 @@ import {
   Text,
   VStack,
 } from 'arenite-kit';
-import React from 'react';
 
 export const IconButtonExample = () => {
   const onPress = () => {

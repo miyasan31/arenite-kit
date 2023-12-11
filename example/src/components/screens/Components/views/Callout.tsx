@@ -6,7 +6,7 @@ import {
   Text,
   VStack,
 } from 'arenite-kit';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export const CalloutExample = () => {
   const [isDisplayedSuccessCallout, setIsDisplayedSuccessCallout] =

@@ -2,13 +2,13 @@ import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
 import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 import {
   AreniteThemeKey,
-  Segment,
   createAreniteStyle,
+  Segment,
   Text,
   useAreniteTheme,
   VStack,
 } from 'arenite-kit';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 type Position = 'left' | 'center' | 'right';
 

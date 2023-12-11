@@ -5,7 +5,6 @@ import { linkingConfiguration } from '$navigation/linking';
 import type { RootParamList } from '$navigation/navigate';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
 
 const NativeStack = createNativeStackNavigator<RootParamList>();
 

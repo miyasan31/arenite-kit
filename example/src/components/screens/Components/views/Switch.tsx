@@ -1,5 +1,5 @@
 import { createAreniteStyle, HStack, Switch, Text, VStack } from 'arenite-kit';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export const SwitchExample = () => {
   const [isEnabled, setIsEnabled] = useState(true);

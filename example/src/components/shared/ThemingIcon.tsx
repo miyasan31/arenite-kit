@@ -1,4 +1,3 @@
-import React from 'react';
 import { IconThemeProps, usePaletteColor } from 'arenite-kit';
 import Icon from 'react-native-vector-icons/Ionicons';
 

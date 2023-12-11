@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, Ref } from 'react';
+import { ForwardedRef, forwardRef, Ref } from 'react';
 import { TextInput as NativeTextInput } from 'react-native';
 import type {
   BgThemeProps,
@@ -6,8 +6,8 @@ import type {
   ColorThemeProps,
 } from '../../core';
 import { usePaletteColor } from '../../core';
-import { createAreniteStyle } from '../../style';
 import type { AreniteTextStyleProps } from '../../style';
+import { createAreniteStyle } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
 export type TextInputProps = OmitKeyReplacer<

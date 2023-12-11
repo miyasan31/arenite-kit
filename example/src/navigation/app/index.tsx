@@ -3,7 +3,6 @@ import { ComponentsNavigator } from '$navigation/app/components';
 import { ThemingNavigator } from '$navigation/app/theming';
 import type { AppNavigatorParamList } from '$navigation/navigate';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React from 'react';
 
 const BottomTab = createBottomTabNavigator<AppNavigatorParamList>();
 

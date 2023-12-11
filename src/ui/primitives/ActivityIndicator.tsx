@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, memo, Ref } from 'react';
+import { ForwardedRef, forwardRef, memo, Ref } from 'react';
 import { ActivityIndicator as NativeActivityIndicator } from 'react-native';
 import type { CommonToken } from '../../core';
 import { BgThemeProps, BorderThemeProps, usePaletteColor } from '../../core';

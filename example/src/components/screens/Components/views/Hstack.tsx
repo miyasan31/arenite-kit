@@ -1,5 +1,4 @@
-import { createAreniteStyle, HStack, Text, Box, VStack } from 'arenite-kit';
-import React from 'react';
+import { Box, createAreniteStyle, HStack, Text, VStack } from 'arenite-kit';
 
 export const HStackExample = () => {
   return (

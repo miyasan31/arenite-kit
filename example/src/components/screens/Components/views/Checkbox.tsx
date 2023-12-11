@@ -6,7 +6,7 @@ import {
   Text,
   VStack,
 } from 'arenite-kit';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export const CheckboxExample = () => {
   const [checked1, setChecked1] = useState(true);
