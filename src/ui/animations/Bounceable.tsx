@@ -1,8 +1,5 @@
 import React, { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
-import type {
-  PressableStateCallbackType,
-  View as NativeView,
-} from 'react-native';
+import type { PressableStateCallbackType } from 'react-native';
 import Animated, {
   Easing,
   Extrapolate,
@@ -13,7 +10,7 @@ import Animated, {
   WithTimingConfig,
 } from 'react-native-reanimated';
 import type { AreniteViewStyleProps } from '../../style';
-import { Pressable } from '../primitives';
+import { Pressable, PressableRef } from '../primitives';
 import type { OmitKeyReplacer } from '../types';
 
 type AnimatedViewProps = OmitKeyReplacer<
@@ -83,7 +80,7 @@ export type BounceableProps = OmitKeyReplacer<
 
 const BounceableComponent = (
   props: BounceableProps,
-  ref: ForwardedRef<NativeView>
+  ref: ForwardedRef<PressableRef>
 ) => {
   const { onPress, onLongPress, disabled, style, ...otherProps } = props;
 
@@ -107,7 +104,7 @@ const BounceableComponent = (
 };
 
 export const Bounceable: (
-  props: { ref?: Ref<NativeView> } & BounceableProps
-) => JSX.Element | null = forwardRef<NativeView, BounceableProps>(
+  props: { ref?: Ref<PressableRef> } & BounceableProps
+) => JSX.Element | null = forwardRef<PressableRef, BounceableProps>(
   BounceableComponent
 );

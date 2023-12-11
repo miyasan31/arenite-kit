@@ -1,14 +1,16 @@
 import React, { ForwardedRef, forwardRef, Ref } from 'react';
 import {
-  View as NativeView,
   Pressable as NativePressable,
   PressableProps as NativePressableProps,
   PressableStateCallbackType,
+  View as NativeView,
 } from 'react-native';
-import { usePaletteColor } from '../../core';
 import type { BgThemeProps, BorderThemeProps } from '../../core';
+import { usePaletteColor } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
+
+export type PressableRef = NativeView & PressableProps;
 
 export type PressableProps = OmitKeyReplacer<
   NativePressableProps,
@@ -23,7 +25,7 @@ export type PressableProps = OmitKeyReplacer<
 
 const PressableComponent = (
   props: PressableProps,
-  ref: ForwardedRef<NativeView>
+  ref: ForwardedRef<PressableRef>
 ) => {
   const {
     bg,
@@ -60,7 +62,7 @@ const PressableComponent = (
 };
 
 export const Pressable: (
-  props: { ref?: Ref<NativeView> } & PressableProps
-) => JSX.Element | null = forwardRef<NativeView, PressableProps>(
+  props: { ref?: Ref<PressableRef> } & PressableProps
+) => JSX.Element | null = forwardRef<PressableRef, PressableProps>(
   PressableComponent
 );
