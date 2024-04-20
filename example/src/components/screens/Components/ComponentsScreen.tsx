@@ -1,7 +1,9 @@
 import { ActivityIndicatorExample } from '$components/screens/Components/views/ActivityIndicator';
+import { BadgeExample } from '$components/screens/Components/views/Badge';
 import { ButtonExample } from '$components/screens/Components/views/Button';
 import { CalloutExample } from '$components/screens/Components/views/Callout';
 import { CheckboxExample } from '$components/screens/Components/views/Checkbox';
+import { ChipExample } from '$components/screens/Components/views/Chip';
 import { DividerExample } from '$components/screens/Components/views/Divider';
 import { FlatListExample } from '$components/screens/Components/views/FlatList';
 import { HStackExample } from '$components/screens/Components/views/Hstack';
@@ -42,6 +44,8 @@ export const ComponentsScreen = () => {
           <FlatListExample />
           <VStackExample />
           <HStackExample />
+          <BadgeExample />
+          <ChipExample />
           <CalloutExample />
           <ToastExample />
           <ListItemExample />
