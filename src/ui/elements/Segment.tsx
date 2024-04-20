@@ -98,7 +98,7 @@ const defaultStyle = createAreniteStyle({
   },
   text: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });

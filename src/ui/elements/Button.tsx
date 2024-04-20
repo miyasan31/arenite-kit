@@ -120,7 +120,7 @@ const smStyle = createAreniteStyle({
   },
   text: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });
@@ -136,7 +136,7 @@ const mdStyle = createAreniteStyle({
   },
   text: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });
@@ -152,7 +152,7 @@ const lgStyle = createAreniteStyle({
   },
   text: {
     fontSize: 20,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });
