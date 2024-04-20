@@ -4,7 +4,6 @@ import type {
   BorderToken,
   ColorToken,
   CommonToken,
-  IconToken,
   PaletteKeys,
 } from '../types';
 import { useAreniteTheme } from './useAreniteTheme';
@@ -18,8 +17,6 @@ type ResultTokenKey<T extends ExcludeCommonTokenKey> =
       ? ColorToken
       : T extends 'bg'
       ? BgToken
-      : T extends 'icon'
-      ? IconToken
       : T extends 'border'
       ? BorderToken
       : undefined);

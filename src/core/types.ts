@@ -1,6 +1,6 @@
 export type ThemeKey = 'light' | 'dark';
 export type SizeKeys = 'sm' | 'md' | 'lg';
-export type PaletteKeys = 'common' | 'color' | 'bg' | 'border' | 'icon';
+export type PaletteKeys = 'common' | 'color' | 'bg' | 'border';
 export type Palette = Record<ThemeKey, Record<string, string>>;
 
 export interface AreniteBaseTheme {
@@ -22,7 +22,6 @@ type Colors<T extends PaletteKeys> =
 export type CommonToken = Colors<'common'>;
 export type BgToken = Colors<'bg'>;
 export type ColorToken = Colors<'color'>;
-export type IconToken = Colors<'icon'>;
 export type BorderToken = Colors<'border'>;
 
 /** Component Style Props */
@@ -44,7 +43,3 @@ export type BgThemeProps = {
 export type BorderThemeProps = {
   border?: CommonToken | BorderToken;
 } & OverrideColor<'Border'>;
-
-export type IconThemeProps = {
-  icon?: CommonToken | IconToken;
-} & OverrideColor<'Icon'>;
