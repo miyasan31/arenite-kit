@@ -1,6 +1,6 @@
 {
   "expo": {
-    "owner": "arenitez",
+    "owner": "miyasan31",
     "name": "arenite-kit-example",
     "slug": "arenite-kit-example",
     "scheme": "com.arenitez.arenite-kit-example",
@@ -13,9 +13,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "jsEngine": "hermes",
     "ios": {
       "supportsTablet": true,
@@ -40,9 +38,7 @@
         "projectId": "ec1b5c8a-2789-42ea-835b-e24db32c5e5d"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/ec1b5c8a-2789-42ea-835b-e24db32c5e5d"
     }
