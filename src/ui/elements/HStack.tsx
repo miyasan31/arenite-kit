@@ -18,13 +18,13 @@ const HStackComponent = (props: HStackProps, ref: ForwardedRef<NativeView>) => {
     <Box
       ref={ref}
       style={[
-        style,
         defaultStyle.view,
         {
           columnGap: gap,
           alignItems: align,
           justifyContent: justify,
         },
+        style,
       ]}
       {...otherProps}
     />

@@ -25,7 +25,7 @@ const SafeAreaViewComponent = (props: SafeAreaViewProps) => {
 
   return (
     <NativeSafeAreaView
-      style={[defaultStyle.view, centerStyle, style, { backgroundColor }]}
+      style={[defaultStyle.view, style, centerStyle, { backgroundColor }]}
       {...otherProps}
     />
   );
