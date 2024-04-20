@@ -29,12 +29,16 @@ export const ListItemExample = () => {
           leftText={'Theme'}
           rightText={theme === 'light' ? 'Light' : 'Dark'}
           leftIcon={
-            <ThemingIcon name={'color-wand-outline'} icon={'icon1'} size={20} />
+            <ThemingIcon
+              name={'color-wand-outline'}
+              color={'color1'}
+              size={20}
+            />
           }
           rightIcon={
             <ThemingIcon
               name={'chevron-forward-outline'}
-              icon={'icon2'}
+              color={'color2'}
               size={24}
             />
           }
@@ -42,11 +46,11 @@ export const ListItemExample = () => {
         <Divider border={'border2'} />
         <ListItem
           leftText={'Favorite'}
-          leftIcon={<ThemingIcon name={'star'} icon={'icon1'} size={20} />}
+          leftIcon={<ThemingIcon name={'star'} color={'color1'} size={20} />}
           rightIcon={
             <ThemingIcon
               name={'chevron-forward-outline'}
-              icon={'icon2'}
+              color={'color2'}
               size={24}
             />
           }
@@ -55,7 +59,7 @@ export const ListItemExample = () => {
         <ListItem
           isLast
           leftIcon={
-            <ThemingIcon name={'exit-outline'} icon={'error'} size={20} />
+            <ThemingIcon name={'exit-outline'} color={'error'} size={20} />
           }
           leftText={'Logout'}
           leftColor={'error'}

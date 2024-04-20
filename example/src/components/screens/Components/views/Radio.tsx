@@ -24,7 +24,7 @@ export const RadioExample = () => {
           label={'Checkmark'}
           activeColor={'secondary'}
           checkedElement={
-            <ThemingIcon name={'checkmark'} size={14} icon={'white'} />
+            <ThemingIcon name={'checkmark'} size={14} color={'white'} />
           }
         />
         <Radio
@@ -32,7 +32,7 @@ export const RadioExample = () => {
           label={'Star'}
           activeColor={'tertiary'}
           checkedElement={
-            <ThemingIcon name={'star'} size={14} icon={'white'} />
+            <ThemingIcon name={'star'} size={14} color={'white'} />
           }
         />
       </Radio.Group>

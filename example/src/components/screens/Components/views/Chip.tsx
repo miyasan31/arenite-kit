@@ -12,7 +12,7 @@ export const ChipExample = () => {
         <Chip
           bg={'infoA'}
           color={'info'}
-          right={<ThemingIcon icon={'info'} name={'chevron-down'} size={12} />}
+          right={<ThemingIcon color={'info'} name={'chevron-down'} size={12} />}
         >
           Info
         </Chip>

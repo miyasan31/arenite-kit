@@ -20,23 +20,23 @@ export const IconButtonExample = () => {
 
       <HStack justify={'space-between'}>
         <IconButton bg={'primary'} onPress={onPress}>
-          <ThemingIcon icon={'white'} name={'home-outline'} />
+          <ThemingIcon color={'white'} name={'home-outline'} />
         </IconButton>
 
         <IconButton bg={'secondary'} onPress={onPress}>
-          <ThemingIcon icon={'white'} name={'search-outline'} />
+          <ThemingIcon color={'white'} name={'search-outline'} />
         </IconButton>
 
         <IconButton bg={'tertiary'} onPress={onPress}>
-          <ThemingIcon icon={'white'} name={'chatbubbles-outline'} />
+          <ThemingIcon color={'white'} name={'chatbubbles-outline'} />
         </IconButton>
 
         <IconButton bg={'warning'} onPress={onPress}>
-          <ThemingIcon icon={'white'} name={'notifications-outline'} />
+          <ThemingIcon color={'white'} name={'notifications-outline'} />
         </IconButton>
 
         <IconButton bg={'danger'} onPress={onPress}>
-          <ThemingIcon icon={'white'} name={'trash-outline'} />
+          <ThemingIcon color={'white'} name={'trash-outline'} />
         </IconButton>
 
         <IconButton
@@ -45,7 +45,7 @@ export const IconButtonExample = () => {
           onPress={onPress}
           radius={'lg'}
         >
-          <ThemingIcon name={'settings-outline'} icon={'icon1'} />
+          <ThemingIcon name={'settings-outline'} color={'color1'} />
         </IconButton>
       </HStack>
     </VStack>

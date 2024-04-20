@@ -45,7 +45,7 @@ export const CalloutExample = () => {
         bg={'successA'}
         left={
           <ThemingIcon
-            icon={'icon1'}
+            color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
@@ -64,7 +64,7 @@ export const CalloutExample = () => {
             }}
             onPress={() => setIsDisplayedSuccessCallout(false)}
           >
-            <ThemingIcon icon={'icon2'} size={20} name={'close'} />
+            <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
         }
       />
@@ -76,14 +76,14 @@ export const CalloutExample = () => {
         bg={'warningA'}
         left={
           <ThemingIcon
-            icon={'icon1'}
+            color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
         right={
           <Bounceable onPress={() => setIsDisplayedWaningCallout(false)}>
-            <ThemingIcon icon={'icon2'} size={20} name={'close'} />
+            <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
         }
       />
@@ -95,14 +95,14 @@ export const CalloutExample = () => {
         bg={'errorA'}
         left={
           <ThemingIcon
-            icon={'icon1'}
+            color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
         right={
           <Bounceable onPress={() => setIsDisplayedErrorCallout(false)}>
-            <ThemingIcon icon={'icon2'} size={20} name={'close'} />
+            <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
         }
       />
@@ -114,14 +114,14 @@ export const CalloutExample = () => {
         bg={'infoA'}
         left={
           <ThemingIcon
-            icon={'icon1'}
+            color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
         right={
           <Bounceable onPress={() => setIsDisplayedInfoCallout(false)}>
-            <ThemingIcon icon={'icon2'} size={20} name={'close'} />
+            <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
         }
       />

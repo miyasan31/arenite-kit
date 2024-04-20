@@ -38,7 +38,7 @@ export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
         radius={'lg'}
         onPress={onPressNavigateApp}
         fullWidth={false}
-        right={<ThemingIcon icon={'white'} name="arrow-forward" size={20} />}
+        right={<ThemingIcon color={'white'} name="arrow-forward" size={20} />}
       >
         Getting Started
       </Button>

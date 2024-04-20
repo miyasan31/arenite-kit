@@ -21,7 +21,7 @@ export const AppNavigator = () => {
           title: 'Components',
           tabBarIcon: ({ focused }) => (
             <ThemingIcon
-              icon={focused ? 'primary' : 'icon2'}
+              color={focused ? 'primary' : 'color2'}
               name={focused ? 'flower' : 'flower-outline'}
               size={24}
             />
@@ -35,7 +35,7 @@ export const AppNavigator = () => {
           title: 'Theming',
           tabBarIcon: ({ focused }) => (
             <ThemingIcon
-              icon={focused ? 'primary' : 'icon2'}
+              color={focused ? 'primary' : 'color2'}
               name={focused ? 'color-palette' : 'color-palette-outline'}
               size={24}
             />

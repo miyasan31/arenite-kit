@@ -30,7 +30,7 @@ export const ButtonExample = () => {
         bg="primary"
         color="white"
         onPress={onToggleTheme}
-        left={<ThemingIcon name={'logo-github'} size={24} icon={'white'} />}
+        left={<ThemingIcon name={'logo-github'} size={24} color={'white'} />}
       >
         Default Button Style
       </Button>

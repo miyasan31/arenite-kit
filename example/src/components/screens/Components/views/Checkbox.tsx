@@ -29,7 +29,7 @@ export const CheckboxExample = () => {
           checked={checked3}
           onPress={() => setChecked3((prev) => !prev)}
           checkedElement={
-            <ThemingIcon name={'checkmark'} size={20} icon={'white'} />
+            <ThemingIcon name={'checkmark'} size={20} color={'white'} />
           }
           checkedColor={'secondary'}
           label={'Checkmark'}
@@ -39,7 +39,7 @@ export const CheckboxExample = () => {
           onPress={() => setChecked2((prev) => !prev)}
           checkedColor={'tertiary'}
           checkedElement={
-            <ThemingIcon name={'star'} size={16} icon={'white'} />
+            <ThemingIcon name={'star'} size={16} color={'white'} />
           }
           label={'Star'}
         />
