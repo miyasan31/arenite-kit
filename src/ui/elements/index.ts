@@ -10,3 +10,4 @@ export * from './Callout';
 export * from './Checkbox';
 export * from './ListItem';
 export * from './Badge';
+export * from './Chip';
