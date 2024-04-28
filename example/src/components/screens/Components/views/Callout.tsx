@@ -43,14 +43,14 @@ export const CalloutExample = () => {
         title="Title text"
         description={'Description text'}
         bg={'successA'}
-        left={
+        leftComponent={
           <ThemingIcon
             color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
-        right={
+        rightComponent={
           <Bounceable
             style={{
               animatedView: {
@@ -74,14 +74,14 @@ export const CalloutExample = () => {
         title="Title text"
         description={'Description text'}
         bg={'warningA'}
-        left={
+        leftComponent={
           <ThemingIcon
             color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
-        right={
+        rightComponent={
           <Bounceable onPress={() => setIsDisplayedWaningCallout(false)}>
             <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
@@ -93,14 +93,14 @@ export const CalloutExample = () => {
         title="Title text"
         description={'Description text'}
         bg={'errorA'}
-        left={
+        leftComponent={
           <ThemingIcon
             color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
-        right={
+        rightComponent={
           <Bounceable onPress={() => setIsDisplayedErrorCallout(false)}>
             <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>
@@ -112,14 +112,14 @@ export const CalloutExample = () => {
         title="Title text"
         description={'Description text'}
         bg={'infoA'}
-        left={
+        leftComponent={
           <ThemingIcon
             color={'color1'}
             size={20}
             name={'information-circle-outline'}
           />
         }
-        right={
+        rightComponent={
           <Bounceable onPress={() => setIsDisplayedInfoCallout(false)}>
             <ThemingIcon color={'color2'} size={20} name={'close'} />
           </Bounceable>

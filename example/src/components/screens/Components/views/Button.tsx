@@ -1,5 +1,3 @@
-import { ThemingIcon } from '$components/shared/ThemingIcon';
-
 import { areniteThemeStorageKey } from '$constants/asyncStorageKeys';
 import { asyncStorage } from '$libs/react-native-async-storage/asyncStorage';
 import {
@@ -26,13 +24,8 @@ export const ButtonExample = () => {
         Button
       </Text>
 
-      <Button
-        bg="primary"
-        color="white"
-        onPress={onToggleTheme}
-        left={<ThemingIcon name={'logo-github'} size={24} color={'white'} />}
-      >
-        Default Button Style
+      <Button bg="primary" color="white" size={'l'} onPress={onToggleTheme}>
+        {theme === 'light' ? 'Dark' : 'Light'}
       </Button>
 
       <Text style={style.subtitle} color="color1">
@@ -45,27 +38,27 @@ export const ButtonExample = () => {
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="sm"
+          size="s"
         >
-          sm
+          small
         </Button>
         <Button
           fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="md"
+          size="m"
         >
-          md
+          medium
         </Button>
         <Button
           fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="lg"
+          size="l"
         >
-          lg
+          large
         </Button>
       </HStack>
 
@@ -79,30 +72,30 @@ export const ButtonExample = () => {
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="md"
-          radius="sm"
+          size="m"
+          radius="s"
         >
-          sm
+          small
         </Button>
         <Button
           fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="md"
-          radius="md"
+          size="m"
+          radius="m"
         >
-          md
+          medium
         </Button>
         <Button
           fullWidth={false}
           bg="primary"
           color="white"
           onPress={onToggleTheme}
-          size="md"
-          radius="lg"
+          size="m"
+          radius="l"
         >
-          lg
+          large
         </Button>
       </HStack>
     </VStack>

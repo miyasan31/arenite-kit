@@ -21,27 +21,24 @@ export const CheckboxExample = () => {
 
       <HStack gap={24}>
         <Checkbox
-          checked={checked1}
+          isChecked={checked1}
           onPress={() => setChecked1((prev) => !prev)}
-          label={'Default'}
         />
         <Checkbox
-          checked={checked3}
+          isChecked={checked3}
           onPress={() => setChecked3((prev) => !prev)}
-          checkedElement={
+          checkedComponent={
             <ThemingIcon name={'checkmark'} size={20} color={'white'} />
           }
           checkedColor={'secondary'}
-          label={'Checkmark'}
         />
         <Checkbox
-          checked={checked2}
+          isChecked={checked2}
           onPress={() => setChecked2((prev) => !prev)}
           checkedColor={'tertiary'}
-          checkedElement={
+          checkedComponent={
             <ThemingIcon name={'star'} size={16} color={'white'} />
           }
-          label={'Star'}
         />
       </HStack>
     </VStack>
