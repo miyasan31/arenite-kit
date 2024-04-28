@@ -10,13 +10,14 @@ import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { createAreniteStyle } from '../../style';
 import { Bounceable } from '../animations';
 import { Box, Text } from '../primitives';
+import { HStack } from './HStack';
 
 export type ButtonProps = {
   children: ReactNode;
   onPress?: () => void;
   onLongPress?: () => void;
-  left?: ReactNode;
-  right?: ReactNode;
+  leftComponent?: ReactNode;
+  rightComponent?: ReactNode;
   noBounce?: boolean;
   disabled?: boolean;
   containerStyle?: AreniteViewStyleProps;
@@ -34,8 +35,8 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     children,
     onPress,
     onLongPress,
-    left,
-    right,
+    leftComponent,
+    rightComponent,
     noBounce,
     disabled,
     containerStyle,
@@ -50,21 +51,21 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     color,
     lightColor,
     darkColor,
-    size = 'md',
-    radius = 'md',
+    size = 'm',
+    radius = 'm',
     fullWidth = true,
   } = props;
 
   const sizingStyle = {
-    sm: smStyle,
-    md: mdStyle,
-    lg: lgStyle,
+    s: sStyle,
+    m: mStyle,
+    l: lStyle,
   }[size];
 
   const radiusStyle = {
-    sm: { borderRadius: 0 },
-    md: { borderRadius: 8 },
-    lg: { borderRadius: 999 },
+    s: { borderRadius: 0 },
+    m: { borderRadius: 8 },
+    l: { borderRadius: 999 },
   }[radius];
 
   const fullWidthStyle = fullWidth ? { width: '100%' } : { width: 'auto' };
@@ -84,55 +85,51 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
           animatedView: [fullWidthStyle],
         }}
       >
-        <Box
-          style={[sizingStyle.box, radiusStyle, viewStyle, { borderWidth }]}
+        <HStack
+          align={'center'}
+          justify={'center'}
           bg={bg}
           lightBg={lightBg}
           darkBg={darkBg}
           border={border}
           lightBorder={lightBorder}
           darkBorder={darkBorder}
+          style={[sizingStyle.box, radiusStyle, viewStyle, { borderWidth }]}
         >
-          {left}
+          {leftComponent}
           <Text
-            style={[sizingStyle.text, textStyle]}
             color={color}
             lightColor={lightColor}
             darkColor={darkColor}
+            style={[sizingStyle.text, textStyle]}
           >
             {children}
           </Text>
-          {right}
-        </Box>
+          {rightComponent}
+        </HStack>
       </Bounceable>
     </Box>
   );
 };
 
-const smStyle = createAreniteStyle({
+const sStyle = createAreniteStyle({
   box: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 4,
-    paddingHorizontal: 24,
-    height: 38,
+    gap: 6,
+    height: 32,
+    paddingHorizontal: 12,
   },
   text: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
   },
 });
 
-const mdStyle = createAreniteStyle({
+const mStyle = createAreniteStyle({
   box: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    paddingHorizontal: 32,
-    height: 52,
+    gap: 8,
+    height: 40,
+    paddingHorizontal: 16,
   },
   text: {
     fontSize: 16,
@@ -141,17 +138,14 @@ const mdStyle = createAreniteStyle({
   },
 });
 
-const lgStyle = createAreniteStyle({
+const lStyle = createAreniteStyle({
   box: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 8,
-    paddingHorizontal: 40,
-    height: 64,
+    gap: 10,
+    paddingHorizontal: 20,
+    height: 52,
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },

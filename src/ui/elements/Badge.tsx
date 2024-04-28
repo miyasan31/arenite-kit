@@ -3,7 +3,8 @@ import type { View as NativeView } from 'react-native';
 import type { BgThemeProps, ColorThemeProps } from '../../core';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { createAreniteStyle } from '../../style';
-import { Box, Text } from '../primitives';
+import { Text } from '../primitives';
+import { HStack } from './HStack';
 
 export type BadgeProps = {
   viewStyle?: AreniteViewStyleProps;
@@ -29,36 +30,35 @@ export const BadgeComponent = (
   } = props;
 
   return (
-    <Box
+    <HStack
       ref={ref}
-      style={[defaultStyle.box, viewStyle]}
+      align={'center'}
+      justify={'center'}
       bg={bg}
       lightBg={lightBg}
       darkBg={darkBg}
+      style={[defaultStyle.box, viewStyle]}
     >
       <Text
-        style={[defaultStyle.text, textStyle]}
         color={color}
         lightColor={lightColor}
         darkColor={darkColor}
+        style={[defaultStyle.text, textStyle]}
       >
         {children}
       </Text>
-    </Box>
+    </HStack>
   );
 };
 
 const defaultStyle = createAreniteStyle({
   box: {
-    gap: 8,
-    paddingVertical: 3,
-    paddingHorizontal: 5,
+    height: 24,
+    paddingHorizontal: 8,
     borderRadius: 4,
   },
   text: {
-    flex: 1,
-    gap: 4,
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: 'bold',
   },
 });

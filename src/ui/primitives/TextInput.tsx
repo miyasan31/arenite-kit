@@ -74,7 +74,7 @@ const TextInputComponent = (
 
 const defaultStyle = createAreniteStyle({
   textInput: {
-    fontSize: 18,
+    fontSize: 16,
     borderRadius: 8,
     paddingVertical: 16,
     paddingHorizontal: 12,

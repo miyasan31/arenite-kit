@@ -36,13 +36,13 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
     nonActiveColor,
     nonActiveBg,
     nonActiveBorder,
-    radius = 'md',
+    radius = 'm',
   } = props;
 
   const radiusStyle = {
-    sm: smRadiusStyle,
-    md: mdRadiusStyle,
-    lg: lgRadiusStyle,
+    s: sRadiusStyle,
+    m: mRadiusStyle,
+    l: lRadiusStyle,
   }[radius];
 
   const buttonComponents = buttons.map(({ label, value }, index) => {
@@ -103,17 +103,17 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-const smRadiusStyle = {
+const sRadiusStyle = {
   container: { borderRadius: 0 },
   buttonContainer: { borderRadius: 0 },
 };
 
-const mdRadiusStyle = {
+const mRadiusStyle = {
   container: { borderRadius: 8 },
   buttonContainer: { borderRadius: 6 },
 };
 
-const lgRadiusStyle = {
+const lRadiusStyle = {
   container: { borderRadius: 999 },
   buttonContainer: { borderRadius: 999 },
 };

@@ -4,7 +4,8 @@ import type { BgThemeProps, ColorThemeProps } from '../../core';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
 import { createAreniteStyle } from '../../style';
 import { Bounceable } from '../animations';
-import { Box, Text } from '../primitives';
+import { Text } from '../primitives';
+import { HStack } from './HStack';
 
 export type ChipProps = {
   children: string;
@@ -42,37 +43,38 @@ const ChipComponent = (props: ChipProps, ref: ForwardedRef<NativeView>) => {
   } = props;
 
   return (
-    <Box style={[defaultStyle.container, containerStyle]}>
-      <Bounceable
-        ref={ref}
-        onPress={onPress}
-        onLongPress={onLongPress}
-        disabled={disabled}
-        noBounce={noBounce}
-        style={{
-          pressable: [defaultStyle.container],
-          animatedView: [defaultStyle.container],
-        }}
+    <Bounceable
+      ref={ref}
+      onPress={onPress}
+      onLongPress={onLongPress}
+      disabled={disabled}
+      noBounce={noBounce}
+      style={{
+        pressable: [defaultStyle.container, containerStyle],
+        animatedView: [defaultStyle.container, containerStyle],
+      }}
+    >
+      <HStack
+        align={'center'}
+        justify={'center'}
+        gap={4}
+        bg={bg}
+        lightBg={lightBg}
+        darkBg={darkBg}
+        style={[defaultStyle.box, viewStyle]}
       >
-        <Box
-          style={[defaultStyle.box, viewStyle]}
-          bg={bg}
-          lightBg={lightBg}
-          darkBg={darkBg}
+        {left}
+        <Text
+          color={color}
+          lightColor={lightColor}
+          darkColor={darkColor}
+          style={[defaultStyle.text, textStyle]}
         >
-          {left}
-          <Text
-            style={[defaultStyle.text, textStyle]}
-            color={color}
-            lightColor={lightColor}
-            darkColor={darkColor}
-          >
-            {children}
-          </Text>
-          {right}
-        </Box>
-      </Bounceable>
-    </Box>
+          {children}
+        </Text>
+        {right}
+      </HStack>
+    </Bounceable>
   );
 };
 
@@ -82,10 +84,6 @@ const defaultStyle = createAreniteStyle({
   },
   box: {
     borderRadius: 999,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 4,
     paddingVertical: 4,
     paddingHorizontal: 12,
   },

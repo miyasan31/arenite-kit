@@ -1,5 +1,5 @@
 export type ThemeKey = 'light' | 'dark';
-export type SizeKeys = 'sm' | 'md' | 'lg';
+export type SizeKeys = 's' | 'm' | 'l';
 export type PaletteKeys = 'common' | 'color' | 'bg' | 'border';
 export type Palette = Record<ThemeKey, Record<string, string>>;
 

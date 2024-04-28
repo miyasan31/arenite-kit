@@ -1,84 +1,52 @@
-import { memo, ReactElement } from 'react';
+import { memo, ReactNode } from 'react';
 import type { CommonToken, OverrideColor } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Bounceable } from '../animations';
-import { Box, Pressable, Text } from '../primitives';
+import { Text } from '../primitives';
+import { HStack } from './HStack';
 
 type CheckedColor = OverrideColor<'CheckedColor'>;
 
 export type CheckboxProps = {
-  checked: boolean;
+  isChecked: boolean;
   onPress: () => void;
-  label?: string;
-  labelPosition?: 'left' | 'right';
-  checkedElement?: ReactElement;
+  checkedComponent?: ReactNode;
   checkedColor?: CommonToken;
 } & CheckedColor;
 
 const CheckboxComponent = (props: CheckboxProps) => {
   const {
-    checked,
+    isChecked,
     onPress,
-    label,
-    labelPosition = 'right',
-    checkedElement,
+    checkedComponent,
     checkedColor = 'primary',
     lightCheckedColor,
     darkCheckedColor,
   } = props;
 
   return (
-    <Pressable
-      style={[
-        defaultStyle.container,
-        { flexDirection: labelPosition === 'right' ? 'row' : 'row-reverse' },
-      ]}
-      onPress={onPress}
-    >
-      <Bounceable scaleTo={0.95} onPress={onPress}>
-        <Box
-          bg={checked ? checkedColor : 'bg2'}
-          border={checked ? checkedColor : 'border1'}
-          style={defaultStyle.checkbox}
-          lightBg={lightCheckedColor}
-          darkBg={darkCheckedColor}
-        >
-          {checked
-            ? checkedElement ?? (
-                <Text color={'white'} style={defaultStyle.checkmark}>
-                  ✓
-                </Text>
-              )
-            : null}
-        </Box>
-      </Bounceable>
-
-      <Text color={'color1'} style={[defaultStyle.label]}>
-        {label}
-      </Text>
-    </Pressable>
+    <Bounceable scaleTo={0.95} onPress={onPress}>
+      <HStack
+        align={'center'}
+        justify={'center'}
+        border={isChecked ? checkedColor : 'border1'}
+        lightBorder={isChecked ? lightCheckedColor : undefined}
+        darkBorder={isChecked ? darkCheckedColor : undefined}
+        bg={isChecked ? checkedColor : 'bg2'}
+        style={defaultStyle.checkbox}
+      >
+        {isChecked ? checkedComponent ?? <Text color={'white'}>✓</Text> : null}
+      </HStack>
+    </Bounceable>
   );
 };
 
 const defaultStyle = createAreniteStyle({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
   checkbox: {
-    justifyContent: 'center',
-    alignItems: 'center',
     width: 24,
     height: 24,
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 4,
-  },
-  checkmark: {
-    fontWeight: '800',
-  },
-  label: {
-    fontSize: 16,
   },
 });
 

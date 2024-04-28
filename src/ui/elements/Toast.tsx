@@ -152,7 +152,13 @@ const ToastComponent = memo((props: ToastProps) => {
 
   return (
     <FadeUp>
-      <HStack gap={12} bg="bg2" style={[defaultStyle.toast]}>
+      <HStack
+        gap={12}
+        align={'center'}
+        justify={'space-between'}
+        bg="bg2"
+        style={[defaultStyle.toast]}
+      >
         {StatusIcon}
         <Text style={defaultStyle.message} color="color1">
           {message}
@@ -170,7 +176,7 @@ const ToastsComponent = () => {
   };
 
   return (
-    <VStack gap={4} style={[defaultStyle.toastContainer, topOffsetStyle]}>
+    <VStack gap={8} style={[defaultStyle.toastContainer, topOffsetStyle]}>
       {toasts.map((toast) => (
         <ToastComponent {...toast} key={toast.id} />
       ))}
@@ -184,19 +190,18 @@ const defaultStyle = createAreniteStyle({
     zIndex: 9999,
     width: '100%',
     paddingHorizontal: 8,
-    alignSelf: 'center',
   },
   toast: {
-    padding: 20,
+    height: 52,
+    paddingHorizontal: 16,
     borderRadius: 8,
-    justifyContent: 'space-between',
-    alignItems: 'center',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
   message: {
     flex: 1,
+    fontSize: 16,
   },
 });
 

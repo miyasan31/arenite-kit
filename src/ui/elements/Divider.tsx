@@ -1,15 +1,26 @@
 import type { BorderThemeProps, ColorThemeProps } from '../../core';
 import { createAreniteStyle } from '../../style';
 import { Box, Text } from '../primitives';
+import { HStack } from './HStack';
 
-export type DividerProps = {
+type VerticalDividerProps = {
+  label: never;
+  orientation?: 'vertical';
+};
+
+type HorizontalDividerProps = {
   label?: string;
-} & BorderThemeProps &
+  orientation?: 'horizontal';
+};
+
+export type DividerProps = (VerticalDividerProps | HorizontalDividerProps) &
+  BorderThemeProps &
   ColorThemeProps;
 
 const DividerComponent = (props: DividerProps) => {
   const {
     label,
+    orientation = 'horizontal',
     color,
     lightColor,
     darkColor,
@@ -18,13 +29,24 @@ const DividerComponent = (props: DividerProps) => {
     darkBorder,
   } = props;
 
-  return (
-    <Box style={[defaultStyle.container]}>
+  if (orientation === 'vertical') {
+    return (
       <Box
         border={border}
         lightBorder={lightBorder}
         darkBorder={darkBorder}
-        style={[defaultStyle.border]}
+        style={[verticalStyle.border]}
+      />
+    );
+  }
+
+  return (
+    <HStack gap={8} align={'center'} justify={'center'}>
+      <Box
+        border={border}
+        lightBorder={lightBorder}
+        darkBorder={darkBorder}
+        style={[horizontalStyle.border]}
       />
 
       {label ? (
@@ -33,7 +55,7 @@ const DividerComponent = (props: DividerProps) => {
             color={color}
             lightColor={lightColor}
             darkColor={darkColor}
-            style={defaultStyle.label}
+            style={[horizontalStyle.label]}
           >
             {label}
           </Text>
@@ -41,26 +63,28 @@ const DividerComponent = (props: DividerProps) => {
             border={border}
             lightBorder={lightBorder}
             darkBorder={darkBorder}
-            style={[defaultStyle.border]}
+            style={[horizontalStyle.border]}
           />
         </>
       ) : null}
-    </Box>
+    </HStack>
   );
 };
 
-const defaultStyle = createAreniteStyle({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+const verticalStyle = createAreniteStyle({
+  border: {
+    flex: 1,
+    borderLeftWidth: 1,
   },
+});
+
+const horizontalStyle = createAreniteStyle({
   border: {
     flex: 1,
     borderBottomWidth: 1,
   },
   label: {
-    fontSize: 16,
+    fontSize: 14,
   },
 });
 

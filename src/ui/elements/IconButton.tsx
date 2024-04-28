@@ -13,7 +13,7 @@ export type IconButtonProps = {
   onLongPress?: () => void;
   disabled?: boolean;
   noBounce?: boolean;
-  size?: number;
+  size?: SizeKeys;
   radius?: SizeKeys;
   viewStyle?: AreniteViewStyle;
 } & BgThemeProps &
@@ -29,8 +29,8 @@ const IconButtonComponent = (
     onLongPress,
     disabled,
     noBounce,
-    size = 52,
-    radius = 'md',
+    size = 'm',
+    radius = 'm',
     viewStyle,
     bg,
     lightBg,
@@ -40,12 +40,16 @@ const IconButtonComponent = (
     darkBorder,
   } = props;
 
-  const squareStyle = { width: size, height: size };
+  const squareStyle = {
+    s: { width: 32, height: 32 },
+    m: { width: 48, height: 48 },
+    l: { width: 64, height: 64 },
+  }[size];
 
   const radiusStyle = {
-    sm: { borderRadius: 0 },
-    md: { borderRadius: 8 },
-    lg: { borderRadius: 999 },
+    s: { borderRadius: 0 },
+    m: { borderRadius: 8 },
+    l: { borderRadius: 999 },
   }[radius];
 
   return (

@@ -3,6 +3,7 @@ import { Text as NativeText } from 'react-native';
 import type { ColorThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';
 import type { AreniteTextStyleProps } from '../../style';
+import { createAreniteStyle } from '../../style';
 import type { OmitKeyReplacer } from '../types';
 
 export type TextProps = OmitKeyReplacer<
@@ -25,8 +26,18 @@ const TextComponent = (props: TextProps, ref: ForwardedRef<NativeText>) => {
     dark: darkColor,
   });
 
-  return <NativeText ref={ref} style={[style, { color }]} {...otherProps} />;
+  return (
+    <NativeText
+      ref={ref}
+      style={[defaultStyle.text, style, { color }]}
+      {...otherProps}
+    />
+  );
 };
+
+const defaultStyle = createAreniteStyle({
+  text: { fontSize: 16 },
+});
 
 export const Text: (
   props: { ref?: Ref<NativeText> } & TextProps

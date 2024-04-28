@@ -8,21 +8,28 @@ import { VStack } from './VStack';
 export type CalloutProps = {
   title: string;
   description?: string;
-  left?: ReactNode;
-  right?: ReactNode;
+  leftComponent?: ReactNode;
+  rightComponent?: ReactNode;
   isDisplayed?: boolean;
 } & BgThemeProps;
 
 const CalloutComponent = (props: CalloutProps) => {
-  const { bg, title, description, left, right, isDisplayed = true } = props;
+  const {
+    bg,
+    title,
+    description,
+    leftComponent,
+    rightComponent,
+    isDisplayed = true,
+  } = props;
 
   if (!isDisplayed) {
     return null;
   }
 
   return (
-    <HStack bg={bg} style={defaultStyle.container}>
-      <>{left}</>
+    <HStack gap={8} bg={bg} style={defaultStyle.container}>
+      <>{leftComponent}</>
 
       <VStack style={defaultStyle.textContainer}>
         <Text color={'color1'} style={defaultStyle.title}>
@@ -36,21 +43,20 @@ const CalloutComponent = (props: CalloutProps) => {
         )}
       </VStack>
 
-      <>{right}</>
+      <>{rightComponent}</>
     </HStack>
   );
 };
 
 const defaultStyle = createAreniteStyle({
   container: {
-    gap: 8,
     paddingVertical: 16,
     paddingHorizontal: 12,
     borderRadius: 4,
   },
   textContainer: {
     flex: 1,
-    gap: 4,
+    gap: 6,
   },
   title: {
     fontSize: 16,
