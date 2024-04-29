@@ -83,12 +83,12 @@ const defaultStyle = createAreniteStyle({
     width: 'auto',
   },
   box: {
-    borderRadius: 999,
-    paddingVertical: 4,
+    height: 32,
     paddingHorizontal: 12,
+    borderRadius: 999,
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     textAlign: 'center',
   },
 });

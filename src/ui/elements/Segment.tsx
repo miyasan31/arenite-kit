@@ -73,6 +73,7 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
           ]}
           textStyle={[defaultStyle.text]}
           radius={radius}
+          size={'s'}
         >
           {label}
         </Button>
@@ -92,9 +93,7 @@ const defaultStyle = createAreniteStyle({
     paddingVertical: 2,
   },
   view: {
-    paddingHorizontal: 0,
-    paddingVertical: 8,
-    height: 30,
+    height: 28,
   },
   text: {
     fontSize: 12,

@@ -58,7 +58,7 @@ const defaultStyle = createAreniteStyle({
     borderRadius: 4,
   },
   text: {
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 'bold',
   },
 });

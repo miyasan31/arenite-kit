@@ -4,13 +4,15 @@ import { Box, Text } from '../primitives';
 import { HStack } from './HStack';
 
 type VerticalDividerProps = {
-  label: never;
+  label?: never;
   orientation?: 'vertical';
+  height: number;
 };
 
 type HorizontalDividerProps = {
   label?: string;
   orientation?: 'horizontal';
+  height?: never;
 };
 
 export type DividerProps = (VerticalDividerProps | HorizontalDividerProps) &
@@ -21,6 +23,7 @@ const DividerComponent = (props: DividerProps) => {
   const {
     label,
     orientation = 'horizontal',
+    height,
     color,
     lightColor,
     darkColor,
@@ -35,7 +38,7 @@ const DividerComponent = (props: DividerProps) => {
         border={border}
         lightBorder={lightBorder}
         darkBorder={darkBorder}
-        style={[verticalStyle.border]}
+        style={[verticalStyle.border, { height }]}
       />
     );
   }
