@@ -50,7 +50,4 @@ const style = createAreniteStyle({
     fontWeight: 'bold',
     fontSize: 24,
   },
-  indicator: {
-    borderRadius: 8,
-  },
 });

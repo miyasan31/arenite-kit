@@ -25,7 +25,7 @@ export const ButtonExample = () => {
       </Text>
 
       <Button bg="primary" color="white" size={'l'} onPress={onToggleTheme}>
-        {theme === 'light' ? 'Dark' : 'Light'}
+        {theme === 'light' ? 'Light' : 'Dark'}
       </Button>
 
       <Text style={style.subtitle} color="color1">
@@ -40,7 +40,7 @@ export const ButtonExample = () => {
           onPress={onToggleTheme}
           size="s"
         >
-          small
+          Small
         </Button>
         <Button
           fullWidth={false}
@@ -49,7 +49,7 @@ export const ButtonExample = () => {
           onPress={onToggleTheme}
           size="m"
         >
-          medium
+          Medium
         </Button>
         <Button
           fullWidth={false}
@@ -58,7 +58,7 @@ export const ButtonExample = () => {
           onPress={onToggleTheme}
           size="l"
         >
-          large
+          Large
         </Button>
       </HStack>
 
@@ -75,7 +75,7 @@ export const ButtonExample = () => {
           size="m"
           radius="s"
         >
-          small
+          Small
         </Button>
         <Button
           fullWidth={false}
@@ -85,7 +85,7 @@ export const ButtonExample = () => {
           size="m"
           radius="m"
         >
-          medium
+          Medium
         </Button>
         <Button
           fullWidth={false}
@@ -95,7 +95,7 @@ export const ButtonExample = () => {
           size="m"
           radius="l"
         >
-          large
+          Large
         </Button>
       </HStack>
     </VStack>

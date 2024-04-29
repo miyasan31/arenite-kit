@@ -7,10 +7,7 @@ export const TextInputExample = () => {
         TextInput
       </Text>
 
-      <Text style={style.label} color={'color1'}>
-        Label
-      </Text>
-
+      <Text color={'color1'}>Label</Text>
       <TextInput
         placeholder={'placeholder'}
         bg={'bg2'}
@@ -26,8 +23,5 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  label: {
-    fontSize: 18,
   },
 });

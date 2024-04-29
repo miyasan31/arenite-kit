@@ -33,7 +33,4 @@ const style = createAreniteStyle({
     fontWeight: 'bold',
     fontSize: 24,
   },
-  subtitle: {
-    fontSize: 16,
-  },
 });

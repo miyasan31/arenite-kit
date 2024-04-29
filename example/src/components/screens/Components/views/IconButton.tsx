@@ -31,10 +31,6 @@ export const IconButtonExample = () => {
           <ThemingIcon color={'white'} name={'chatbubbles-outline'} />
         </IconButton>
 
-        <IconButton bg={'warning'} onPress={onPress}>
-          <ThemingIcon color={'white'} name={'notifications-outline'} />
-        </IconButton>
-
         <IconButton bg={'danger'} onPress={onPress}>
           <ThemingIcon color={'white'} name={'trash-outline'} />
         </IconButton>

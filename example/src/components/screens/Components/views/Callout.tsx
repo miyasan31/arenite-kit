@@ -40,8 +40,8 @@ export const CalloutExample = () => {
 
       <Callout
         isDisplayed={isDisplayedSuccessCallout}
-        title="Title text"
-        description={'Description text'}
+        title="Title"
+        description={'Description'}
         bg={'successA'}
         leftComponent={
           <ThemingIcon
@@ -71,8 +71,8 @@ export const CalloutExample = () => {
 
       <Callout
         isDisplayed={isDisplayedWaningCallout}
-        title="Title text"
-        description={'Description text'}
+        title="Title"
+        description={'Description'}
         bg={'warningA'}
         leftComponent={
           <ThemingIcon
@@ -90,8 +90,8 @@ export const CalloutExample = () => {
 
       <Callout
         isDisplayed={isDisplayedErrorCallout}
-        title="Title text"
-        description={'Description text'}
+        title="Title"
+        description={'Description'}
         bg={'errorA'}
         leftComponent={
           <ThemingIcon
@@ -109,8 +109,8 @@ export const CalloutExample = () => {
 
       <Callout
         isDisplayed={isDisplayedInfoCallout}
-        title="Title text"
-        description={'Description text'}
+        title="Title"
+        description={'Description'}
         bg={'infoA'}
         leftComponent={
           <ThemingIcon
@@ -133,8 +133,5 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  subtitle: {
-    fontSize: 16,
   },
 });

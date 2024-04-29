@@ -14,7 +14,7 @@ export const ActivityIndicatorExample = () => {
       </Text>
 
       <HStack gap={24}>
-        <ActivityIndicator style={style.indicator} color={'primary'} />
+        <ActivityIndicator color={'primary'} />
         <ActivityIndicator color={'primary'} size={'large'} />
       </HStack>
     </VStack>
@@ -25,8 +25,5 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  indicator: {
-    borderRadius: 8,
   },
 });

@@ -9,6 +9,7 @@ export const DividerExample = () => {
 
       <Divider border={'border1'} />
       <Divider border={'border1'} color={'color1'} label={'Label'} />
+      <Divider border={'border1'} orientation={'vertical'} height={20} />
     </VStack>
   );
 };

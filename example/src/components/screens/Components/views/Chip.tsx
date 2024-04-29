@@ -12,20 +12,44 @@ export const ChipExample = () => {
         <Chip
           bg={'infoA'}
           color={'info'}
-          right={<ThemingIcon color={'info'} name={'chevron-down'} size={12} />}
+          right={<ThemingIcon color={'info'} name={'chevron-down'} size={14} />}
         >
           Info
         </Chip>
-        <Chip bg={'successA'} color={'success'}>
+        <Chip
+          bg={'successA'}
+          color={'success'}
+          right={
+            <ThemingIcon color={'success'} name={'chevron-down'} size={14} />
+          }
+        >
           Success
         </Chip>
-        <Chip bg={'warningA'} color={'warning'}>
+        <Chip
+          bg={'warningA'}
+          color={'warning'}
+          right={
+            <ThemingIcon color={'warning'} name={'chevron-down'} size={14} />
+          }
+        >
           Warning
         </Chip>
-        <Chip bg={'errorA'} color={'error'}>
+        <Chip
+          bg={'errorA'}
+          color={'error'}
+          right={
+            <ThemingIcon color={'error'} name={'chevron-down'} size={14} />
+          }
+        >
           Error
         </Chip>
-        <Chip bg={'dangerA'} color={'danger'}>
+        <Chip
+          bg={'dangerA'}
+          color={'danger'}
+          right={
+            <ThemingIcon color={'danger'} name={'chevron-down'} size={14} />
+          }
+        >
           Danger
         </Chip>
       </HStack>
@@ -37,8 +61,5 @@ const style = createAreniteStyle({
   title: {
     fontWeight: 'bold',
     fontSize: 24,
-  },
-  subtitle: {
-    fontSize: 16,
   },
 });

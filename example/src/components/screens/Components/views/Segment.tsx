@@ -55,7 +55,7 @@ export const SegmentExample = () => {
         nonActiveColor="color1"
         buttons={[
           { label: 'Auto', value: 'auto' },
-          { label: 'light', value: 'light' },
+          { label: 'Light', value: 'light' },
           { label: 'Dark', value: 'dark' },
           { label: 'Dracula', value: 'dracula' },
         ]}
