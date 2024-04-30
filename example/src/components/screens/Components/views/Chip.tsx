@@ -12,14 +12,16 @@ export const ChipExample = () => {
         <Chip
           bg={'infoA'}
           color={'info'}
-          right={<ThemingIcon color={'info'} name={'chevron-down'} size={14} />}
+          rightComponent={
+            <ThemingIcon color={'info'} name={'chevron-down'} size={14} />
+          }
         >
           Info
         </Chip>
         <Chip
           bg={'successA'}
           color={'success'}
-          right={
+          rightComponent={
             <ThemingIcon color={'success'} name={'chevron-down'} size={14} />
           }
         >
@@ -28,7 +30,7 @@ export const ChipExample = () => {
         <Chip
           bg={'warningA'}
           color={'warning'}
-          right={
+          rightComponent={
             <ThemingIcon color={'warning'} name={'chevron-down'} size={14} />
           }
         >
@@ -37,7 +39,7 @@ export const ChipExample = () => {
         <Chip
           bg={'errorA'}
           color={'error'}
-          right={
+          rightComponent={
             <ThemingIcon color={'error'} name={'chevron-down'} size={14} />
           }
         >
@@ -46,7 +48,7 @@ export const ChipExample = () => {
         <Chip
           bg={'dangerA'}
           color={'danger'}
-          right={
+          rightComponent={
             <ThemingIcon color={'danger'} name={'chevron-down'} size={14} />
           }
         >

@@ -9,8 +9,8 @@ import { HStack } from './HStack';
 
 export type ChipProps = {
   children: string;
-  left?: ReactNode;
-  right?: ReactNode;
+  leftComponent?: ReactNode;
+  rightComponent?: ReactNode;
   onPress?: () => void;
   onLongPress?: () => void;
   noBounce?: boolean;
@@ -25,8 +25,8 @@ export type ChipProps = {
 const ChipComponent = (props: ChipProps, ref: ForwardedRef<NativeView>) => {
   const {
     children,
-    left,
-    right,
+    leftComponent,
+    rightComponent,
     onPress,
     onLongPress,
     noBounce,
@@ -63,7 +63,7 @@ const ChipComponent = (props: ChipProps, ref: ForwardedRef<NativeView>) => {
         darkBg={darkBg}
         style={[defaultStyle.box, viewStyle]}
       >
-        {left}
+        {leftComponent}
         <Text
           color={color}
           lightColor={lightColor}
@@ -72,7 +72,7 @@ const ChipComponent = (props: ChipProps, ref: ForwardedRef<NativeView>) => {
         >
           {children}
         </Text>
-        {right}
+        {rightComponent}
       </HStack>
     </Bounceable>
   );
