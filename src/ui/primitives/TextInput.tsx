@@ -76,7 +76,7 @@ const defaultStyle = createAreniteStyle({
   textInput: {
     fontSize: 16,
     borderRadius: 8,
-    paddingVertical: 16,
+    paddingVertical: 12,
     paddingHorizontal: 12,
   },
 });
