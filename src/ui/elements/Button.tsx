@@ -114,7 +114,7 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
 
 const sStyle = createAreniteStyle({
   box: {
-    gap: 6,
+    gap: 4,
     height: 32,
     paddingHorizontal: 12,
   },
@@ -127,7 +127,7 @@ const sStyle = createAreniteStyle({
 
 const mStyle = createAreniteStyle({
   box: {
-    gap: 8,
+    gap: 6,
     height: 40,
     paddingHorizontal: 16,
   },
@@ -140,7 +140,7 @@ const mStyle = createAreniteStyle({
 
 const lStyle = createAreniteStyle({
   box: {
-    gap: 10,
+    gap: 8,
     paddingHorizontal: 20,
     height: 52,
   },

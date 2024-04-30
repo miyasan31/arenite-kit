@@ -23,13 +23,16 @@ export type SegmentProps<T> = {
     label: string;
     value?: T;
   }[];
-};
+} & BgThemeProps;
 
 const SegmentComponent = <T,>(props: SegmentProps<T>) => {
   const {
     value: selectedValue,
     onChange,
     buttons,
+    bg,
+    darkBg,
+    lightBg,
     activeColor,
     activeBg,
     activeBorder,
@@ -45,21 +48,9 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
     l: lRadiusStyle,
   }[radius];
 
-  const buttonComponents = buttons.map(({ label, value }, index) => {
+  const buttonComponents = buttons.map(({ label, value }) => {
     return (
-      <Box
-        key={String(value)}
-        style={[
-          defaultStyle.buttonWrapper,
-          radiusStyle.container,
-          {
-            width: `${100 / buttons.length}%`,
-            paddingLeft: index === 0 ? 2 : 0,
-            paddingRight: index === buttons.length - 1 ? 2 : 0,
-          },
-        ]}
-        bg={'bg2'}
-      >
+      <Box key={String(value)} bg={'bg0'} style={[{ flex: 1 }]}>
         <Button
           disabled={selectedValue === value}
           color={selectedValue === value ? activeColor : nonActiveColor}
@@ -82,7 +73,12 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
   });
 
   return (
-    <HStack bg={nonActiveBg} style={[radiusStyle.container]}>
+    <HStack
+      bg={bg}
+      darkBg={darkBg}
+      lightBg={lightBg}
+      style={[defaultStyle.buttonWrapper, radiusStyle.container]}
+    >
       {buttonComponents}
     </HStack>
   );
@@ -90,7 +86,7 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
 
 const defaultStyle = createAreniteStyle({
   buttonWrapper: {
-    paddingVertical: 2,
+    padding: 2,
   },
   view: {
     height: 28,
