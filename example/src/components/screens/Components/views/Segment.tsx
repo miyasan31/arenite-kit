@@ -31,36 +31,47 @@ export const SegmentExample = () => {
         Segment
       </Text>
 
-      <Segment<Position>
-        value={position}
-        onChange={onChangePosition}
-        activeBg="bg9"
-        activeColor="color9"
-        nonActiveBg="bg2"
-        nonActiveColor="color1"
-        buttons={[
-          { label: 'Left', value: 'left' },
-          { label: 'Center', value: 'center' },
-          { label: 'Right', value: 'right' },
-        ]}
-        radius="m"
-      />
+      <VStack
+        gap={12}
+        bg={'bg2'}
+        style={{
+          width: '100%',
+          padding: 16,
+          borderRadius: 8,
+        }}
+      >
+        <Segment<Position>
+          value={position}
+          onChange={onChangePosition}
+          bg="bg1"
+          activeBg="bg9"
+          activeColor="color9"
+          nonActiveBg="bg1"
+          nonActiveColor="color1"
+          buttons={[
+            { label: 'Left', value: 'left' },
+            { label: 'Center', value: 'center' },
+            { label: 'Right', value: 'right' },
+          ]}
+          radius="m"
+        />
 
-      <Segment<AreniteThemeKey>
-        value={theme}
-        onChange={onChangeTheme}
-        activeBg="bg9"
-        activeColor="color9"
-        nonActiveBg="bg2"
-        nonActiveColor="color1"
-        buttons={[
-          { label: 'Auto', value: 'auto' },
-          { label: 'Light', value: 'light' },
-          { label: 'Dark', value: 'dark' },
-          { label: 'Dracula', value: 'dracula' },
-        ]}
-        radius="m"
-      />
+        <Segment<AreniteThemeKey>
+          value={theme}
+          onChange={onChangeTheme}
+          activeBg="bg9"
+          activeColor="color9"
+          nonActiveBg="bg2"
+          nonActiveColor="color1"
+          buttons={[
+            { label: 'Auto', value: 'auto' },
+            { label: 'Light', value: 'light' },
+            { label: 'Dark', value: 'dark' },
+            { label: 'Dracula', value: 'dracula' },
+          ]}
+          radius="m"
+        />
+      </VStack>
     </VStack>
   );
 };
