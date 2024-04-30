@@ -6,7 +6,7 @@ https://github.com/miyasan31/arenite-kit/assets/71614432/95b629d9-c950-4c60-9a99
 
 ## Roadmap
 
-- [ ] UtilityFirst component interface
+- [ ] Utility-First component interface
 - [ ] Sx property
 - [ ] Expanded theme config
 - [ ] Expanded component types
@@ -27,11 +27,11 @@ https://github.com/miyasan31/arenite-kit/assets/71614432/95b629d9-c950-4c60-9a99
   - [x] TextInput
   - [x] Checkbox
   - [x] Radio
+  - [x] Badge
+  - [x] Chip
+  - [x] ListItem
   - [ ] Slider
-  - [ ] SectionList
   - [ ] AvatarGroup
-  - [ ] Badge
-  - [ ] Chip
   - [ ] Collapse
   - [ ] Accordion
   - [ ] Popover
