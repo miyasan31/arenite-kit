@@ -73,7 +73,7 @@ export const ButtonExample = () => {
           color="white"
           onPress={onToggleTheme}
           size="m"
-          radius="s"
+          rounded="s"
         >
           Small
         </Button>
@@ -83,7 +83,7 @@ export const ButtonExample = () => {
           color="white"
           onPress={onToggleTheme}
           size="m"
-          radius="m"
+          rounded="m"
         >
           Medium
         </Button>
@@ -93,7 +93,7 @@ export const ButtonExample = () => {
           color="white"
           onPress={onToggleTheme}
           size="m"
-          radius="l"
+          rounded="l"
         >
           Large
         </Button>

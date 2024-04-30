@@ -1,6 +1,11 @@
 import { ForwardedRef, forwardRef, ReactNode, Ref } from 'react';
 import type { View as NativeView } from 'react-native';
-import type { BgThemeProps, BorderThemeProps, SizeKeys } from '../../core';
+import type {
+  BgThemeProps,
+  BorderThemeProps,
+  RoundedKeys,
+  SizeKeys,
+} from '../../core';
 import type { AreniteViewStyle } from '../../style';
 import { createAreniteStyle } from '../../style';
 import { Bounceable } from '../animations';
@@ -14,7 +19,7 @@ export type IconButtonProps = {
   disabled?: boolean;
   noBounce?: boolean;
   size?: SizeKeys;
-  radius?: SizeKeys;
+  rounded?: RoundedKeys;
   viewStyle?: AreniteViewStyle;
 } & BgThemeProps &
   BorderThemeProps;
@@ -30,7 +35,7 @@ const IconButtonComponent = (
     disabled,
     noBounce,
     size = 'm',
-    radius = 'm',
+    rounded = 'm',
     viewStyle,
     bg,
     lightBg,
@@ -46,11 +51,15 @@ const IconButtonComponent = (
     l: { width: 64, height: 64 },
   }[size];
 
-  const radiusStyle = {
-    s: { borderRadius: 0 },
+  const borderRadiusStyle = {
+    n: { borderRadius: 0 },
+    xs: { borderRadius: 2 },
+    s: { borderRadius: 4 },
     m: { borderRadius: 8 },
-    l: { borderRadius: 999 },
-  }[radius];
+    l: { borderRadius: 12 },
+    xl: { borderRadius: 16 },
+    f: { borderRadius: 999 },
+  }[rounded];
 
   return (
     <Bounceable
@@ -66,7 +75,7 @@ const IconButtonComponent = (
       scaleTo={0.95}
     >
       <Box
-        style={[defaultStyle.view, squareStyle, radiusStyle, viewStyle]}
+        style={[defaultStyle.view, squareStyle, borderRadiusStyle, viewStyle]}
         bg={bg}
         lightBg={lightBg}
         darkBg={darkBg}

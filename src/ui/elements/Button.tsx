@@ -4,6 +4,7 @@ import type {
   BgThemeProps,
   BorderThemeProps,
   ColorThemeProps,
+  RoundedKeys,
   SizeKeys,
 } from '../../core';
 import type { AreniteTextStyleProps, AreniteViewStyleProps } from '../../style';
@@ -24,7 +25,7 @@ export type ButtonProps = {
   viewStyle?: AreniteViewStyleProps;
   textStyle?: AreniteTextStyleProps;
   size?: SizeKeys;
-  radius?: SizeKeys;
+  rounded?: RoundedKeys;
   fullWidth?: boolean;
 } & BgThemeProps &
   BorderThemeProps &
@@ -52,7 +53,7 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     lightColor,
     darkColor,
     size = 'm',
-    radius = 'm',
+    rounded = 'm',
     fullWidth = true,
   } = props;
 
@@ -62,11 +63,15 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     l: lStyle,
   }[size];
 
-  const radiusStyle = {
-    s: { borderRadius: 0 },
+  const borderRadiusStyle = {
+    n: { borderRadius: 0 },
+    xs: { borderRadius: 2 },
+    s: { borderRadius: 4 },
     m: { borderRadius: 8 },
-    l: { borderRadius: 999 },
-  }[radius];
+    l: { borderRadius: 12 },
+    xl: { borderRadius: 16 },
+    f: { borderRadius: 999 },
+  }[rounded];
 
   const fullWidthStyle = fullWidth ? { width: '100%' } : { width: 'auto' };
 
@@ -94,7 +99,12 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
           border={border}
           lightBorder={lightBorder}
           darkBorder={darkBorder}
-          style={[sizingStyle.box, radiusStyle, viewStyle, { borderWidth }]}
+          style={[
+            sizingStyle.box,
+            borderRadiusStyle,
+            viewStyle,
+            { borderWidth },
+          ]}
         >
           {leftComponent}
           <Text

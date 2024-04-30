@@ -39,7 +39,7 @@ export const IconButtonExample = () => {
           bg={'bg2'}
           border={'border1'}
           onPress={onPress}
-          radius={'l'}
+          rounded={'l'}
         >
           <ThemingIcon name={'settings-outline'} color={'color1'} />
         </IconButton>
