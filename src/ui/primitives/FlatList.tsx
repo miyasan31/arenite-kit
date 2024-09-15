@@ -6,6 +6,7 @@ import type { BgThemeProps, BorderThemeProps } from '../../core';
 import { usePaletteColor } from '../../core';
 import type { AreniteViewStyleProps } from '../../style';
 import type { OmitKeyReplacer } from '../types';
+import { ForwardedRef, forwardRef } from 'react';
 
 export type FlatListProps<Data> = OmitKeyReplacer<
   NativeFlatListProps<Data>,
@@ -20,7 +21,10 @@ export type FlatListProps<Data> = OmitKeyReplacer<
   BgThemeProps &
   BorderThemeProps;
 
-const FlatListComponent = <Data,>(props: FlatListProps<Data>) => {
+const FlatListComponent = <Data,>(
+  props: FlatListProps<Data>,
+  ref: ForwardedRef<NativeFlatList>
+) => {
   const {
     bg,
     lightBg,
@@ -44,10 +48,15 @@ const FlatListComponent = <Data,>(props: FlatListProps<Data>) => {
 
   return (
     <NativeFlatList<Data>
+      ref={ref}
       style={[style, { backgroundColor, borderColor }]}
       {...otherProps}
     />
   );
 };
 
-export const FlatList = FlatListComponent;
+export const FlatList: <Data>(
+  props: { ref?: ForwardedRef<NativeFlatList<Data>> } & FlatListProps<Data>
+) => JSX.Element | null = forwardRef<NativeFlatList<any>, FlatListProps<any>>(
+  FlatListComponent
+);
