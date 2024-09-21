@@ -44,6 +44,7 @@ export const BadgeComponent = (
         lightColor={lightColor}
         darkColor={darkColor}
         style={[defaultStyle.text, textStyle]}
+        numberOfLines={1}
       >
         {children}
       </Text>
