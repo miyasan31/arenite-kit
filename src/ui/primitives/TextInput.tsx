@@ -5,7 +5,7 @@ import type {
   BorderThemeProps,
   ColorThemeProps,
 } from '../../core';
-import { usePaletteColor } from '../../core';
+import { usePaletteColor, useSystemTheme } from '../../core';
 import type { AreniteTextStyleProps } from '../../style';
 import { createAreniteStyle } from '../../style';
 import type { OmitKeyReplacer } from '../types';
@@ -39,8 +39,11 @@ const TextInputComponent = (
     selectionColor,
     placeholderTextColor,
     style,
+    keyboardAppearance,
     ...otherProps
   } = props;
+
+  const systemTheme = useSystemTheme();
 
   const color = usePaletteColor('color', textColor, {
     light: lightColor,
@@ -61,6 +64,7 @@ const TextInputComponent = (
     <NativeTextInput
       ref={ref}
       selectionColor={focusedColor}
+      keyboardAppearance={keyboardAppearance ?? systemTheme}
       placeholderTextColor={placeholderColor}
       style={[
         defaultStyle.textInput,
