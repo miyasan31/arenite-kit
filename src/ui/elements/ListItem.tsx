@@ -36,7 +36,7 @@ const ListItemComponent = (props: ListItemProps) => {
   } = props;
 
   return (
-    <Bounceable scaleTo={0.99} onPress={onPress}>
+    <Bounceable scaleTo={onPress ? 0.99 : 1} onPress={onPress}>
       <HStack align={'center'} gap={8} style={defaultStyle.container}>
         {leftComponent}
 
