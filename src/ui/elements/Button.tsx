@@ -52,25 +52,25 @@ const ButtonComponent = (props: ButtonProps, ref: ForwardedRef<NativeView>) => {
     color,
     lightColor,
     darkColor,
-    size = 'm',
-    rounded = 'm',
+    size = 'md',
+    rounded = 'md',
     fullWidth = true,
   } = props;
 
   const sizingStyle = {
-    s: sStyle,
-    m: mStyle,
-    l: lStyle,
+    sm: sStyle,
+    md: mStyle,
+    lg: lStyle,
   }[size];
 
   const borderRadiusStyle = {
-    n: { borderRadius: 0 },
+    none: { borderRadius: 0 },
     xs: { borderRadius: 2 },
-    s: { borderRadius: 4 },
-    m: { borderRadius: 8 },
-    l: { borderRadius: 12 },
+    sm: { borderRadius: 4 },
+    md: { borderRadius: 8 },
+    lg: { borderRadius: 12 },
     xl: { borderRadius: 16 },
-    f: { borderRadius: 999 },
+    full: { borderRadius: 999 },
   }[rounded];
 
   const fullWidthStyle = fullWidth ? { width: '100%' } : { width: 'auto' };

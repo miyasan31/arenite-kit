@@ -34,8 +34,8 @@ const IconButtonComponent = (
     onLongPress,
     disabled,
     noBounce,
-    size = 'm',
-    rounded = 'm',
+    size = 'md',
+    rounded = 'md',
     viewStyle,
     bg,
     lightBg,
@@ -46,19 +46,19 @@ const IconButtonComponent = (
   } = props;
 
   const squareStyle = {
-    s: { width: 32, height: 32 },
-    m: { width: 48, height: 48 },
-    l: { width: 64, height: 64 },
+    sm: { width: 32, height: 32 },
+    md: { width: 48, height: 48 },
+    lg: { width: 64, height: 64 },
   }[size];
 
   const borderRadiusStyle = {
-    n: { borderRadius: 0 },
+    none: { borderRadius: 0 },
     xs: { borderRadius: 2 },
-    s: { borderRadius: 4 },
-    m: { borderRadius: 8 },
-    l: { borderRadius: 12 },
+    sm: { borderRadius: 4 },
+    md: { borderRadius: 8 },
+    lg: { borderRadius: 12 },
     xl: { borderRadius: 16 },
-    f: { borderRadius: 999 },
+    full: { borderRadius: 999 },
   }[rounded];
 
   return (

@@ -53,7 +53,7 @@ export const SegmentExample = () => {
             { label: 'Center', value: 'center' },
             { label: 'Right', value: 'right' },
           ]}
-          rounded="m"
+          rounded="md"
         />
 
         <Segment<AreniteThemeKey>
@@ -69,7 +69,7 @@ export const SegmentExample = () => {
             { label: 'Dark', value: 'dark' },
             { label: 'Dracula', value: 'dracula' },
           ]}
-          rounded="m"
+          rounded="md"
         />
       </VStack>
     </VStack>

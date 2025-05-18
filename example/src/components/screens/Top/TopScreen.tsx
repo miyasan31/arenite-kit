@@ -35,8 +35,8 @@ export const TopScreen = ({ navigation }: RootScreenProps<'TopScreen'>) => {
       <Button
         bg={'primary'}
         color={'white'}
-        rounded={'l'}
-        size={'l'}
+        rounded={'lg'}
+        size={'lg'}
         onPress={onPressNavigateApp}
         fullWidth={false}
         rightComponent={

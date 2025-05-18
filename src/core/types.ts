@@ -1,6 +1,6 @@
 export type ThemeKey = 'light' | 'dark';
-export type SizeKeys = 's' | 'm' | 'l';
-export type RoundedKeys = 'n' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'f';
+export type SizeKeys = 'sm' | 'md' | 'lg';
+export type RoundedKeys = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type PaletteKeys = 'common' | 'color' | 'bg' | 'border';
 export type Palette = Record<ThemeKey, Record<string, string>>;
 

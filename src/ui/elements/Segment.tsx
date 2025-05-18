@@ -18,7 +18,7 @@ export type SegmentProps<T> = {
   nonActiveColor?: ColorThemeProps['color'];
   nonActiveBg?: BgThemeProps['bg'];
   nonActiveBorder?: BorderThemeProps['border'];
-  rounded?: Extract<RoundedKeys, 'n' | 'm' | 'f'>;
+  rounded?: Extract<RoundedKeys, 'none' | 'md' | 'full'>;
   buttons: {
     label: string;
     value?: T;
@@ -39,13 +39,13 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
     nonActiveColor,
     nonActiveBg,
     nonActiveBorder,
-    rounded = 'm',
+    rounded = 'md',
   } = props;
 
   const radiusStyle = {
-    n: nRadiusStyle,
-    m: mRadiusStyle,
-    f: fRadiusStyle,
+    none: noneRadiusStyle,
+    md: mdRadiusStyle,
+    full: fullRadiusStyle,
   }[rounded];
 
   const buttonComponents = buttons.map(({ label, value }) => {
@@ -64,7 +64,7 @@ const SegmentComponent = <T,>(props: SegmentProps<T>) => {
           ]}
           textStyle={[defaultStyle.text]}
           rounded={rounded}
-          size={'s'}
+          size={'sm'}
         >
           {label}
         </Button>
@@ -98,17 +98,17 @@ const defaultStyle = createAreniteStyle({
   },
 });
 
-const nRadiusStyle = {
+const noneRadiusStyle = {
   container: { borderRadius: 0 },
   buttonContainer: { borderRadius: 0 },
 };
 
-const mRadiusStyle = {
+const mdRadiusStyle = {
   container: { borderRadius: 8 },
   buttonContainer: { borderRadius: 6 },
 };
 
-const fRadiusStyle = {
+const fullRadiusStyle = {
   container: { borderRadius: 999 },
   buttonContainer: { borderRadius: 999 },
 };
